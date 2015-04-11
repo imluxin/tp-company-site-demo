@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<import type='js' file="admin.js.orgIndex" />
+
+<h2 class="page-header">
+    <!--<a href="{:U('add')}" type="button" class="pull-right btn btn-default"><span class="glyphicon glyphicon-plus"></span> 创建社团</a>-->
+    联系我们
+</h2>
+<form action="<?php echo U('Contact/del',array('contact_guid' => $list_site_contact['guid']));?>" id="delForm" method="post" name="delForm">
+    <table class="table table-bordered">
+        <tr>
+            <th>创建时间</th>
+            <td><?php echo date('Y-m-d H:i',$list_site_contact['created_at']);?></td>
+        </tr>
+        <tr>
+            <th>用户名</th>
+            <td><?php echo $list_site_contact['name'];?></td>
+        </tr>
+        <tr>
+            <th>邮箱</th>
+            <td><?php echo $list_site_contact['email'];?></td>
+        </tr>
+        <tr>
+            <th>电话号</th>
+            <td><?php echo $list_site_contact['phone'];?></td>
+        </tr>
+        <tr>
+            <th>详细内容</th>
+            <td><?php echo $list_site_contact['content'];?></td>
+        </tr>
+    </table>
+    <tfoot>
+        <input type="button" value="删除" id="del" name="del">
+        <input type="button" value="返回" id="return_index" name="return_index">
+    </tfoot>
+    <?php echo $page;?>
+</form>
+<script type="text/javascript">
+    $(document).ready(function() {
+        //多选删除
+        $('#del').click(function(){
+                if(confirm('确定删除选定项删除？')){
+                    $('#delForm').submit();
+                }
+        });
+
+        //返回列表页
+        $('#return_index').click(function() {
+            location.href = "<?php echo U('Contact/index');?>";
+        });
+    });
+</script>

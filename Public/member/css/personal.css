@@ -1,0 +1,110 @@
+@CHARSET "UTF-8";
+/*
+ * 头部
+ */
+.header {
+  background-color: #fff;
+  border-top: 4px solid #43badd;
+  border-bottom: 1px solid #d9dadc;
+  height: 77px;
+  margin-bottom:26px;
+  padding-top:20px;
+}
+.topwd {
+  padding-left: 40px;
+  background-image:url(../images/logo_top.png);
+  background-repeat: no-repeat;
+  font-size: 18px;
+  line-height: 35px;
+  color: #666;
+}
+
+.topimg {vertical-align: -9px;}
+.topwd {
+  font-size: 18px;
+  line-height: 35px;
+}
+.topwd small {color: #ccc;}
+a { color:#666;}
+a:hover { color: #43badd; text-decoration: none;}
+
+.headicon { width: 30px; height: 30px; float:left;}
+.ligeticon { margin: 3px 5px 0 30px; width: 24px; float:left;}
+.ligeticon > a { width: 18px; font-size: 24px; line-height: 24px;}
+
+.user_logout { 
+  float: left; 
+  margin-left: 15px; 
+  line-height: 30px;}
+.user_logout:hover,
+.user_logout:focus {
+  color: #e93f29;
+  text-decoration: none;
+}
+.nav-pers { margin-bottom: 30px;}
+.nav-pers > li > a { font-size: 16px; color: #999;}
+.main-form-left {
+  margin: 0 auto;
+  max-width: 900px;
+}
+.progress { 
+  margin: 3px 0 10px;
+  max-width: 220px;
+  height: 15px;
+}
+.mr5 { 
+  margin-left: 11px; 
+  margin-right: 17px;
+}
+.table > thead > tr > th, 
+.table > tbody > tr > th, 
+.table > tfoot > tr > th, 
+.table > thead > tr > td, 
+.table > tbody > tr > td, 
+.table > tfoot > tr > td {
+  border-top: 1px solid #eee;
+}
+.td1 {
+  width: 73px;
+  text-align: right;
+}
+.form-inline .form-control {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+}
+.input-width { max-width: 360px;}
+.input-width520 { max-width: 520px;}
+/*input[type="file"] { display: inline-block;}*/
+.prompt-header {
+  border-bottom: 1px solid #eee;
+  margin: 10px 0 20px;
+  padding-bottom: 5px;
+}
+.btn-primary {
+  padding: 6px 40px;
+}
+/*上传头像*/
+.upload-image { max-width: 700px; max-height: 660px;}
+.jcrop-holder #preview-pane {
+  display: block;
+  position: absolute;
+  z-index: 2000;
+  top: 10px;
+  right: -130px;
+  padding: 6px;
+  border: 1px solid #999;
+  background-color: white;
+}
+.mb20 { margin-bottom: 20px;}
+.mb40 { margin-bottom: 40px;}
+/* The Javascript code will set the aspect ratio of the crop
+   area based on the size of the thumbnail preview,
+   specified here */
+#preview-pane .preview-container {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+/*照片*/
+.idimg { width: 220px; height: 160px;}

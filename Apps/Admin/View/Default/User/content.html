@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<h2 class="page-header">
+    用户详细信息
+</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>真实姓名</th>
+        <td><?php echo $user_info['real_name'];?></td>
+    </tr>
+    <tr>
+        <th>性别</th>
+        <td><?php if($user_info['sex'] == 0){echo '男';}else{echo '女';}?>
+        </td>
+    </tr>
+    <tr>
+        <th>头像</th>
+        <td><img src="<?php echo get_image_path($user_info['photo']);?>"></td>
+    </tr>
+    <tr>
+        <th>手机</th>
+        <td><?php echo $user_info['mobile'];?></td>
+    </tr>
+    <tr>
+        <th>邮箱</th>
+        <td><?php echo $user_info['email'];?></td>
+    </tr>
+    <tr>
+        <th>生日</th>
+        <td><?php echo $user_info['birthday'];?></td>
+    </tr>
+    <tr>
+        <th>老家</th>
+        <td><?php echo $user_info['home_area'];?></td>
+    </tr>
+    <tr>
+        <th>区域</th>
+        <td><?php echo $user_info['area'];?></td>
+    </tr>
+    <tr>
+        <th>兴趣</th>
+        <td><?php foreach($user_info['interest'] as $v){ echo $v['name'].' ';};?></td>
+    </tr>
+    <tr>
+        <th>教育</th>
+        <td><?php echo $user_info['edu'];?></td>
+    </tr>
+    <tr>
+        <th>行业</th>
+        <td><?php echo $user_info['industry'];?></td>
+    </tr>
+    <tr>
+        <th>公司</th>
+        <td>
+        <?php foreach($user_info['company'] as $v){ echo $v['name'].'('.$v['position'].') ';}?>
+        </td>
+        </td>
+    </tr>
+    <tr>
+        <th>所属社团</th>
+        <td><?php echo $user_info['org'];?></td>
+    </tr>
+    <tr>
+        <th>个人签名</th>
+        <td><?php echo $user_info['remark'];?></td>
+    </tr>
+    <tr>
+        <th>创建时间</th>
+        <td><?php echo date('Y-m-d H:i:s',$user_info['created_at']);?></td>
+    </tr>
+    <tr>
+        <th>更新时间</th>
+        <td><?php echo date('Y-m-d H:i:s',$user_info['updated_at']);?></td>
+    </tr>
+    <tr>
+        <th>手机认证</th>
+        <td>
+            <?php if($user_info['moblie_verify'] == 0):?>
+            未认证
+            <?php else:?>
+            已认证&nbsp<i class="fa fa-angellist"></i>
+            <?php endif;?>
+        </td>
+    </tr>
+    <tr>
+        <th>邮箱认证</th>
+        <td>
+            <?php if($user_info['email_verify'] == 0):?>
+            未认证
+            <?php else:?>
+            已认证&nbsp<i class="fa fa-angellist"></i>
+            <?php endif;?>
+        </td>
+    </tr>
+    <tr>
+        <th>实名认证</th>
+        <td>
+            <?php if($user_info['real_name_verify'] == 0):?>
+            未认证
+            <?php elseif($user_info['real_name_verify'] == 1):?>
+            已认证&nbsp<i class="fa fa-angellist"></i>
+            <?php elseif($user_info['real_name_verify'] == 2):?>
+            已提交
+            <?php elseif($user_info['real_name_verify'] == 3):?>
+            已拒绝<span><p>拒绝理由：<?php echo $user_attribute_info['identity_refuse_reason']?></p></span>
+            <?php endif;?>
+        </td>
+    </tr>
+</table>
+<tfoot>
+<input type="button" value="返回" id="return_index" name="return_index" onclick="return_index()">
+</tfoot>
+<script type="text/javascript">
+    function return_index(){
+        location.href = "<?php echo U('User/index');?>";
+    }
+</script>

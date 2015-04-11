@@ -1,0 +1,27 @@
+
+<h2 class="page-header">
+    <a href="<?php echo U('User/add'); ?>" type="button" class="pull-right btn btn-success"><span class="glyphicon glyphicon-plus"></span> 创建新用户</a>
+    用户列表
+</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>用户名</th>
+        <th>真实姓名</th>
+        <th>手机号</th>
+        <th>邮箱</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach($user_list as $l):?>
+    <tr>
+        <td><?php echo $l['username'];?></td>
+        <td><?php echo $l['real_name'];?></td>
+        <td><?php echo $l['mobile'];?></td>
+        <td><?php echo $l['email'];?></td>
+        <td>
+            <a href="<?php echo U('User/edit', array('id' => $l['id']))?>">编辑</a>
+            <a href="<?php echo U('User/delete', array('id' => $l['id']))?>">删除</a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
+<?php echo $page;?>

@@ -1,0 +1,103 @@
+<?php
+	/**
+	 * 主题页面
+	 *
+	 * CT: 2014-09-23 12:00 by RTH
+	 * UT: 2014-09-23 12:00 by RTH
+	 */
+ ?>
+<import type='css' file="home.css.basic-information" />
+
+<!-- 导入面包屑 -->
+<?php
+$breadcrumbs = array(
+    'base' => '基本信息',
+    'list' => array(
+        array('url'=>'', 'v'=>'认证信息')
+    )
+);
+?>
+<include file="Public:_breadcrumbs" />
+
+<div class="ymnaw">
+    <ul class="nav nav-tabs ymbtn" role="tablist">
+        <li role="presentation"><a href="<?php echo U('Org/info')?>">基本信息</a></li>
+        <li role="presentation" class="active"><a href="<?php echo U('Org/authentication')?>">认证信息</a></li>
+        <li role="presentation"><a href="<?php echo U('Org/invite')?>">邀请设置</a></li>
+    </ul>
+</div>
+
+<div class="rightmain">
+
+    <?php $edit = true;?>
+    <?php if ($info['status'] == '0' || $info['status'] == '1'):?>
+        <div class="certification certification-warning"><strong>未认证</strong></div>
+    <?php elseif ($info['status'] == '2'): $edit = false;?>
+        <div class="certification certification-warning">已提交</div>
+    <?php elseif ($info['status'] == '3'): $edit = false;?>
+        <div class="certification certification-success"><strong>认证成功</strong></div>
+    <?php elseif ($info['status'] == '4'):?>
+        <div class="certification certification-danger"><strong>认证失败</strong></div>
+    <?php endif;?>
+           
+    <div class="table mt10 mb40">
+        <table class="table">
+            <tbody>
+              <tr class="base-tr1">
+                <td class="wh140">法人姓名</td>
+                <td class="wh570" id="legal_p_nameV"><?php echo $info['legal_p_name']?></td>
+                <td class="wh78">
+                    <?php if ($edit == true): ?>
+                    <a href="<?php echo U('Org/editField', array('k'=>'legal_p_name', 't'=>'2'))?>" width="500" height="200" rel="FenBox" showspeed="200">修改</a>
+                    <?php endif;?>
+                </td>
+              </tr>
+              
+              <tr>
+                <td class="wh140">法人身份证</td>
+                <td class="wh570"><img data-original="<?php echo get_image_path($info['legal_p_card'], 'placeholder.png');?>" class="lazy" alt="" style="height: 200px;" id="legal_p_cardV"></td>
+                <td class="wh78">
+                    <?php if ($edit == true): ?>
+                    <a href="<?php echo U('Common/upload_pic', array('k'=>'legal_p_card', 't'=>'2'))?>" width="500" height="420" rel="FenBox" showspeed="200">修改</a>
+                    <?php endif;?>
+                </td>
+              </tr>
+              <tr>
+                <td class="wh140">联系电话</td>
+                <td class="wh570" id="legal_p_phoneV"><?php echo $info['legal_p_phone']?></td>
+                <td class="wh78">
+                    <?php if ($edit == true): ?>
+                    <a href="<?php echo U('Org/editField', array('k'=>'legal_p_phone', 't'=>'2'))?>" width="500" height="200" rel="FenBox" showspeed="200">修改</a>
+                    <?php endif;?>
+                </td>
+              </tr>
+              <tr>
+                <td class="wh140">营业执照</td>
+                <td class="wh570"><img data-original="<?php echo get_image_path($info['yingye'], 'placeholder.png');?>" class="lazy" alt="" style="height: 200px;" id="yingyeV"></td>
+                <td class="wh78">
+                    <?php if ($edit == true): ?>
+                    <a href="<?php echo U('Common/upload_pic', array('k'=>'yingye', 't'=>'2'))?>" width="500" height="420" rel="FenBox" showspeed="200">修改</a>
+                    <?php endif;?>
+                </td>
+              </tr>
+              <tr>
+                <td class="wh140">组织机构代码证</td>
+                <td class="wh570"><img data-original="<?php echo get_image_path($info['zuzhi'], 'placeholder.png');?>" class="lazy" alt="" style="height: 200px;" id="zuzhiV"></td>
+                <td class="wh78">
+                    <?php if ($edit == true): ?>
+                    <a href="<?php echo U('Common/upload_pic', array('k'=>'zuzhi', 't'=>'2'))?>" width="500" height="420" rel="FenBox" showspeed="200">修改</a>
+                    <?php endif;?>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="btn-group mb40">
+      <?php if ($edit): ?>
+          <form action="<?php echo U('Org/Authentication')?>" method="post">
+                <button type="submit" class="btn mybtn active">提交认证</button>
+          </form>
+      <?php endif;?>
+    </div>
+</div>

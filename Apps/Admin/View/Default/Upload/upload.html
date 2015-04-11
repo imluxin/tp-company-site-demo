@@ -1,0 +1,116 @@
+<import type='js' file="Admin.js.orgIndex" />
+
+<h2 class="page-header">
+    APP版本更新
+</h2>
+
+<form action=""  class="form-horizontal" id="loadForm" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">版本号：</label>
+        <div class="col-sm-6">
+            <input type="text" placeholder="必填项" value="" class="form-control" name="version" id="version">
+        </div>
+        <div class="col-sm-4 tishinr invalid" id="tishinr_version"></div>
+    </div>
+	
+    <div class="form-group">
+        <label class="col-sm-2 control-label">当前版本号：</label>
+        <div class="col-sm-6">
+            <div class="col-sm-1 control-label"><?php echo $old_info['version'];?></div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">更新内容：</label>
+        <div class="col-sm-6">
+            <textarea id="content" name="content" placeholder="必填项" value="" class="form-control" ></textarea>
+        </div>
+        <div class="col-sm-4 tishinr invalid" id="tishinr_content"></div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">文件上传：</label>
+        <div class="col-sm-6">
+            <input type="file" value="<?php echo UPLOAD_PATH.'/ym/apk/yunmai.apk';?>"  name="apkFile" id="apkFile">
+        </div>
+        <div class="col-sm-4 tishinr invalid" id="tishinr_apkFile"></div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label" >是否发布：</label>
+        <div class="col-sm-6">
+            <label class="radio-inline">
+                <input type="radio" name="status" value="1"> 是
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="status" value="0" checked> 否
+            </label>
+        </div>
+        <div class="col-sm-4 tishinr" id=""></div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-2 col-sm-offset-2">
+            <button type="submit" id="submit" data-loading-text="上传中..." class="btn btn-success btn-block" autocomplete="off">提交</button>
+        </div>
+        <div class="col-sm-2 col-sm-offset-2">
+            <button type="button" id="return" class="btn btn-success btn-block" onclick="return_index()" autocomplete="off">返回</button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+        // 注册FORM验证
+        $("#loadForm").validate({
+            errorPlacement: function (error, element) {
+                element.parent().next('.tishinr').append(error);
+            },
+            rules: {
+                version: {
+                    required: true,
+                    number:true
+                },
+                content: {
+                    required: true,
+                    rangelength: [2, 500]
+                }
+            },
+            messages: {
+                version: {
+                    required: "版本号不能为空",
+                    number: "版本号必须为数字"
+                },
+                content: {
+                    required: "更新内容不能为空",
+                    rangelength: "内容不得少于2个字，不得多于500个字"
+                }
+            }
+        });
+
+       	// 判断是否有文件被上传
+        $('#submit').click(function(){
+            if($('input[name=apkFile]').val()){
+                var filename = $('input[type=file]').val().split('\\').pop();
+//                alert(filename.split('.').pop());
+                if(filename.split('.').pop() == 'apk'){
+                    $('#tishinr_apkFile').html('') ;
+                }else{
+                    $('#tishinr_apkFile').html('<b>文件格式不正确</b>');
+                    return false;
+                }
+            }else{
+                $('#tishinr_apkFile').html('<b>没有文件被上传</b>') ;
+                return false;
+            }
+        })
+    });
+    //返回主页列表
+    function return_index(){
+        location.href = "<?php echo U('Upload/index')?>";
+    }
+
+</script>

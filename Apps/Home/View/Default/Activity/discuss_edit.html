@@ -1,0 +1,141 @@
+<!--
+    //创建讨论页
+ -->
+<include file="Activity:style" />
+
+<!-- 导入面包屑 -->
+<include file="Activity:_breadcrumbs_activity_add" />
+
+<div class="rightmain">
+    <div class="pdlf10 mb40 ml12">
+        <div class="row mt10">
+            <div class="pull-left width80 mt7">活动主题：</div>
+            <div class="pull-left width420 mt7"><?php echo $subject_info['name']?></div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80 mt7">活动类型：</div>
+            <div class="pull-left width420 mt7"><img width="23px" src="<?php echo PUBLIC_URL?>/home/images/activity3.png" alt="讨论">讨论</div>
+        </div>
+        <!-- form~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <form id="actForm" method="post">
+            <div class="row mt10">
+                <div class="pull-left width80 mt7">活动时间：</div>
+                <div class="pull-left width190">
+                    <div class="input-group date form_datetime">
+                        <div>
+                            <input class="form-control" size="16" type="text" value="<?php echo date('Y-m-d H:i',$activity_info['start_time']);?>" name="startTime" id="startTime" readonly></div>
+                        <span class="input-group-addon radius0"><span class="glyphicon glyphicon-th"></span></span>
+                    </div>
+                    <div class="tswidth190 tishinr" id="conTimeS"></div>
+                </div>
+                <div class="pull-left width40 mt7 pdlf10">至</div>
+                <div class="pull-left width190">
+                    <div class="input-group date form_datetime">
+                        <div>
+                            <input class="form-control" size="16" type="text" value="<?php echo date('Y-m-d H:i',$activity_info['end_time']);?>" name="endTime" id="endTime" readonly></div>
+                        <span class="input-group-addon radius0"><span class="glyphicon glyphicon-th"></span></span>
+                    </div>
+                    <div class="tswidth190 tishinr" id="conTimeE"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="pull-left width80 mt7">参与人员：</div>
+                <div class="pull-left btn-group width190">
+                    <?php $all = session('auth')['org_all_guid']; $other = session('auth')['org_other_guid'];?>
+                    <select class="form-control radius0" name="OGGuid">
+                        <option value="<?php echo $all; ?>" <?php if ($activity_info['org_group_guid'] == $all) {echo 'selected';}?>>全部成员</option>
+                        <?php foreach ($group_list as $l): ?>
+                            <option value="<?php echo $l['guid']?>" <?php if ($l['guid'] == $activity_info['org_group_guid']) {echo 'selected';}?>>
+                                <?php echo $l['name']?></option>
+                        <?php endforeach; ?>
+                        <option value="<?php echo $other?>" <?php if ($activity_info['org_group_guid'] == $other) {echo 'selected';}?>>未分组</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mt30">
+                <div class="pull-left width80 mt7">讨论组名称：</div>
+                <div class="pull-left width420 "><input type="text"  class="form-control" name="name" value="<?php echo $activity_info['name']?>"></div>
+            </div>
+            <div class="row ml80 tishinr"></div>
+
+            <div class="row">
+                <div class="pull-left width80 mt7">讨论内容：</div>
+                <div class="pull-left width675">
+                    <textarea class="form-control noresize radius0" rows="10" name="content" id="content"><?php echo $discuss_group_info['content']?></textarea>
+                </div>
+            </div>
+            <div class="row ml80 tishinr" id="contentId"></div>
+
+            <div class="row">
+                <div class="pull-left width80" style="text-indent: 2em;">发布：</div>
+                <div class="pull-left">
+                    <label class="radio-inline">
+                        <input type="radio" name="status" id="status1" value="1" <?php echo ($activity_info['status']=='1')?'checked':''; ?>> 是
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="status" id="status0" value="0" <?php echo ($activity_info['status']=='0')?'checked':''; ?>> 否
+                    </label>
+                </div>
+            </div>
+
+            <div class="row mt10">
+                <div class="pull-left btn-group ml80">
+                    <button type="submit" class="btn mybtn active">保存</button>
+                    <button type="button" class="btn mybtn" onclick='history.go(-1);'>取消</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        //表单验证
+        $('#actForm').validate({
+            errorPlacement: function(error, element){
+                element.parent().parent().next('.tishinr').append(error);
+            },
+            rules: {
+                name: {
+                    required: true,
+                    rangelength: [2, 50]
+                },
+                startTime: {
+                    required: true,
+                    after_subject_start: true
+                },
+                endTime: {
+                    required: true,
+                    before_subject_end: true,
+                    afterstart: true
+                },
+                content: {
+                    maxlength: 200
+                }
+            },
+            messages: {
+                name: {
+                    required: "讨论名称不能为空",
+                    rangelength: "讨论名称不得少于两个字，不得多于五十个字"
+                },
+                startTime: {
+                    required: "讨论开始时间不能为空"
+                },
+                endTime: {
+                    required: "讨论结束时间不能为空"
+                },
+                content: {
+                    maxlength: "讨论内容不能多于二百个字"
+                }
+            }
+        });
+
+
+
+    });
+</script>

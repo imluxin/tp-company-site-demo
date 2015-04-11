@@ -1,0 +1,33 @@
+<h2 class="page-header">
+	<a href="{:U('add')}" type="button" class="pull-right btn btn-success"><span class="glyphicon glyphicon-plus"></span> 创建权限</a>
+	权限管理
+</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>权限名称</th>
+      <th>权限标识</th>
+      <th>创建时间</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+	  <empty name="authorityList">
+			        <tr>
+			          <td>-</td>
+					 <td>-</td>
+					 <td>-</td>
+					 <td>-</td>
+			        </tr>
+		<else /> 
+			  	<foreach name="authorityList" item="v">
+			        <tr data-guid="{$v.guid}">
+			          <td>{$v.name}</td>
+			          <td>{$v.key}</td>
+					 <td>{$v.created_at|date="Y-m-d H:i:s",###}</td>
+			          <td><a href="<?php echo U('add', array('guid'=>$v['guid']))?>"><i class="glyphicon glyphicon-search"></i></a></td>
+			        </tr>
+			    </foreach>
+		</empty> 
+  </tbody>
+</table>

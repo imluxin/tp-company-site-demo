@@ -1,0 +1,174 @@
+
+<import type='css' file="home.css.create-theme" />
+<import type='css' file="home.css.sign-up" />
+
+<!-- 导入面包屑 -->
+<?php
+$breadcrumbs = array(
+    'base' => '活动管理',
+    'list' => array(
+        array('url'=>U('Activity/index'), 'v'=>'主题列表'),
+        array('url'=>U('Activity/activity_list', array('sguid'=>$subject_info['guid'])), 'v'=>$subject_info['name']),
+        array('url'=>'', 'v'=>$activity_info['name'])
+    )
+);
+?>
+<include file="Public:_breadcrumbs" />
+<include file="_signup_submenu" />
+
+<div class="rightmain">
+
+    <div class="btn-group width798 pdlf10">
+        <div class="pull-left"><h4>报名详情</h4></div>
+        <div class="pull-right mt20"><a href="<?php echo U('Activity/activity_list', array('sguid'=>$subject_info['guid']))?>"><i class="fa fa-arrow-left"></i> 活动列表</a></div>
+    </div>
+    <div class="pdlf10 ml12 mb40">
+
+        <div class="row"><div class="page-header mt10"></div></div>
+
+        <div class="row mb10">
+            <div class="pull-right">
+                <include file="_view_top_action" />
+            </div>
+            <div class="pull-right">
+                <button type="button" class="btn btn-success pull-left mr10 radius0" data-toggle="modal" data-target="#previewmodal">活动预览</button>
+                <!-- Modal -->
+                <div class="modal fade" id="previewmodal" tabindex="-1" role="dialog" aria-labelledby="export-import" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="export-import"><strong>活动预览</strong></h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="pre-activities-lt">
+                                        <iframe src="<?php echo U('Mobile/activity/preview', array('aid' => $activity_info['guid']), true, true); ?>" frameborder="1"></iframe>
+                                    </div>
+                                    <div class="pre-activities-rt">
+                                        <img src="<?php echo U('Mobile/activity/qrcode', array('aid' => $activity_info['guid']), true, true); ?>">
+                                        <a class="btn mybtn active" download="" href="<?php echo U('Mobile/activity/qrcode', array('aid' => $activity_info['guid']), true, true); ?>">下载png</a>
+                                        <a class="text-center"><nameh1>手机微信扫码后可分享<br>到您的微信朋友圈，邀请更多人<br>报名参加您的活动。</nameh1></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="btn-group pdlf10">
+                                    <button type="button" class="btn mybtn" data-dismiss="modal">关闭</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="pull-left width80">活动状态：</div>
+            <div class="pull-left width675"><?php echo $status; ?></div>
+        </div>
+
+        <?php if($activity_info['status'] != 0):?>
+        <div class="row mt10">
+            <div class="pull-left width80">报名情况：</div>
+            <div class="pull-left width675"><span>共</span><span class="ml5"><name0><?php echo $user_count; ?></name0></span><span class="ml5">人报名</span></div>
+        </div>
+        <?php endif; ?>
+
+        <?php if ($activity_info['is_public'] == '1'): ?>
+            <div class="row mt10">
+                <div class="pull-left width80">报名地址：</div>
+                <?php $signup_address = U('Mobile/activity/view', array('aid' => $activity_info['guid']), true, true); ?>
+                <div class="pull-left width675">
+                    <a target="_blank" href="<?php echo $signup_address; ?>" title="报名网址" class="word-wrap"><?php echo $signup_address; ?></a>
+                    <a href="javascript:void(0);" title="复制地址" class="copy-button pull-right" data-clipboard-text="<?php echo $signup_address?>">复制地址</a>
+                </div>
+            </div>
+            <div class="row mt10">
+                <div class="pull-left width92 ml-12">报名二维码：</div>
+                <div class="pull-left">
+                    <img src="<?php echo U('Mobile/activity/qrcode', array('aid' => $activity_info['guid']), true, true); ?>" alt="活动二维码" class="registration-code">
+                </div>
+            </div>
+        <?php endif; ?>
+        <div class="row"><div class="page-header mt10"></div></div>
+
+
+        <div class="row mt10">
+            <div class="pull-left width80">活动主题：</div>
+            <div class="pull-left width420"><?php echo $subject_info['name']; ?></div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">活动类型：</div>
+            <div class="pull-left width420"><img width="23px" src="<?php echo PUBLIC_URL;?>/home/images/activity<?php echo $activity_info['type']; ?>.png" alt="报名">报名</div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">活动时间：</div>
+            <div class="pull-left width420"><span><?php echo date('Y-m-d H:i',$activity_info['start_time']);?></span><span class="ml12">至</span><span class="ml12"><?php echo date('Y-m-d H:i',$activity_info['end_time']);?></span></div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">报名时间：</div>
+            <div class="pull-left width420"><span><?php echo date('Y-m-d H:i',$signup_info['start']);?></span><span class="ml12">至</span><span class="ml12"><?php echo date('Y-m-d H:i',$signup_info['end']);?></span></div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">活动地点：</div>
+            <div class="pull-left width675">
+                <?php echo $address = $signup_info['areaid_1_name'].' '.$signup_info['areaid_2_name'].' '.$signup_info['address']; ?>
+                <a href="javascript:void(0);" onclick="show_map('<?php echo $address?>');">查看地图位置</a>
+            </div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">活动海报:</div>
+            <div class="pull-left width675"><img src="<?php echo get_image_path($signup_info['poster'], 'upload-postersimg.png')?>" class="upload-posters"></div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">参与人员：</div>
+            <div class="pull-left width420"><?php echo $group_name?></div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">参与人数：</div>
+            <div class="pull-left width675"><?php echo ($signup_info['num_person'] == 0 || empty($signup_info['num_person'])) ? '无限制' : $signup_info['num_person']; ?></div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">是否公开：</div>
+            <div class="pull-left width675"><?php echo ($activity_info['is_public'] == '1') ? '是' : '否'; ?></div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">活动标题：</div>
+            <div class="pull-left width675"><?php echo $activity_info['name']?></div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">活动描述：</div>
+            <div class="pull-left width675"><?php echo htmlspecialchars_decode($signup_info['content'])?></div>
+        </div>
+
+        <div class="row mt10">
+            <div class="pull-left width80">活动流程：</div>
+            <div class="pull-left width675">
+                <?php foreach($flow as $f):?>
+                    <div class="mb10">
+                        <?php echo $f['title']?><br><?php echo date('Y-m-d H:i', $f['start_time']); ?> 至 <?php echo date('Y-m-d H:i', $f['end_time']); ?>
+                        <br><?php echo $f['content']; ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+        <div class="row mt10">
+            <div class="pull-left width80">承办机构：</div>
+            <div class="pull-left width675">
+                <?php foreach($undertaker as $u): ?>
+                <div class="mb10"><?php echo C('ACTIVITY_UNDERTAKER')[$u['type']].': '.$u['name']; ?></div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+<!--        <include file="activity_view_footer_action" />-->
+		
+    </div>
+
+</div>
+
+<include file="Public:baidu_map" />

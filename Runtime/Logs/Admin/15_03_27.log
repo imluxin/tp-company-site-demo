@@ -1,0 +1,503 @@
+[ 2015-03-27T15:02:41+08:00 ] 127.0.0.1 /admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000244s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003202s ]
+
+[ 2015-03-27T15:02:41+08:00 ] 127.0.0.1 /admin/auth/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000225s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001872s ]
+
+[ 2015-03-27T15:02:44+08:00 ] 127.0.0.1 /admin/auth/ajaxlogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000853s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004223s ]
+
+[ 2015-03-27T15:02:58+08:00 ] 127.0.0.1 /admin/auth/ajaxlogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000257s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001831s ]
+
+[ 2015-03-27T15:02:59+08:00 ] 127.0.0.1 /admin/org/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000433s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003173s ]
+SQL: SHOW COLUMNS FROM `ym_org` [ RunTime:0.0053s ]
+SQL: SHOW COLUMNS FROM `ym_org_authentication` [ RunTime:0.0043s ]
+SQL: SHOW COLUMNS FROM `ym_grade_level` [ RunTime:0.0037s ]
+SQL: SELECT Org.guid AS guid,Org.name AS name,Org.logo AS logo,Org.description AS description,Org.phone AS phone,Org.mail AS mail,Org.areaid_1 AS areaid_1,Org.areaid_2 AS areaid_2,Org.address AS address,Org.url AS url,Org.weibo AS weibo,Org.wx AS wx,Org.created_at AS created_at,Org.is_del AS is_del,Org.is_lock AS is_lock,Org.vip AS vip,Org.email AS email,Org.is_verify AS is_verify,Org.contact_name AS contact_name,OrgAuthentication.status AS status,OrgAuthentication.legal_p_name AS legal_p_name,OrgAuthentication.legal_p_phone AS legal_p_phone,OrgAuthentication.legal_p_card AS legal_p_card,OrgAuthentication.yingye AS yingye,OrgAuthentication.zuzhi AS zuzhi,GradeLevel.name AS vip_name FROM ym_org Org  JOIN ym_org_authentication OrgAuthentication ON OrgAuthentication.org_guid=Org.guid LEFT JOIN ym_grade_level GradeLevel ON Org.vip=GradeLevel.guid WHERE Org.is_del = '0' ORDER BY Org.created_at DESC  [ RunTime:0.0168s ]
+
+[ 2015-03-27T15:03:17+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000236s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002259s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0035s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.0054s ]
+
+[ 2015-03-27T15:16:08+08:00 ] 127.0.0.1 /admin/task/flow
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000233s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002105s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0056s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `is_del` = 0  [ RunTime:0.0040s ]
+
+[ 2015-03-27T15:16:14+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000294s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002621s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0067s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.0086s ]
+
+[ 2015-03-27T15:16:15+08:00 ] 127.0.0.1 /admin/task/flow
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000227s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001803s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0083s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `is_del` = 0  [ RunTime:0.0036s ]
+
+[ 2015-03-27T15:16:17+08:00 ] 127.0.0.1 /admin/task/flow_edit/guid/62E662F4C6D150506F48CB4E04F265AF
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000487s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003348s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0061s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `guid` = '62E662F4C6D150506F48CB4E04F265AF' LIMIT 1   [ RunTime:0.0515s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0164s ]
+SQL: SELECT `id`,`guid`,`name` FROM `ym_task_info` WHERE `guid` IN ('D7FDB7A186045070C1D44D5A4B0CAB36')  [ RunTime:0.0461s ]
+SQL: SELECT `id`,`guid`,`name` FROM `ym_task_info` WHERE `type` = 1  [ RunTime:0.0051s ]
+
+[ 2015-03-27T15:16:30+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000227s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001882s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0042s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.1405s ]
+
+[ 2015-03-27T15:16:32+08:00 ] 127.0.0.1 /admin/task/flow
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000579s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003424s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0034s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `is_del` = 0  [ RunTime:0.0035s ]
+
+[ 2015-03-27T15:16:34+08:00 ] 127.0.0.1 /admin/task/flow_edit/guid/CC65E0EF900D4084051C8CBDB59D611E
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000426s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003664s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0043s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `guid` = 'CC65E0EF900D4084051C8CBDB59D611E' LIMIT 1   [ RunTime:0.0034s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0043s ]
+SQL: SELECT `id`,`guid`,`name` FROM `ym_task_info` WHERE `guid` IN ('FC2BB65719ADE6AC11020611B5AAFC24','9F57554432F21FDEF3C55585FBDE313B','4FB46B7951F270BC4960AB5EE7F46C15')  [ RunTime:0.0055s ]
+SQL: SELECT `id`,`guid`,`name` FROM `ym_task_info` WHERE `type` = 1  [ RunTime:0.0034s ]
+
+[ 2015-03-27T15:16:47+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000443s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003830s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0049s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.0136s ]
+
+[ 2015-03-27T15:16:54+08:00 ] 127.0.0.1 /admin/task/edit
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000266s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002419s ]
+SQL: SHOW COLUMNS FROM `ym_webjs` [ RunTime:0.0044s ]
+SQL: SELECT * FROM `ym_webjs`  [ RunTime:0.0036s ]
+SQL: SHOW COLUMNS FROM `ym_task_sign` [ RunTime:0.0037s ]
+SQL: SELECT * FROM `ym_task_sign`  [ RunTime:0.0067s ]
+
+[ 2015-03-27T15:33:06+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000234s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002040s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0036s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.0316s ]
+
+[ 2015-03-27T15:33:08+08:00 ] 127.0.0.1 /admin/task/edit
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000226s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001895s ]
+SQL: SHOW COLUMNS FROM `ym_webjs` [ RunTime:0.0121s ]
+SQL: SELECT * FROM `ym_webjs`  [ RunTime:0.0035s ]
+SQL: SHOW COLUMNS FROM `ym_task_sign` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `ym_task_sign`  [ RunTime:0.0038s ]
+
+[ 2015-03-27T15:33:11+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000238s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001888s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.0042s ]
+
+[ 2015-03-27T15:33:23+08:00 ] 127.0.0.1 /admin/task/edit
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000225s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001948s ]
+SQL: SHOW COLUMNS FROM `ym_webjs` [ RunTime:0.0067s ]
+SQL: SELECT * FROM `ym_webjs`  [ RunTime:0.0152s ]
+SQL: SHOW COLUMNS FROM `ym_task_sign` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_task_sign`  [ RunTime:0.0027s ]
+
+[ 2015-03-27T15:34:27+08:00 ] 127.0.0.1 /admin/common/ajax_upload/t/task
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000410s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003771s ]
+
+[ 2015-03-27T15:34:31+08:00 ] 127.0.0.1 /admin/common/ajax_upload/t/task
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000329s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003127s ]
+
+[ 2015-03-27T15:36:08+08:00 ] 127.0.0.1 /admin/task/save_task
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000293s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003358s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0043s ]
+SQL: INSERT INTO `ym_task_info` (`guid`,`name`,`type`,`integral`,`exp`,`thumb`,`startime`,`endtime`,`is_del`,`description`,`create_at`,`updated_at`) VALUES ('64819EAF83A734F18AC605ADF07F00C4','测试任务赞','1','100','30','/task/533950c50c8a73ef807d3e4d16d0d6fd.png','','','0','<p><span style=\"word-wrap: break-word; line-height: 1.8em;\">学生时代的宏碁终于在这个还没有开始炎热的夏季开头就咽下最后一口气了。i7 2630+540M+SSD，在这个PC性能进展缓慢的时代这个配置本可轻松再战三年，然而悲催的显卡虚焊让她连AV画质的世界杯网络直播都撑不下来。于是，我只能换本了。</span></p><p><span style=\"color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;WenQuanYi Micro Hei&#39;, &#39;tohoma,sans-serif&#39;; font-size: 16px; line-height: 26px; background-color: rgb(255, 255, 255);\">&nbsp; &nbsp;&nbsp;&nbsp;</span><br style=\"word-wrap: break-word; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;WenQuanYi Micro Hei&#39;, &#39;tohoma,sans-serif&#39;; font-size: 16px; line-height: 26px; white-space: normal; background-color: rgb(255, 255, 255);\"/><span style=\"color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;WenQuanYi Micro Hei&#39;, &#39;tohoma,sans-serif&#39;; font-size: 16px; line-height: 26px; background-color: rgb(255, 255, 255);\">受尾巴毒害，W本里本来只选VAIO PRO 13，前一段时间JD特价，6600就可以入一台。但是想到4G内存，我就纠结了。去店里试用，键盘手感确实为了减重而做了不敢恭维的妥协。再考虑到Sony放弃VAIO业务之后的不确定性，JD的低价有点清库存的嫌疑啊。</span></p><p><a href=\"http://www.dgtle.com/viewphoto.php?aid=1072580&tid=198771\" target=\"_blank\" sl-processed=\"1\" style=\"word-wrap: break-word; color: rgb(0, 153, 255); text-decoration: none;\"><img id=\"_aimg_1072580\" aid=\"1072580\" zoomfile=\"http://img.dgtle.com/forum/201407/06/223447prxw1h7qh1racyhp.jpg\" src=\"http://img.dgtle.com/forum/201407/06/223447prxw1h7qh1racyhp.jpg!680px\" class=\"zoom\" width=\"541\" alt=\"DSC_2987.jpg\" title=\"DSC_2987.jpg\" w=\"3216\" style=\"word-wrap: break-word; border: none; cursor: pointer; max-width: 590px; height: 358px; width: 541px;\" height=\"358\"/></a></p><p><br/></p>','1427441768','1427441768') [ RunTime:0.0038s ]
+SQL: SHOW COLUMNS FROM `ym_task_condition` [ RunTime:0.0035s ]
+SQL: INSERT INTO `ym_task_condition` (`guid`,`task_guid`,`name`,`sign`,`type`,`finish_num`,`webjs`,`updated_at`) SELECT '00BF501560A7F16BAC8F1636C1EDF237','64819EAF83A734F18AC605ADF07F00C4','小齐点赞','1','0','2','7','1427441768' UNION ALL SELECT 'BBDB47C1694DD650A0F8B2F7CF65F0C5','64819EAF83A734F18AC605ADF07F00C4','补全信息','4','4','0','9','1427441768' ON DUPLICATE KEY UPDATE `guid`=values(`guid`),`task_guid`=values(`task_guid`),`name`=values(`name`),`sign`=values(`sign`),`type`=values(`type`),`finish_num`=values(`finish_num`),`webjs`=values(`webjs`),`updated_at`=values(`updated_at`); [ RunTime:0.0048s ]
+
+[ 2015-03-27T15:36:10+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000420s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003817s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0034s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.0038s ]
+
+[ 2015-03-27T15:36:15+08:00 ] 127.0.0.1 /admin/task/flow
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000227s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002308s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0034s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `is_del` = 0  [ RunTime:0.0049s ]
+
+[ 2015-03-27T15:36:17+08:00 ] 127.0.0.1 /admin/task/flow_edit
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000507s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003554s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0037s ]
+SQL: SELECT `id`,`guid`,`name` FROM `ym_task_info` WHERE `type` = 1  [ RunTime:0.0063s ]
+
+[ 2015-03-27T15:36:52+08:00 ] 127.0.0.1 /admin/task/save_flow
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000480s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003753s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0033s ]
+SQL: INSERT INTO `ym_task_flow` (`guid`,`name`,`sequence`,`created_at`,`updated_at`) VALUES ('4CF4C98219DA219AEF5C5D84D8358755','大Q点赞','[\"64819EAF83A734F18AC605ADF07F00C4\",\"9F57554432F21FDEF3C55585FBDE313B\"]','1427441812','1427441812') [ RunTime:0.0033s ]
+
+[ 2015-03-27T15:36:54+08:00 ] 127.0.0.1 /admin/task/flow
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000987s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005806s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0079s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `is_del` = 0  [ RunTime:0.0034s ]
+
+[ 2015-03-27T15:36:55+08:00 ] 127.0.0.1 /admin/task/flow
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000464s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004116s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0035s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `is_del` = 0  [ RunTime:0.0032s ]
+
+[ 2015-03-27T15:39:32+08:00 ] 127.0.0.1 /admin/task/flow_edit/guid/4CF4C98219DA219AEF5C5D84D8358755
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000380s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002576s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0034s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `guid` = '4CF4C98219DA219AEF5C5D84D8358755' LIMIT 1   [ RunTime:0.0046s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0051s ]
+SQL: SELECT `id`,`guid`,`name` FROM `ym_task_info` WHERE `guid` IN ('64819EAF83A734F18AC605ADF07F00C4','9F57554432F21FDEF3C55585FBDE313B')  [ RunTime:0.0028s ]
+SQL: SELECT `id`,`guid`,`name` FROM `ym_task_info` WHERE `type` = 1  [ RunTime:0.0087s ]
+
+[ 2015-03-27T15:47:59+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000266s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002639s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0069s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.0124s ]
+
+[ 2015-03-27T15:48:08+08:00 ] 127.0.0.1 /admin/task/edit/guid/117F4BB80CCAC9EC7E975E1406E68E3F
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000245s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002098s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0092s ]
+SQL: SELECT * FROM `ym_task_info` WHERE `guid` = '117F4BB80CCAC9EC7E975E1406E68E3F' LIMIT 1   [ RunTime:0.0105s ]
+SQL: SHOW COLUMNS FROM `ym_task_condition` [ RunTime:0.0094s ]
+SQL: SELECT * FROM `ym_task_condition` WHERE `task_guid` = '117F4BB80CCAC9EC7E975E1406E68E3F'  [ RunTime:0.0234s ]
+SQL: SHOW COLUMNS FROM `ym_webjs` [ RunTime:0.0043s ]
+SQL: SELECT * FROM `ym_webjs`  [ RunTime:0.0046s ]
+SQL: SHOW COLUMNS FROM `ym_task_sign` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `ym_task_sign`  [ RunTime:0.0205s ]
+
+[ 2015-03-27T15:48:55+08:00 ] 127.0.0.1 /admin/task/save_task
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000234s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002202s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0034s ]
+SQL: UPDATE `ym_task_info` SET `guid`='117F4BB80CCAC9EC7E975E1406E68E3F',`name`='日常任务—阅读文章',`type`='2',`integral`='200',`exp`='200',`thumb`='/task/6f851737a25edc61b548f32a2d459fb8.png',`startime`='18:00',`endtime`='21:00',`is_del`='0',`description`='<p>阅读文章2篇</p>',`updated_at`='1427442535' WHERE `guid` = '117F4BB80CCAC9EC7E975E1406E68E3F' [ RunTime:0.0033s ]
+SQL: SHOW COLUMNS FROM `ym_task_condition` [ RunTime:0.0031s ]
+SQL: SELECT * FROM `ym_task_condition` WHERE `task_guid` = '117F4BB80CCAC9EC7E975E1406E68E3F'  [ RunTime:0.0083s ]
+SQL: INSERT INTO `ym_task_condition` (`guid`,`task_guid`,`name`,`sign`,`type`,`finish_num`,`webjs`,`updated_at`) SELECT 'EE0196A8BF2A0415150402397810AD8D','117F4BB80CCAC9EC7E975E1406E68E3F','阅读文章','3','0','2','7','1427442535' ON DUPLICATE KEY UPDATE `guid`=values(`guid`),`task_guid`=values(`task_guid`),`name`=values(`name`),`sign`=values(`sign`),`type`=values(`type`),`finish_num`=values(`finish_num`),`webjs`=values(`webjs`),`updated_at`=values(`updated_at`); [ RunTime:0.0228s ]
+
+[ 2015-03-27T15:48:57+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000442s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003690s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.0139s ]
+
+[ 2015-03-27T15:49:17+08:00 ] 127.0.0.1 /admin/task/edit/guid/117F4BB80CCAC9EC7E975E1406E68E3F
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000377s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002631s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0046s ]
+SQL: SELECT * FROM `ym_task_info` WHERE `guid` = '117F4BB80CCAC9EC7E975E1406E68E3F' LIMIT 1   [ RunTime:0.0041s ]
+SQL: SHOW COLUMNS FROM `ym_task_condition` [ RunTime:0.0059s ]
+SQL: SELECT * FROM `ym_task_condition` WHERE `task_guid` = '117F4BB80CCAC9EC7E975E1406E68E3F'  [ RunTime:0.0035s ]
+SQL: SHOW COLUMNS FROM `ym_webjs` [ RunTime:0.0042s ]
+SQL: SELECT * FROM `ym_webjs`  [ RunTime:0.0039s ]
+SQL: SHOW COLUMNS FROM `ym_task_sign` [ RunTime:0.0029s ]
+SQL: SELECT * FROM `ym_task_sign`  [ RunTime:0.0026s ]
+
+[ 2015-03-27T15:49:30+08:00 ] 127.0.0.1 /admin/task/save_task
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000254s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002797s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0140s ]
+SQL: UPDATE `ym_task_info` SET `guid`='117F4BB80CCAC9EC7E975E1406E68E3F',`name`='日常任务—阅读文章',`type`='2',`integral`='200',`exp`='200',`thumb`='/task/6f851737a25edc61b548f32a2d459fb8.png',`startime`='15:00',`endtime`='21:00',`is_del`='0',`description`='<p>阅读文章2篇</p>',`updated_at`='1427442570' WHERE `guid` = '117F4BB80CCAC9EC7E975E1406E68E3F' [ RunTime:0.0066s ]
+SQL: SHOW COLUMNS FROM `ym_task_condition` [ RunTime:0.0326s ]
+SQL: SELECT * FROM `ym_task_condition` WHERE `task_guid` = '117F4BB80CCAC9EC7E975E1406E68E3F'  [ RunTime:0.0035s ]
+SQL: INSERT INTO `ym_task_condition` (`guid`,`task_guid`,`name`,`sign`,`type`,`finish_num`,`webjs`,`updated_at`) SELECT 'EE0196A8BF2A0415150402397810AD8D','117F4BB80CCAC9EC7E975E1406E68E3F','阅读文章','3','0','2','7','1427442570' ON DUPLICATE KEY UPDATE `guid`=values(`guid`),`task_guid`=values(`task_guid`),`name`=values(`name`),`sign`=values(`sign`),`type`=values(`type`),`finish_num`=values(`finish_num`),`webjs`=values(`webjs`),`updated_at`=values(`updated_at`); [ RunTime:0.0040s ]
+
+[ 2015-03-27T15:49:32+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000453s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003778s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0092s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.0094s ]
+
+[ 2015-03-27T15:52:18+08:00 ] 127.0.0.1 /admin/task/edit/guid/117F4BB80CCAC9EC7E975E1406E68E3F
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000508s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003785s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0058s ]
+SQL: SELECT * FROM `ym_task_info` WHERE `guid` = '117F4BB80CCAC9EC7E975E1406E68E3F' LIMIT 1   [ RunTime:0.0033s ]
+SQL: SHOW COLUMNS FROM `ym_task_condition` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `ym_task_condition` WHERE `task_guid` = '117F4BB80CCAC9EC7E975E1406E68E3F'  [ RunTime:0.0032s ]
+SQL: SHOW COLUMNS FROM `ym_webjs` [ RunTime:0.0036s ]
+SQL: SELECT * FROM `ym_webjs`  [ RunTime:0.0037s ]
+SQL: SHOW COLUMNS FROM `ym_task_sign` [ RunTime:0.0037s ]
+SQL: SELECT * FROM `ym_task_sign`  [ RunTime:0.0030s ]
+
+[ 2015-03-27T15:52:44+08:00 ] 127.0.0.1 /admin/task/save_task
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000245s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002289s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0038s ]
+SQL: UPDATE `ym_task_info` SET `guid`='117F4BB80CCAC9EC7E975E1406E68E3F',`name`='日常任务—阅读文章',`type`='2',`integral`='200',`exp`='200',`thumb`='/task/6f851737a25edc61b548f32a2d459fb8.png',`startime`='15:00',`endtime`='15:00',`is_del`='0',`description`='<p>阅读文章2篇</p>',`updated_at`='1427442764' WHERE `guid` = '117F4BB80CCAC9EC7E975E1406E68E3F' [ RunTime:0.0039s ]
+SQL: SHOW COLUMNS FROM `ym_task_condition` [ RunTime:0.0031s ]
+SQL: SELECT * FROM `ym_task_condition` WHERE `task_guid` = '117F4BB80CCAC9EC7E975E1406E68E3F'  [ RunTime:0.0029s ]
+SQL: INSERT INTO `ym_task_condition` (`guid`,`task_guid`,`name`,`sign`,`type`,`finish_num`,`webjs`,`updated_at`) SELECT 'EE0196A8BF2A0415150402397810AD8D','117F4BB80CCAC9EC7E975E1406E68E3F','阅读文章','3','0','2','7','1427442764' ON DUPLICATE KEY UPDATE `guid`=values(`guid`),`task_guid`=values(`task_guid`),`name`=values(`name`),`sign`=values(`sign`),`type`=values(`type`),`finish_num`=values(`finish_num`),`webjs`=values(`webjs`),`updated_at`=values(`updated_at`); [ RunTime:0.0038s ]
+
+[ 2015-03-27T15:52:46+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000398s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003318s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0038s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.0076s ]
+
+[ 2015-03-27T15:54:24+08:00 ] 127.0.0.1 /admin/task/edit/guid/117F4BB80CCAC9EC7E975E1406E68E3F
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000262s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002191s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0039s ]
+SQL: SELECT * FROM `ym_task_info` WHERE `guid` = '117F4BB80CCAC9EC7E975E1406E68E3F' LIMIT 1   [ RunTime:0.0034s ]
+SQL: SHOW COLUMNS FROM `ym_task_condition` [ RunTime:0.0051s ]
+SQL: SELECT * FROM `ym_task_condition` WHERE `task_guid` = '117F4BB80CCAC9EC7E975E1406E68E3F'  [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `ym_webjs` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_webjs`  [ RunTime:0.0031s ]
+SQL: SHOW COLUMNS FROM `ym_task_sign` [ RunTime:0.0033s ]
+SQL: SELECT * FROM `ym_task_sign`  [ RunTime:0.0027s ]
+
+[ 2015-03-27T15:54:31+08:00 ] 127.0.0.1 /admin/task/save_task
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000432s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006794s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0099s ]
+SQL: UPDATE `ym_task_info` SET `guid`='117F4BB80CCAC9EC7E975E1406E68E3F',`name`='日常任务—阅读文章',`type`='2',`integral`='200',`exp`='200',`thumb`='/task/6f851737a25edc61b548f32a2d459fb8.png',`startime`='15:00',`endtime`='16:00',`is_del`='0',`description`='<p>阅读文章2篇</p>',`updated_at`='1427442871' WHERE `guid` = '117F4BB80CCAC9EC7E975E1406E68E3F' [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `ym_task_condition` [ RunTime:0.0057s ]
+SQL: SELECT * FROM `ym_task_condition` WHERE `task_guid` = '117F4BB80CCAC9EC7E975E1406E68E3F'  [ RunTime:0.0037s ]
+SQL: INSERT INTO `ym_task_condition` (`guid`,`task_guid`,`name`,`sign`,`type`,`finish_num`,`webjs`,`updated_at`) SELECT 'EE0196A8BF2A0415150402397810AD8D','117F4BB80CCAC9EC7E975E1406E68E3F','阅读文章','3','0','2','7','1427442871' ON DUPLICATE KEY UPDATE `guid`=values(`guid`),`task_guid`=values(`task_guid`),`name`=values(`name`),`sign`=values(`sign`),`type`=values(`type`),`finish_num`=values(`finish_num`),`webjs`=values(`webjs`),`updated_at`=values(`updated_at`); [ RunTime:0.0051s ]
+
+[ 2015-03-27T15:54:33+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000418s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003710s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0048s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.0079s ]
+
+[ 2015-03-27T16:02:13+08:00 ] 127.0.0.1 /admin/task/flow
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000398s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003069s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0035s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `is_del` = 0  [ RunTime:0.0032s ]
+
+[ 2015-03-27T16:02:16+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000296s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002107s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0037s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.0085s ]
+
+[ 2015-03-27T16:07:42+08:00 ] 127.0.0.1 /admin/task/flow
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000235s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002091s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0042s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `is_del` = 0  [ RunTime:0.0033s ]
+
+[ 2015-03-27T16:07:45+08:00 ] 127.0.0.1 /admin/task/flow_edit/guid/62E662F4C6D150506F48CB4E04F265AF
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000404s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004918s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0043s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `guid` = '62E662F4C6D150506F48CB4E04F265AF' LIMIT 1   [ RunTime:0.0071s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0038s ]
+SQL: SELECT `id`,`guid`,`name` FROM `ym_task_info` WHERE `guid` IN ('D7FDB7A186045070C1D44D5A4B0CAB36')  [ RunTime:0.0026s ]
+SQL: SELECT `id`,`guid`,`name` FROM `ym_task_info` WHERE `type` = 1  [ RunTime:0.0086s ]
+
+[ 2015-03-27T16:07:51+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000251s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002240s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0034s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.0141s ]
+
+[ 2015-03-27T16:07:54+08:00 ] 127.0.0.1 /admin/task/edit/guid/4FB46B7951F270BC4960AB5EE7F46C15
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000464s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002919s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0037s ]
+SQL: SELECT * FROM `ym_task_info` WHERE `guid` = '4FB46B7951F270BC4960AB5EE7F46C15' LIMIT 1   [ RunTime:0.0031s ]
+SQL: SHOW COLUMNS FROM `ym_task_condition` [ RunTime:0.0059s ]
+SQL: SELECT * FROM `ym_task_condition` WHERE `task_guid` = '4FB46B7951F270BC4960AB5EE7F46C15'  [ RunTime:0.0042s ]
+SQL: SHOW COLUMNS FROM `ym_webjs` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_webjs`  [ RunTime:0.0037s ]
+SQL: SHOW COLUMNS FROM `ym_task_sign` [ RunTime:0.0028s ]
+SQL: SELECT * FROM `ym_task_sign`  [ RunTime:0.0031s ]
+
+[ 2015-03-27T16:07:59+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000226s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002421s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0044s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.0043s ]
+
+[ 2015-03-27T16:08:01+08:00 ] 127.0.0.1 /admin/task/flow
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000485s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004554s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0035s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `is_del` = 0  [ RunTime:0.0049s ]
+
+[ 2015-03-27T16:08:04+08:00 ] 127.0.0.1 /admin/task/flow_edit/guid/4CF4C98219DA219AEF5C5D84D8358755
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000478s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005583s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0042s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `guid` = '4CF4C98219DA219AEF5C5D84D8358755' LIMIT 1   [ RunTime:0.0161s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0069s ]
+SQL: SELECT `id`,`guid`,`name` FROM `ym_task_info` WHERE `guid` IN ('64819EAF83A734F18AC605ADF07F00C4','9F57554432F21FDEF3C55585FBDE313B')  [ RunTime:0.0026s ]
+SQL: SELECT `id`,`guid`,`name` FROM `ym_task_info` WHERE `type` = 1  [ RunTime:0.0030s ]
+
+[ 2015-03-27T16:08:06+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000258s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002552s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0051s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.0077s ]
+
+[ 2015-03-27T16:08:08+08:00 ] 127.0.0.1 /admin/task/flow
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.005705s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010150s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0054s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `is_del` = 0  [ RunTime:0.0036s ]
+
+[ 2015-03-27T16:08:10+08:00 ] 127.0.0.1 /admin/task/flow_edit/guid/0500B4E5E385812C25454475AF3F8F5C
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000743s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006675s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0046s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `guid` = '0500B4E5E385812C25454475AF3F8F5C' LIMIT 1   [ RunTime:0.0061s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0035s ]
+SQL: SELECT `id`,`guid`,`name` FROM `ym_task_info` WHERE `guid` IN ('4FB46B7951F270BC4960AB5EE7F46C15','9F57554432F21FDEF3C55585FBDE313B','FC2BB65719ADE6AC11020611B5AAFC24')  [ RunTime:0.0029s ]
+SQL: SELECT `id`,`guid`,`name` FROM `ym_task_info` WHERE `type` = 1  [ RunTime:0.0046s ]
+
+[ 2015-03-27T16:08:14+08:00 ] 127.0.0.1 /admin/task/save_flow
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000527s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002575s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0045s ]
+SQL: UPDATE `ym_task_flow` SET `name`='牛刀再试',`sequence`='[\"4FB46B7951F270BC4960AB5EE7F46C15\",\"9F57554432F21FDEF3C55585FBDE313B\",\"FC2BB65719ADE6AC11020611B5AAFC24\"]',`updated_at`='1427443694' WHERE `guid` = '0500B4E5E385812C25454475AF3F8F5C' [ RunTime:0.0047s ]
+
+[ 2015-03-27T16:08:16+08:00 ] 127.0.0.1 /admin/task/flow
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000779s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004606s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0059s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `is_del` = 0  [ RunTime:0.0047s ]
+
+[ 2015-03-27T16:08:17+08:00 ] 127.0.0.1 /admin/task/flow
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000671s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005234s ]
+SQL: SHOW COLUMNS FROM `ym_task_flow` [ RunTime:0.0057s ]
+SQL: SELECT * FROM `ym_task_flow` WHERE `is_del` = 0  [ RunTime:0.0040s ]
+
+[ 2015-03-27T16:08:19+08:00 ] 127.0.0.1 /admin/task/flow_edit
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000382s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003555s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0044s ]
+SQL: SELECT `id`,`guid`,`name` FROM `ym_task_info` WHERE `type` = 1  [ RunTime:0.0372s ]
+
+[ 2015-03-27T16:08:23+08:00 ] 127.0.0.1 /admin/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000233s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001980s ]
+SQL: SHOW COLUMNS FROM `ym_task_info` [ RunTime:0.0068s ]
+SQL: SELECT * FROM `ym_task_info`  [ RunTime:0.0168s ]
+
+[ 2015-03-27T17:05:14+08:00 ] 127.0.0.1 /admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000285s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002010s ]
+
+[ 2015-03-27T17:05:14+08:00 ] 127.0.0.1 /admin/auth/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000384s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002818s ]
+
+[ 2015-03-27T17:05:16+08:00 ] 127.0.0.1 /admin/auth/ajaxlogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000497s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006941s ]
+
+[ 2015-03-27T17:05:17+08:00 ] 127.0.0.1 /admin/org/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000417s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005007s ]
+SQL: SHOW COLUMNS FROM `ym_org` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `ym_org_authentication` [ RunTime:0.0036s ]
+SQL: SHOW COLUMNS FROM `ym_grade_level` [ RunTime:0.0040s ]
+SQL: SELECT Org.guid AS guid,Org.name AS name,Org.logo AS logo,Org.description AS description,Org.phone AS phone,Org.mail AS mail,Org.areaid_1 AS areaid_1,Org.areaid_2 AS areaid_2,Org.address AS address,Org.url AS url,Org.weibo AS weibo,Org.wx AS wx,Org.created_at AS created_at,Org.is_del AS is_del,Org.is_lock AS is_lock,Org.vip AS vip,Org.email AS email,Org.is_verify AS is_verify,Org.contact_name AS contact_name,OrgAuthentication.status AS status,OrgAuthentication.legal_p_name AS legal_p_name,OrgAuthentication.legal_p_phone AS legal_p_phone,OrgAuthentication.legal_p_card AS legal_p_card,OrgAuthentication.yingye AS yingye,OrgAuthentication.zuzhi AS zuzhi,GradeLevel.name AS vip_name FROM ym_org Org  JOIN ym_org_authentication OrgAuthentication ON OrgAuthentication.org_guid=Org.guid LEFT JOIN ym_grade_level GradeLevel ON Org.vip=GradeLevel.guid WHERE Org.is_del = '0' ORDER BY Org.created_at DESC  [ RunTime:0.0070s ]
+
+[ 2015-03-27T17:05:20+08:00 ] 127.0.0.1 /admin/app/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000229s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002085s ]
+SQL: SHOW COLUMNS FROM `ym_app_application` [ RunTime:0.0034s ]
+SQL: SELECT * FROM `ym_app_application` WHERE ( is_del = 0 ) ORDER BY created_at DESC LIMIT 0,10   [ RunTime:0.0044s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_app_application` WHERE ( is_del = 0 ) LIMIT 1   [ RunTime:0.0042s ]
+

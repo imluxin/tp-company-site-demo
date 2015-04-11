@@ -1,0 +1,183 @@
+
+<import type='css' file="home.css.create-theme" />
+<import type='css' file="home.css.sign-up" />
+
+<!-- 导入面包屑 -->
+<?php
+$breadcrumbs = array(
+    'base' => '活动管理',
+    'list' => array(
+        array('url'=>U('Activity/index'), 'v'=>'主题列表'),
+        array('url'=>U('Activity/activity_list', array('sguid'=>$subject_info['guid'])), 'v'=>$subject_info['name']),
+        array('url'=>'', 'v'=>$activity_info['name'])
+    )
+);
+?>
+<include file="Public:_breadcrumbs" />
+
+<div class="rightmain">
+
+    <div class="btn-group width798 pdlf10">
+        <div class="pull-left"><h4>活动详情</h4></div>
+        <div class="pull-right mt20"><a href="<?php echo U('Activity/activity_list', array('sguid'=>$subject_info['guid']));?>"><i class="fa fa-arrow-left"></i> 活动列表</a></div>
+    </div>
+
+    <div class="pdlf10 ml12 mb40">
+        <div class="row"><div class="page-header mt10"></div></div>
+
+        <div class="row mb10">
+            <div class="pull-right">
+                <include file="_view_top_action" />
+            </div>
+            <div class="pull-right">
+                <button type="button" class="btn btn-success pull-left mr10 radius0" data-toggle="modal" data-target="#previewmodal">活动预览</button>
+                <!-- Modal -->
+                <div class="modal fade" id="previewmodal" tabindex="-1" role="dialog" aria-labelledby="export-import" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="export-import"><strong>活动预览</strong></h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="pre-activities-lt">
+                                        <iframe src="<?php echo U('Mobile/activity/preview', array('aid' => $activity_info['guid']), true, true); ?>" frameborder="1"></iframe>
+                                    </div>
+                                    <div class="pre-activities-rt">
+                                        <img src="<?php echo U('Mobile/activity/qrcode', array('aid' => $activity_info['guid']), true, true); ?>">
+                                        <a class="btn mybtn active" download="" href="<?php echo U('Mobile/activity/qrcode', array('aid' => $activity_info['guid']), true, true); ?>">下载png</a>
+                                        <a class="text-center"><nameh1>手机微信扫码后可分享<br>到您的微信朋友圈，邀请更多人<br>报名参加您的活动。</nameh1></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="btn-group pdlf10">
+                                    <button type="button" class="btn mybtn" data-dismiss="modal">关闭</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="pull-left width80">活动状态：</div>
+            <div class="pull-left width675"><?php echo $status; ?></div>
+        </div>
+
+        <?php if ($activity_info['is_public'] == '1'): ?>
+            <div class="row mt10">
+                <div class="pull-left width80">报名地址：</div>
+                <?php $signup_address = U('Mobile/activity/view', array('aid' => $activity_info['guid']), true, true); ?>
+                <div class="pull-left width675">
+                    <a target="_blank" href="<?php echo $signup_address; ?>" title="报名网址" class="word-wrap"><?php echo $signup_address; ?></a>
+                    <a href="javascript:void(0);" title="复制地址" class="copy-button pull-right" data-clipboard-text="<?php echo $signup_address?>">复制地址</a>
+                </div>
+            </div>
+            <div class="row mt10">
+                <div class="pull-left width92 ml-12">报名二维码：</div>
+                <div class="pull-left">
+                    <img src="<?php echo U('Mobile/activity/qrcode', array('aid' => $activity_info['guid']), true, true); ?>" alt="活动二维码" class="registration-code">
+                </div>
+            </div>
+        <?php endif; ?>
+        <div class="row"><div class="page-header mt10"></div></div>
+
+        <div class="row mt10">
+            <div class="pull-left width80">活动主题：</div>
+            <div class="pull-left width420"><?php echo $subject_info['name']; ?></div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">活动类型：</div>
+            <div class="pull-left width420"><img width="23px" src="<?php echo PUBLIC_URL;?>/home/images/activity2.png" alt="投票">投票</div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">活动时间：</div>
+            <div class="pull-left width420"><span><?php echo date('Y-m-d H:i',$activity_info['start_time']);?></span><span class="ml12">至</span><span class="ml12"><?php echo date('Y-m-d H:i',$activity_info['end_time']);?></span></div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">是否公开：</div>
+            <div class="pull-left width675"><?php echo ($activity_info['is_public'] == '1') ? '是' : '否'; ?></div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">参与人员：</div>
+            <div class="pull-left width420"><?php echo $group_name?></div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">投票标题：</div>
+            <div class="pull-left width675"><?php echo $activity_info['name']?></div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">投票描述：</div>
+            <div class="pull-left width675"><?php echo $vote_info['content']?></div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80"><p style="text-indent: 2em;">类型：</p></div>
+            <div class="pull-left width420"><?php echo ($vote_info['is_multiple']=='1')?'多选':'单选'; ?></div>
+        </div>
+
+        <?php if($vote_info['is_multiple']=='1'): ?>
+        <div class="row">
+            <div class="pull-left width92 ml-12">最多选几项：</div>
+            <div class="pull-left width420"><?php echo empty($vote_info['multiple_num'])?'不限':$vote_info['multiple_num'] ?></div>
+        </div>
+        <?php endif; ?>
+
+        <div class="row mt10">
+            <div class="pull-left width80">参与情况：</div>
+            <div class="pull-left width675"><span>共</span><span class="ml5"><name0><?php echo $vote_num?></name0></span><span class="ml5">人参与投票；</span><span class="ml5">总票数</span><span class="ml5"><name0><?php echo $ava_vote_num?></name0></span><span class="ml5">票</span></div>
+        </div>
+        <div class="row mt10">
+            <div class="pull-left width80">投票结果：</div>
+            <div class="pull-left width675">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="active">
+                        <td class="wh380"><name0>选项名称</name0></td>
+                        <td class="wh60"><name0>投票数</name0></td>
+                        <td class="wh60"><name0>百分百</name0></td>
+                        <td class="wh175"></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($option_info as $o): ?>
+                    <tr>
+                        <td class="wh380">
+                            <?php echo $o['content']?><br/>
+                            <?php if (!empty($o['pic_url'])) :?>
+                                <a href="<?php echo get_image_path($o['pic_url']); ?>" target="_blank">
+                                <img data-original="<?php echo get_image_path($o['pic_url'])?>" style="height: 100px;" class="lazy">
+                                </a>
+                            <?php endif; ?>
+                        </td>
+                        <td class="wh60"><?php echo $option_static[$o['guid']]['sum']?></td>
+                        <td class="wh60"><?php echo $option_static[$o['guid']]['percent']?>%</td>
+                        <td class="wh175">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $option_static[$o['guid']]['percent']?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $option_static[$o['guid']]['percent']?>%;">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+		        <?php if($activity_info['status']==1):?>
+			        <div class="row">
+			            <div class="pull-right btn-group">
+				            <button type="button" class="btn mybtn" onclick="javascript:history.go(0);">刷新</button>
+			            </div>
+			        </div>
+				<?php endif; ?>
+            </div>
+        </div>
+
+<!--        <include file="activity_view_footer_action" />-->
+		
+    </div>
+
+</div>
+

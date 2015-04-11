@@ -1,0 +1,136 @@
+ <!-- 
+ 	//创建文章页
+  -->
+
+ <include file="Activity:style" />
+
+ <!-- 导入面包屑 -->
+ <include file="Activity:_breadcrumbs_activity_add" />
+
+      <div class="rightmain">
+      
+        <div class="btn-group width798 pdlf10">
+          <div class="pull-left steps_act mt10">
+            <ul class="ulgeticon pd0">
+              <li class="done"><span>1.创建主题</span></li>
+              <li class="current_prev"><span>2.选择类型</span></li>
+              <li class="last_current"><span>3.创建活动</span></li>
+            </ul>      
+          </div>
+          <div class="pull-right mt20"><a href="javascript:history.go(-1);"><i class="fa fa-arrow-left"></i> 选择类型</a></div>
+        </div>
+
+        <div class="pdlf10 mb40 ml12">
+          <div class="row mt10">
+            <div class="pull-left width80 mt7">活动主题：</div>
+            <div class="pull-left width420 mt7"><?php echo $subject_info['name']?></div>
+          </div>
+          <div class="row mt10">
+            <div class="pull-left width80 mt7">活动类型：</div>
+            <div class="pull-left width420 mt7"><img width="23px" src="__PUBLIC__/home/images/activity1.png" alt="文章">文章</div>
+          </div> 
+          <!-- form -->
+          <form id="article_form" method="post" action="<?php echo U('Activity/activity_add', array('type'=>'1', 'sguid'=>$subject_info['guid']))?>">
+              <div class="row mt10">
+                  <div class="pull-left width80 mt7">活动时间：</div>
+                  <div class="pull-left width190">
+                    <div class="input-group date form_datetime">
+                      <div>
+                        <input class="form-control" size="16" type="text" value="<?php echo date('Y-m-d H:i',$subject_info['start_time']);?>" name="startTime" id="startTime" readonly></div>
+                      <span class="input-group-addon radius0"><span class="glyphicon glyphicon-th"></span></span>
+                    </div>
+                    <div class="tswidth190 tishinr" id="conTimeS"></div>
+                  </div>
+                  <div class="pull-left width40 mt7 pdlf10">至</div>
+                  <div class="pull-left width190">
+                    <div class="input-group date form_datetime">
+                     <div>
+                        <input class="form-control" size="16" type="text" value="<?php echo date('Y-m-d H:i',$subject_info['end_time']);?>" name="endTime" id="endTime" readonly></div>
+                      <span class="input-group-addon radius0"><span class="glyphicon glyphicon-th"></span></span>
+                    </div>
+                    <div class="tswidth190 tishinr" id="conTimeE"></div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="pull-left width80">是否公开：</div>
+                  <div class="pull-left">
+                      <label class="radio-inline">
+                          <input type="radio" name="is_public" id="inlineRadio1" value="1"> 是
+                      </label>
+                      <label class="radio-inline">
+                          <input type="radio" name="is_public" id="inlineRadio2" value="0" checked> 否
+                      </label>
+                  </div>
+              </div>
+              <div class="row mb20">
+                  <div class="ml80"><nameh1>若设为公开，则‘参与人员’选项无效，该活动将对所有人（包括非本社团用户）开放。</nameh1></div>
+              </div>
+
+              <div class="row">
+                <div class="pull-left width80 mt7">参与人员：</div>
+                <div class="pull-left btn-group width190">
+                    <?php $all = session('auth')['org_all_guid']; $other = session('auth')['org_other_guid'];?>
+                    <select class="form-control radius0" name="OGGuid">
+                        <option value="<?php echo $all; ?>" <?php if ($subject_info['org_group_guid'] == $all) {echo 'selected';}?>>全部成员</option>
+                        <?php foreach ($group_list as $l): ?>
+                            <option value="<?php echo $l['guid']?>" <?php if ($l['guid'] == $subject_info['org_group_guid']) {echo 'selected';}?>>
+                                <?php echo $l['name']?></option>
+                        <?php endforeach; ?>
+                        <option value="<?php echo $other?>" <?php if ($subject_info['org_group_guid'] == $other) {echo 'selected';}?>>未分组</option>
+                    </select>
+                </div>
+              </div>
+          
+              <div class="row mt30">
+                <div class="pull-left width80 mt7">文章标题：</div>
+                <div class="pull-left width420 "><input type="text"  class="form-control" name="name"></div>
+              </div>
+              <div class="row ml80 tishinr"></div>
+          
+              <div class="row">
+                <div class="pull-left width80 mt7">文章内容：</div>
+                <div class="pull-left width675">
+                    <textarea id="ym_editor" name="content"></textarea>
+                </div>
+              </div>
+              <div class="row ml80 tishinr"></div>
+          
+              <div class="row">
+                <div class="pull-left width80" style="text-indent: 2em;">发布：</div>
+                <div class="pull-left">
+                  <label class="radio-inline">
+                    <input type="radio" name="status" value="1"> 是
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="status" value="0" checked> 否
+                  </label>
+                </div>
+              </div>
+           
+              <div class="row">
+                <div class="checkbox pd0 ml80"><label><input type="checkbox" name="add_again" value="yes">继续创建活动</label></div>
+              </div>
+
+              <div class="row mt10">
+                <div class="pull-left btn-group ml80">
+                    <button type="button" class="btn mybtn" onclick="history.go(-1);">上一步</button>
+                    <button type="submit" class="btn mybtn active">保存</button>
+                    <?php
+                        if(I('get.sguid')){
+                            $cancel_url = U('Activity/activity_list', array('sguid'=>I('get.sguid')));
+                        } else if(I('get.guid')){
+                            $cancel_url = U('Activity/activity_view', array('guid'=>I('get.guid')));
+                        }  else {
+                            $cancel_url = U('Activity/index');
+                        }
+                    ?>
+                    <button type="button" class="btn mybtn" onclick="location.href='<?php echo $cancel_url?>'">取消</button>
+                </div>
+              </div>
+            </form>
+        </div>
+        
+      </div>
+
+ <import type='js' file="home.js.article_add" />

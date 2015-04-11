@@ -1,0 +1,410 @@
+[ 2015-04-08T09:35:44+08:00 ] 127.0.0.1 /mobile/activity/ticket/aid/79B3BF3764940EFD3FCA34677C84A1AA/iid/61841A90150A281ED03D45177AF008BC
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+
+[ 2015-04-08T09:36:34+08:00 ] 127.0.0.1 /mobile/activity/ticket/aid/79B3BF3764940EFD3FCA34677C84A1AA/iid/61841A90150A281ED03D45177AF008BC
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+
+[ 2015-04-08T10:06:31+08:00 ] 127.0.0.1 /mobile/activity/ticket/aid/79B3BF3764940EFD3FCA34677C84A1AA/iid/61841A90150A281ED03D45177AF008BC
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ym_activity` [ RunTime:0.0450s ]
+SQL: SELECT * FROM `ym_activity` WHERE `guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0370s ]
+SQL: SHOW COLUMNS FROM `ym_org` [ RunTime:0.0270s ]
+SQL: SELECT `name` FROM `ym_org` WHERE `guid` = 'A221602279B8E52AA51D904103E1E24D' LIMIT 1   [ RunTime:0.0120s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup` [ RunTime:0.0190s ]
+SQL: SELECT * FROM `ym_activity_signup` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0110s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_userinfo` [ RunTime:0.0240s ]
+SQL: SELECT * FROM `ym_activity_signup_userinfo` WHERE `guid` = '61841A90150A281ED03D45177AF008BC' LIMIT 1   [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.2180s ]
+SQL: SELECT * FROM `ym_activity_user_ticket` WHERE `user_guid` = 'outside_user_E76CEDD9B87AE752FC177521A38467BD' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0100s ]
+SQL: UPDATE `ym_activity_user_ticket` SET `status`='3',`updated_at`='1428458790' WHERE `user_guid` = 'outside_user_E76CEDD9B87AE752FC177521A38467BD' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' [ RunTime:0.0040s ]
+
+[ 2015-04-08T10:06:31+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/08C4047C97AE0DD91069757E103E1B21
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0090s ]
+SQL: SELECT `activity_guid`,`user_guid`,`mobile`,`ticket_code`,`ticket_name` FROM `ym_activity_user_ticket` WHERE `guid` = '08C4047C97AE0DD91069757E103E1B21' LIMIT 1   [ RunTime:0.0050s ]
+
+[ 2015-04-08T10:15:06+08:00 ] 127.0.0.1 /mobile/activity/preview/aid/79B3BF3764940EFD3FCA34677C84A1AA/token/A221602279B8E52AA51D904103E1E24D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity` WHERE ( guid = "79B3BF3764940EFD3FCA34677C84A1AA" ) LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_activity_subject` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_subject` WHERE ( guid = "95CEC0849FC0CF2F3CAF2C124DCF7455" ) LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_org` [ RunTime:0.0030s ]
+SQL: SELECT `guid`,`name` FROM `ym_org` WHERE ( guid = "A221602279B8E52AA51D904103E1E24D" ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_statistic_view` [ RunTime:0.0360s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_statistic_view` WHERE `obj_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `obj_type` = 1 LIMIT 1   [ RunTime:0.0150s ]
+SQL: SHOW COLUMNS FROM `ym_statistic_like` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_statistic_like` WHERE `obj_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `obj_type` = 1 AND `is_like` = 1 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_statistic_like` WHERE `obj_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `obj_type` = 1 AND `is_like` = 1 AND `user_guid` = 'outside_user_98323A91DCF288E7A2187694E2478541' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity_signup` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_form_build` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_signup_form_build` WHERE `signup_guid` = '4983C3213C2DA26C19A1A1C80DDEAEE0' AND `is_del` = 0  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_userinfo` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_signup_userinfo` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `is_del` = 0 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ym_activity_attr_ticket` [ RunTime:0.0200s ]
+SQL: SELECT SUM(num) as total FROM `ym_activity_attr_ticket` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `is_del` = 0 AND `is_for_sale` = 1 LIMIT 1   [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_signup_userinfo` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `is_del` = 0 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `guid`,`num`,`name` FROM `ym_activity_attr_ticket` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `is_del` = 0 AND `is_for_sale` = 1  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_user_ticket` WHERE `ticket_guid` = '669919B481FAFC1AC2B71560103000AA' AND `status` = 2 AND `is_del` = 0 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_user_ticket` WHERE `ticket_guid` = '22187E86A20C103299DC87DA144C8552' AND `status` = 2 AND `is_del` = 0 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_user_ticket` WHERE `ticket_guid` = '10182994AF6AC4E9126BB7832F5460BF' AND `status` = 2 AND `is_del` = 0 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_userinfo` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_signup_userinfo` WHERE `signup_guid` = '4983C3213C2DA26C19A1A1C80DDEAEE0' AND `user_guid` = 'outside_user_98323A91DCF288E7A2187694E2478541' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_attr_undertaker` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_attr_undertaker` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `is_del` = 0 ORDER BY id asc  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_attr_flow` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_attr_flow` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `is_del` = 0 ORDER BY id asc  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_signup_userinfo` WHERE ( activity_guid='79B3BF3764940EFD3FCA34677C84A1AA' and is_del=0 ) ORDER BY updated_at DESC LIMIT 0,10   [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_signup_userinfo` WHERE ( activity_guid='79B3BF3764940EFD3FCA34677C84A1AA' and is_del=0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_signup_userinfo` WHERE ( activity_guid='79B3BF3764940EFD3FCA34677C84A1AA' and is_del=0 ) LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2015-04-08T10:15:06+08:00 ] 127.0.0.1 /mobile/activity/qrcode/aid/79B3BF3764940EFD3FCA34677C84A1AA/token/A221602279B8E52AA51D904103E1E24D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity` [ RunTime:0.0030s ]
+SQL: SELECT `org_guid` FROM `ym_activity` WHERE `guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2015-04-08T10:32:15+08:00 ] 127.0.0.1 /mobile/activity/ticket/aid/79B3BF3764940EFD3FCA34677C84A1AA/iid/61841A90150A281ED03D45177AF008BC
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `ym_activity` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `ym_activity` WHERE `guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0160s ]
+SQL: SHOW COLUMNS FROM `ym_org` [ RunTime:0.0130s ]
+SQL: SELECT `name` FROM `ym_org` WHERE `guid` = 'A221602279B8E52AA51D904103E1E24D' LIMIT 1   [ RunTime:0.0240s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `ym_activity_signup` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0250s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_userinfo` [ RunTime:0.0510s ]
+SQL: SELECT * FROM `ym_activity_signup_userinfo` WHERE `guid` = '61841A90150A281ED03D45177AF008BC' LIMIT 1   [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `ym_activity_user_ticket` WHERE `user_guid` = 'outside_user_E76CEDD9B87AE752FC177521A38467BD' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0100s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `user_guid` = 'outside_user_E76CEDD9B87AE752FC177521A38467BD' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA'  [ RunTime:0.0260s ]
+
+[ 2015-04-08T10:42:34+08:00 ] 127.0.0.1 /mobile/activity/ticket/aid/79B3BF3764940EFD3FCA34677C84A1AA/iid/61841A90150A281ED03D45177AF008BC
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity` WHERE `guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_org` [ RunTime:0.0030s ]
+SQL: SELECT `name` FROM `ym_org` WHERE `guid` = 'A221602279B8E52AA51D904103E1E24D' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity_signup` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_userinfo` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_signup_userinfo` WHERE `guid` = '61841A90150A281ED03D45177AF008BC' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_user_ticket` WHERE `user_guid` = 'outside_user_E76CEDD9B87AE752FC177521A38467BD' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0030s ]
+SQL: UPDATE `ym_activity_user_ticket` SET `status`='3',`updated_at`='1428460954' WHERE `user_guid` = 'outside_user_E76CEDD9B87AE752FC177521A38467BD' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' [ RunTime:0.0020s ]
+
+[ 2015-04-08T10:42:34+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/08C4047C97AE0DD91069757E103E1B21
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0030s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `guid` = '08C4047C97AE0DD91069757E103E1B21' LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2015-04-08T10:43:45+08:00 ] 127.0.0.1 /mobile/activity/ticket/aid/79B3BF3764940EFD3FCA34677C84A1AA/iid/61841A90150A281ED03D45177AF008BC
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity` WHERE `guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_org` [ RunTime:0.0030s ]
+SQL: SELECT `name` FROM `ym_org` WHERE `guid` = 'A221602279B8E52AA51D904103E1E24D' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity_signup` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_userinfo` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity_signup_userinfo` WHERE `guid` = '61841A90150A281ED03D45177AF008BC' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_user_ticket` WHERE `user_guid` = 'outside_user_E76CEDD9B87AE752FC177521A38467BD' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `ym_activity_user_ticket` SET `status`='3',`updated_at`='1428461025' WHERE `user_guid` = 'outside_user_E76CEDD9B87AE752FC177521A38467BD' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' [ RunTime:0.0020s ]
+
+[ 2015-04-08T10:43:45+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/08C4047C97AE0DD91069757E103E1B21
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0020s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `guid` = '08C4047C97AE0DD91069757E103E1B21' LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2015-04-08T10:44:24+08:00 ] 127.0.0.1 /mobile/activity/ticket/aid/79B3BF3764940EFD3FCA34677C84A1AA/iid/61841A90150A281ED03D45177AF008BC
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity` WHERE `guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_org` [ RunTime:0.0030s ]
+SQL: SELECT `name` FROM `ym_org` WHERE `guid` = 'A221602279B8E52AA51D904103E1E24D' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity_signup` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_userinfo` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_signup_userinfo` WHERE `guid` = '61841A90150A281ED03D45177AF008BC' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_user_ticket` WHERE `user_guid` = 'outside_user_E76CEDD9B87AE752FC177521A38467BD' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `ym_activity_user_ticket` SET `status`='3',`updated_at`='1428461064' WHERE `user_guid` = 'outside_user_E76CEDD9B87AE752FC177521A38467BD' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' [ RunTime:0.0010s ]
+
+[ 2015-04-08T10:44:24+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/08C4047C97AE0DD91069757E103E1B21
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0020s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `guid` = '08C4047C97AE0DD91069757E103E1B21' LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2015-04-08T10:44:33+08:00 ] 127.0.0.1 /mobile/activity/ticket/aid/79B3BF3764940EFD3FCA34677C84A1AA/iid/61841A90150A281ED03D45177AF008BC
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity` WHERE `guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_org` [ RunTime:0.0030s ]
+SQL: SELECT `name` FROM `ym_org` WHERE `guid` = 'A221602279B8E52AA51D904103E1E24D' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity_signup` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_userinfo` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_signup_userinfo` WHERE `guid` = '61841A90150A281ED03D45177AF008BC' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity_user_ticket` WHERE `user_guid` = 'outside_user_E76CEDD9B87AE752FC177521A38467BD' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `ym_activity_user_ticket` SET `status`='3',`updated_at`='1428461073' WHERE `user_guid` = 'outside_user_E76CEDD9B87AE752FC177521A38467BD' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' [ RunTime:0.0010s ]
+
+[ 2015-04-08T10:44:33+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/08C4047C97AE0DD91069757E103E1B21
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0030s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `guid` = '08C4047C97AE0DD91069757E103E1B21' LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2015-04-08T10:47:06+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/08C4047C97AE0DD91069757E103E1B21
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0020s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `guid` = '08C4047C97AE0DD91069757E103E1B21' LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2015-04-08T10:47:35+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/08C4047C97AE0DD91069757E103E1B21
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0030s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `guid` = '08C4047C97AE0DD91069757E103E1B21' LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2015-04-08T10:48:16+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/08C4047C97AE0DD91069757E103E1B21
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0030s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `guid` = '08C4047C97AE0DD91069757E103E1B21' LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2015-04-08T10:48:32+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/08C4047C97AE0DD91069757E103E1B21
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0030s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `guid` = '08C4047C97AE0DD91069757E103E1B21' LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2015-04-08T10:48:33+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/08C4047C97AE0DD91069757E103E1B21
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0030s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `guid` = '08C4047C97AE0DD91069757E103E1B21' LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2015-04-08T10:48:35+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/08C4047C97AE0DD91069757E103E1B21
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0020s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `guid` = '08C4047C97AE0DD91069757E103E1B21' LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2015-04-08T10:50:13+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/08C4047C97AE0DD91069757E103E1B21
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0050s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `guid` = '08C4047C97AE0DD91069757E103E1B21' LIMIT 1   [ RunTime:0.0060s ]
+
+[ 2015-04-08T10:50:26+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/08C4047C97AE0DD91069757E103E1B21
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0030s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `guid` = '08C4047C97AE0DD91069757E103E1B21' LIMIT 1   [ RunTime:0.0030s ]
+
+[ 2015-04-08T10:50:28+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/08C4047C97AE0DD91069757E103E1B21
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0030s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `guid` = '08C4047C97AE0DD91069757E103E1B21' LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2015-04-08T10:51:20+08:00 ] 127.0.0.1 /mobile/activity/ticket/aid/79B3BF3764940EFD3FCA34677C84A1AA/iid/61841A90150A281ED03D45177AF008BC
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `ym_activity` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity` WHERE `guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_org` [ RunTime:0.0020s ]
+SQL: SELECT `name` FROM `ym_org` WHERE `guid` = 'A221602279B8E52AA51D904103E1E24D' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity_signup` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_userinfo` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_signup_userinfo` WHERE `guid` = '61841A90150A281ED03D45177AF008BC' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_user_ticket` WHERE `user_guid` = 'outside_user_E76CEDD9B87AE752FC177521A38467BD' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0030s ]
+SQL: UPDATE `ym_activity_user_ticket` SET `status`='3',`updated_at`='1428461480' WHERE `user_guid` = 'outside_user_E76CEDD9B87AE752FC177521A38467BD' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' [ RunTime:0.0020s ]
+
+[ 2015-04-08T10:51:20+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/08C4047C97AE0DD91069757E103E1B21
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0020s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `guid` = '08C4047C97AE0DD91069757E103E1B21' LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2015-04-08T11:27:05+08:00 ] 127.0.0.1 /mobile/activity/ticket/aid/79B3BF3764940EFD3FCA34677C84A1AA/iid/3FD7F24FBAB235CD94EA0EF73998DD49
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003001s ]
+SQL: SHOW COLUMNS FROM `ym_activity` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `ym_activity` WHERE `guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_org` [ RunTime:0.0040s ]
+SQL: SELECT `name` FROM `ym_org` WHERE `guid` = 'A221602279B8E52AA51D904103E1E24D' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity_signup` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_userinfo` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_signup_userinfo` WHERE `guid` = '3FD7F24FBAB235CD94EA0EF73998DD49' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_user_ticket` WHERE `user_guid` = 'add_by_org_ED99164115368555005ABA7CA99BA982' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0030s ]
+SQL: UPDATE `ym_activity_user_ticket` SET `status`='3',`updated_at`='1428463625' WHERE `user_guid` = 'add_by_org_ED99164115368555005ABA7CA99BA982' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' [ RunTime:0.0020s ]
+
+[ 2015-04-08T11:27:06+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/E7059CCD47CA7FE16A416E9FD3F34655
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0030s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `guid` = 'E7059CCD47CA7FE16A416E9FD3F34655' LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2015-04-08T14:51:24+08:00 ] 127.0.0.1 /mobile/activity/preview/aid/9FC0BCA4708D50A38D872DA699080BBB/token/A221602279B8E52AA51D904103E1E24D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity` [ RunTime:0.6910s ]
+SQL: SELECT * FROM `ym_activity` WHERE ( guid = "9FC0BCA4708D50A38D872DA699080BBB" ) LIMIT 1   [ RunTime:0.6130s ]
+SQL: SHOW COLUMNS FROM `ym_activity_subject` [ RunTime:0.5930s ]
+SQL: SELECT * FROM `ym_activity_subject` WHERE ( guid = "5757146541D4F289A768A6E32EEFA5DE" ) LIMIT 1   [ RunTime:0.4880s ]
+SQL: SHOW COLUMNS FROM `ym_org` [ RunTime:0.4030s ]
+SQL: SELECT `guid`,`name` FROM `ym_org` WHERE ( guid = "A221602279B8E52AA51D904103E1E24D" ) LIMIT 1   [ RunTime:0.4270s ]
+SQL: SHOW COLUMNS FROM `ym_statistic_view` [ RunTime:0.4520s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_statistic_view` WHERE `obj_guid` = '9FC0BCA4708D50A38D872DA699080BBB' AND `obj_type` = 1 LIMIT 1   [ RunTime:0.5000s ]
+SQL: SHOW COLUMNS FROM `ym_statistic_like` [ RunTime:0.5610s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_statistic_like` WHERE `obj_guid` = '9FC0BCA4708D50A38D872DA699080BBB' AND `obj_type` = 1 AND `is_like` = 1 LIMIT 1   [ RunTime:0.5350s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_statistic_like` WHERE `obj_guid` = '9FC0BCA4708D50A38D872DA699080BBB' AND `obj_type` = 1 AND `is_like` = 1 AND `user_guid` = 'outside_user_9FFE43A3D466A3F1F796E3E6E1895F05' LIMIT 1   [ RunTime:0.4790s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup` [ RunTime:0.5260s ]
+SQL: SELECT * FROM `ym_activity_signup` WHERE `activity_guid` = '9FC0BCA4708D50A38D872DA699080BBB' LIMIT 1   [ RunTime:0.9861s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_form_build` [ RunTime:0.4580s ]
+SQL: SELECT * FROM `ym_activity_signup_form_build` WHERE `signup_guid` = 'FD157B8B779B6B14CE5F55F688E40BBD' AND `is_del` = 0  [ RunTime:0.3730s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_userinfo` [ RunTime:0.3290s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_signup_userinfo` WHERE `activity_guid` = '9FC0BCA4708D50A38D872DA699080BBB' AND `is_del` = 0 LIMIT 1   [ RunTime:0.3220s ]
+SQL: SHOW COLUMNS FROM `ym_activity_attr_ticket` [ RunTime:0.2990s ]
+SQL: SELECT SUM(num) as total FROM `ym_activity_attr_ticket` WHERE `activity_guid` = '9FC0BCA4708D50A38D872DA699080BBB' AND `is_del` = 0 AND `is_for_sale` = 1 LIMIT 1   [ RunTime:0.2720s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_signup_userinfo` WHERE `activity_guid` = '9FC0BCA4708D50A38D872DA699080BBB' AND `is_del` = 0 LIMIT 1   [ RunTime:0.3060s ]
+SQL: SELECT `guid`,`num`,`name` FROM `ym_activity_attr_ticket` WHERE `activity_guid` = '9FC0BCA4708D50A38D872DA699080BBB' AND `is_del` = 0 AND `is_for_sale` = 1  [ RunTime:0.3040s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.3730s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_user_ticket` WHERE `ticket_guid` = '4A7217A0ACFCC37CB5DCA451FC22B145' AND `status` = 2 AND `is_del` = 0 LIMIT 1   [ RunTime:0.3150s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_user_ticket` WHERE `ticket_guid` = 'B1CB98AFEF624F3A2D986124F6A3C91D' AND `status` = 2 AND `is_del` = 0 LIMIT 1   [ RunTime:0.2710s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_user_ticket` WHERE `ticket_guid` = 'E7B2078CBD64BDCC95A61122DFAEC805' AND `status` = 2 AND `is_del` = 0 LIMIT 1   [ RunTime:0.2220s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_userinfo` [ RunTime:0.3340s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_signup_userinfo` WHERE `signup_guid` = 'FD157B8B779B6B14CE5F55F688E40BBD' AND `user_guid` = 'outside_user_9FFE43A3D466A3F1F796E3E6E1895F05' LIMIT 1   [ RunTime:0.2140s ]
+SQL: SHOW COLUMNS FROM `ym_activity_attr_undertaker` [ RunTime:0.2250s ]
+SQL: SELECT * FROM `ym_activity_attr_undertaker` WHERE `activity_guid` = '9FC0BCA4708D50A38D872DA699080BBB' AND `is_del` = 0 ORDER BY id asc  [ RunTime:0.1300s ]
+SQL: SHOW COLUMNS FROM `ym_activity_attr_flow` [ RunTime:0.1120s ]
+SQL: SELECT * FROM `ym_activity_attr_flow` WHERE `activity_guid` = '9FC0BCA4708D50A38D872DA699080BBB' AND `is_del` = 0 ORDER BY id asc  [ RunTime:0.0740s ]
+SQL: SELECT * FROM `ym_activity_signup_userinfo` WHERE ( activity_guid='9FC0BCA4708D50A38D872DA699080BBB' and is_del=0 ) ORDER BY updated_at DESC LIMIT 0,10   [ RunTime:0.1040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_signup_userinfo` WHERE ( activity_guid='9FC0BCA4708D50A38D872DA699080BBB' and is_del=0 ) LIMIT 1   [ RunTime:0.1040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_signup_userinfo` WHERE ( activity_guid='9FC0BCA4708D50A38D872DA699080BBB' and is_del=0 ) LIMIT 1   [ RunTime:0.1110s ]
+
+[ 2015-04-08T14:51:26+08:00 ] 127.0.0.1 /mobile/activity/qrcode/aid/9FC0BCA4708D50A38D872DA699080BBB/token/A221602279B8E52AA51D904103E1E24D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity` [ RunTime:0.1310s ]
+SQL: SELECT `org_guid` FROM `ym_activity` WHERE `guid` = '9FC0BCA4708D50A38D872DA699080BBB' LIMIT 1   [ RunTime:0.1440s ]
+
+[ 2015-04-08T15:18:54+08:00 ] 127.0.0.1 /mobile/activity/preview/aid/79B3BF3764940EFD3FCA34677C84A1AA/token/A221602279B8E52AA51D904103E1E24D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010001s ]
+SQL: SHOW COLUMNS FROM `ym_activity` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity` WHERE ( guid = "79B3BF3764940EFD3FCA34677C84A1AA" ) LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_activity_subject` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `ym_activity_subject` WHERE ( guid = "95CEC0849FC0CF2F3CAF2C124DCF7455" ) LIMIT 1   [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `ym_org` [ RunTime:0.0040s ]
+SQL: SELECT `guid`,`name` FROM `ym_org` WHERE ( guid = "A221602279B8E52AA51D904103E1E24D" ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ym_statistic_view` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_statistic_view` WHERE `obj_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `obj_type` = 1 LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_statistic_like` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_statistic_like` WHERE `obj_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `obj_type` = 1 AND `is_like` = 1 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_statistic_like` WHERE `obj_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `obj_type` = 1 AND `is_like` = 1 AND `user_guid` = 'outside_user_31430B255EF2337D92C1914C84DC8AF2' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `ym_activity_signup` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_form_build` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity_signup_form_build` WHERE `signup_guid` = '4983C3213C2DA26C19A1A1C80DDEAEE0' AND `is_del` = 0  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_userinfo` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_signup_userinfo` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `is_del` = 0 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_attr_ticket` [ RunTime:0.0030s ]
+SQL: SELECT SUM(num) as total FROM `ym_activity_attr_ticket` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `is_del` = 0 AND `is_for_sale` = 1 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_signup_userinfo` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `is_del` = 0 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `guid`,`num`,`name` FROM `ym_activity_attr_ticket` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `is_del` = 0 AND `is_for_sale` = 1  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_user_ticket` WHERE `ticket_guid` = '669919B481FAFC1AC2B71560103000AA' AND `status` = 2 AND `is_del` = 0 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_user_ticket` WHERE `ticket_guid` = '22187E86A20C103299DC87DA144C8552' AND `status` = 2 AND `is_del` = 0 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_user_ticket` WHERE `ticket_guid` = '10182994AF6AC4E9126BB7832F5460BF' AND `status` = 2 AND `is_del` = 0 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_userinfo` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_signup_userinfo` WHERE `signup_guid` = '4983C3213C2DA26C19A1A1C80DDEAEE0' AND `user_guid` = 'outside_user_31430B255EF2337D92C1914C84DC8AF2' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_attr_undertaker` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_attr_undertaker` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `is_del` = 0 ORDER BY id asc  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_attr_flow` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_attr_flow` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' AND `is_del` = 0 ORDER BY id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ym_activity_signup_userinfo` WHERE ( activity_guid='79B3BF3764940EFD3FCA34677C84A1AA' and is_del=0 ) ORDER BY updated_at DESC LIMIT 0,10   [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_signup_userinfo` WHERE ( activity_guid='79B3BF3764940EFD3FCA34677C84A1AA' and is_del=0 ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ym_activity_signup_userinfo` WHERE ( activity_guid='79B3BF3764940EFD3FCA34677C84A1AA' and is_del=0 ) LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2015-04-08T15:18:57+08:00 ] 127.0.0.1 /mobile/activity/qrcode/aid/79B3BF3764940EFD3FCA34677C84A1AA/token/A221602279B8E52AA51D904103E1E24D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity` [ RunTime:0.0030s ]
+SQL: SELECT `org_guid` FROM `ym_activity` WHERE `guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2015-04-08T15:32:54+08:00 ] 127.0.0.1 /mobile/activity/ticket/aid/79B3BF3764940EFD3FCA34677C84A1AA/iid/3FD7F24FBAB235CD94EA0EF73998DD49
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ym_activity` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `ym_activity` WHERE `guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ym_org` [ RunTime:0.0030s ]
+SQL: SELECT `name` FROM `ym_org` WHERE `guid` = 'A221602279B8E52AA51D904103E1E24D' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_signup` WHERE `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `ym_activity_signup_userinfo` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_signup_userinfo` WHERE `guid` = '3FD7F24FBAB235CD94EA0EF73998DD49' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ym_activity_user_ticket` WHERE `user_guid` = 'add_by_org_ED99164115368555005ABA7CA99BA982' AND `activity_guid` = '79B3BF3764940EFD3FCA34677C84A1AA' LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2015-04-08T15:32:54+08:00 ] 127.0.0.1 /mobile/activity/signin_qrcode/tid/E7059CCD47CA7FE16A416E9FD3F34655
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `ym_activity_user_ticket` [ RunTime:0.0030s ]
+SQL: SELECT `ticket_code`,`activity_guid` FROM `ym_activity_user_ticket` WHERE `guid` = 'E7059CCD47CA7FE16A416E9FD3F34655' LIMIT 1   [ RunTime:0.0020s ]
+

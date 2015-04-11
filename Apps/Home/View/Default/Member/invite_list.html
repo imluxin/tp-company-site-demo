@@ -1,0 +1,88 @@
+<!-- 
+ * 创建新社员页面
+ *
+ * CT: 2014-09-18 11:00 by QY
+ */
+ -->
+<import type='css' file="home.css.member-list" />
+<import type='css' file="home.css.basic-information" />
+<script type="text/javascript">
+	var YM = {
+		'agree' : "{:U('examine_agree')}",
+		'refuse' : "{:U('examine_refuse')}",
+		'pull_black' : "{:U('examine_pull_black')}",
+	};
+</script>
+
+
+<!-- 导入面包屑 -->
+<?php
+$breadcrumbs = array(
+    'base' => '社员管理',
+    'list' => array(
+        array('url'=>U('Member/index'), 'v'=>'社员邀请'),
+        array('url'=>'', 'v'=>'邀请列表')
+    )
+);
+?>
+    <include file="Public:_breadcrumbs" />
+
+
+<div class="ymnaw">
+    <ul class="nav nav-tabs ymbtn" role="tablist">
+        <li role="presentation" class="active"><a href="<?php echo U('Member/index')?>">社员列表</a></li>
+        <li role="presentation"><a href="<?php echo U('Member/ogm')?>">分组管理</a></li>
+    </ul>
+</div>
+
+<!--右侧主体开始-->
+<div class="rightmain">
+ 	<div class="pull-right mt20"><a href="<?php echo U('Member/index')?>"><i class="fa fa-arrow-left"></i> 社员列表</a></div>
+    <h4>邀请列表</h4>
+    <div class="mt20">
+	  	<table class="table table-bordered">
+			<thead>
+				<tr>
+				  <th>姓名</th>
+				  <th>电话</th>
+				  <th>邮箱</th>
+				  <th>状态</th>
+				</tr>
+		    </thead>
+			<tbody>
+				<empty name="examine_list">
+					<tr>
+					  <td colspan="4">暂无任何数据</td>
+					</tr>
+				<else /> 
+					<foreach name="examine_list" item="v" >
+						<tr>
+						  <td>{$v.real_name}</td>
+						  <td>{$v.mobile}</td>
+						  <td>{$v.email}</td>
+						  <td class="examine_state" data-guid="{$v.user_guid}">
+							  <switch name="v.status">
+							    <case value="1">
+			    				  	<span class="text-info">已发出邀请</span>
+							    </case>
+							    <case value="2">
+							    	<span class="text-success">已经加入社团</span>
+							    </case>
+				    		    <case value="3">
+							    	<span class="text-danger">已拒绝加入社团</span>
+							    </case>
+							  </switch>
+						  </td>
+						</tr>
+					</foreach>
+				</empty>
+			</tbody>
+		</table>
+		<div class="btn-group mb40">
+		  <ul class="pagination pagination-sm">
+		  <?php echo ($page); ?>
+		  </ul>
+		</div>
+	</div>
+</div>
+<!--右侧主体结束-->

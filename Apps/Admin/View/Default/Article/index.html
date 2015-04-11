@@ -1,0 +1,29 @@
+
+<h2 class="page-header">
+    <a href="<?php echo U('Article/add'); ?>" type="button" class="pull-right btn btn-success"><span class="glyphicon glyphicon-plus"></span> 创建新文章</a>
+    文章列表
+</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>文章ID</th>
+        <th>文章分类</th>
+        <th>文章标题</th>
+        <th>是否发布</th>
+        <th>更新时间</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach($list as $l):?>
+        <tr>
+            <td><?php echo $l['id'];?></td>
+            <td><?php echo $l['category'];?></td>
+            <td><?php echo $l['title'];?></td>
+            <td><?php echo $l['status']==1?'是':'否';?></td>
+            <td><?php echo date('Y-m-d H:i:s', $l['created_at']);?></td>
+            <td>
+                <a href="<?php echo U('Article/edit', array('id' => $l['id']))?>">编辑</a>
+                <a href="<?php echo U('Article/delete', array('id' => $l['id']))?>">删除</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<?php echo $page;?>

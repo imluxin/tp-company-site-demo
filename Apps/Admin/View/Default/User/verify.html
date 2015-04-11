@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<h2 class="page-header">
+    用户姓名认证
+</h2>
+<form action="<?php echo U('User/verify_refuse')?>" id="verifyUserForm" method="post" name="verifyUserForm">
+    <input hidden="true" name="user_guid" value="<?php echo $user_info['guid']?>">
+    <table class="table table-bordered">
+        <tr>
+            <th>用户姓名</th>
+            <td><?php echo $user_attribute_info['real_name']?></td>
+        </tr>
+        <tr>
+            <th>用户邮箱</th>
+            <td><?php echo $user_info['email']?></td>
+        </tr>
+        <tr>
+            <th>用户手机</th>
+            <td><?php echo $user_info['mobile']?></td>
+        </tr>
+        <tr>
+            <th>用户所在公司</th>
+            <td><?php echo $user_company_name?></td>
+        </tr>
+        <tr>
+            <th>用户所在社团</th>
+            <td><?php echo $user_org_name?></td>
+        </tr>
+        <tr>
+            <th>身份证正面</th>
+            <td>
+                <img style="width: 300px;height: 200px;" src="<?php echo get_image_path($user_attribute_info['identity_card_front']);?>">
+            </td>
+        </tr>
+        <tr>
+            <th>身份证反面</th>
+            <td>
+                <img style="width: 300px;height: 200px;" src="<?php echo get_image_path($user_attribute_info['identity_card_back']);?>">
+            </td>
+        </tr>
+        <!--<tr>-->
+            <!--<th>更新时间</th>-->
+            <!--<td><?php echo date('Y-m-d H:i',$user_info['updated_at'])?></td>-->
+        <!--</tr>-->
+        <!--str_replace("&lt;br/&gt;","\n",$org_info['description'])保留回车输出-->
+        <tr  id="hidden_tr" hidden="true">
+            <th>拒绝理由</th>
+            <td><textarea id="identity_refuse_reason" name="identity_refuse_reason" placeholder="必填项"></textarea></td>
+        </tr>
+        <div></div>
+        <input type="hidden" name="org_guid" value="<?php echo $org_info['guid']?>">
+    </table>
+</form>
+<tfoot>
+<input type="button" value="通过审核" id="pass" name="pass" onclick="verify_pass()" class="btn-default">
+<input type="button" value="拒绝通过" id="not_pass" name="not_pass" onclick="verify_refuse()" class="btn-default">
+<input type="button" value="提交" id="verify_refuse" name="not_pass_submit" onclick="verify_refuse_submit()" hidden="true" class="btn-default">
+<input type="button" value="返回" id="return_index" name="return_index" onclick="return_index()" class="btn-default">
+<input type="button" value="返回" id="return_verify" name="return_index" onclick="return_verify()" hidden="true" class="btn-default">
+</tfoot>
+
+<script type="text/javascript">
+    //返回
+    function return_index(){
+        location.href = "<?php echo U('User/index')?>";
+    }
+    //审核通过
+    function verify_pass(){
+        location.href = "<?php echo U('User/verify_pass',array('user_guid'=>$user_info['guid']))?>";
+    }
+    //审核拒绝通过
+    function verify_refuse(){
+        $("#hidden_tr").removeAttr("hidden");
+        $("#pass").attr("hidden",true);
+        $("#not_pass").attr("hidden",true);
+        $("#verify_refuse").removeAttr("hidden");
+        $("#return_index").attr("hidden",true);
+        $("#return_verify").removeAttr("hidden");
+//        location.href = "<?php echo U('Org/verify_not_pass',array('org_guid'=>$org_info['guid']))?>";
+    }
+    function verify_refuse_submit(){
+        $("#verifyUserForm").submit();
+
+    }
+    function return_verify(){
+        $("#hidden_tr").attr("hidden",true);
+        $("#pass").removeAttr("hidden");
+        $("#not_pass").removeAttr("hidden");
+        $("#return_index").removeAttr("hidden");
+        $("#verify_refuse").attr("hidden",true);
+        $("#return_verify").attr("hidden",true);
+    }
+    $(document).ready(function () {
+
+        //表单验证
+        $('#verifyUserForm').validate({
+            rules: {
+                identity_refuse_reason: {
+                    required: true,
+                    rangelength: [1, 30]
+                }
+            },
+            messages: {
+                identity_refuse_reason: {
+                    required: "拒绝理由不能为空",
+                    rangelength: "拒绝理由不得多于30字"
+                }
+            }
+        });
+    });
+</script>

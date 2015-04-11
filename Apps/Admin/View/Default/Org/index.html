@@ -1,0 +1,57 @@
+<import type='js' file="admin.js.orgIndex" />
+<script type="text/javascript">
+	var YM = {
+		'delOrg' : "{:U('delOrg')}",
+		'lock' : "{:U('lock')}",
+		'unlock' : "{:U('unlock')}"
+	};
+</script>
+<h2 class="page-header">
+	<a href="{:U('add')}" type="button" class="pull-right btn btn-success"><span class="glyphicon glyphicon-plus"></span> 创建社团</a>
+	社团管理
+</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>社团名称</th>
+      <th>联系邮箱</th>
+      <th>审核状态</th>
+      <th>社团状态</th>
+      <th>社团认证</th>
+      <th>社团等级</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<foreach name="orgList" item="v">
+        <tr data-guid="{$v.guid}">
+          <td>{$v.name}</td>
+          <th>{$v.mail}</th>
+          <th><?php if($v['is_verify'] == 0):?>
+              <a href = "<?php echo U('Org/verify', array('org_guid'=>$v['guid']))?>" >审核</a>
+              <?php elseif($v['is_verify'] == 1):?>
+              已通过
+              <?php elseif($v['is_verify'] == 2):?>
+              未通过
+              <?php endif;?></th>
+          <td class="lock"><eq name="v.is_lock" value="0"><span class="text-success">未锁定</span>（<a href="javascript:void(0);" class="js-lock">锁定</a>）<else/><span class="text-danger">已锁定</span> （<a href="javascript:void(0);" class="js-unlock">解锁</a>）</eq></td>
+          <td>
+	          <switch name="v.status">
+				    <case value="0"><span class="text-warning">未认证</span></case>
+				    <case value="2"><span class="text-danger">待认证</span>（<a href="<?php echo U('auth', array('guid'=>$v['guid']))?>">查看</a>）</case>
+				    <case value="3"><span class="text-success">已认证</span>（<a href="<?php echo U('auth', array('guid'=>$v['guid']))?>">查看</a>）</case>
+				    <case value="4"><span class="text-danger">认证失败</span></case>
+				</switch>
+          </td>
+          <td>{$v.vip_name}</td>
+          <td><a href="javascript:void(0)"><i class="js-del glyphicon glyphicon-trash"></i></a>　
+                <?php if($v['is_verify'] == 1):?>
+                    <a href="<?php echo U('view', array('guid'=>$v['guid']))?>"><i class="glyphicon glyphicon-search"></i></a>
+                <?php elseif($v['is_verify'] == 2):?>
+                    <a href="<?php echo U('Org/content_verify', array('org_guid'=>$v['guid']))?>"><i class="glyphicon glyphicon-search"></i></a>
+                <?php endif;?>
+          </td>
+        </tr>
+    </foreach>
+  </tbody>
+</table>

@@ -1,0 +1,64 @@
+
+<import type='css' file="common.css.bootstrap-datetimepicker#min" />
+<import type='css' file="home.css.create-theme" />
+
+<!-- Ueditor js 加载 -->
+<import type='js' file="ueditor.ueditor#config" />
+<import type='js' file="ueditor.ueditor#all#min" />
+
+<!-- datetimepicker js 加载 -->
+<import type='js' file="common.js.bootstrap-datetimepicker#min" />
+<import type='js' file="common.js.locales.bootstrap-datetimepicker#zh-CN" />
+
+<script type="text/javascript">
+    var YM = {
+        'ueditor_server_url' : "{:U('ueditor')}"
+    };
+    var date_config = {
+        language: 'zh-CN',
+        todayBtn: 1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        /*时间默认为5*/
+        minuteStep: 1,
+        showMeridian: 1
+    };
+    $(document).ready(function(){
+
+        //datetimepicker 时间样式
+        $('body').on('focus',".form_datetime", function(){
+            $(this).datetimepicker(date_config);
+        });
+
+        //自定义表单验证
+        $.validator.addMethod("afternow", function(value, element) {
+            var start_time =  new Date($('#startTime').val().replace(/-/g,"/")).getTime();
+            var now = new Date().getTime();
+
+            return start_time+60*1000>now;
+        }, "开始时间不得早于当前时间");
+        $.validator.addMethod("afterstart", function(value, element) {
+            var start_time =  new Date($('#startTime').val().replace(/-/g,"/")).getTime();
+            var end_time = new Date($('#endTime').val().replace(/-/g,"/")).getTime();
+
+            return end_time>start_time;
+        }, "结束时间不得早于开始时间");
+
+        $.validator.addMethod("after_subject_start", function(value, element) {
+            var activity_start =  new Date($('#startTime').val().replace(/-/g,"/")).getTime();
+            var subject_start = new Date('<?php echo date('Y/m/d, H:i:s', $subject_info['start_time']); ?>').getTime();
+
+            return activity_start >= subject_start;
+        }, "开始时间不得早于主题开始时间");
+
+        $.validator.addMethod("before_subject_end", function(value, element) {
+            var activity_end =  new Date($('#endTime').val().replace(/-/g,"/")).getTime();
+            var subject_end = new Date('<?php echo date('Y/m/d, H:i:s', $subject_info['end_time']); ?>').getTime();
+
+            return activity_end <= subject_end;
+        }, "结束时间不得晚于主题结束时间");
+
+    });
+</script>

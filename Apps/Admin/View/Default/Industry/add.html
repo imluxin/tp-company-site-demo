@@ -1,0 +1,27 @@
+<h1>新增行业</h1>
+
+<form method="post" action="{:U('Industry/add')}">
+    <table border="1" cellspacing="0" cellpadding="10">
+        <tbody>
+            <tr>
+                <td>行业名称</td>
+                <td>
+                    <input type="text" name="name" size="100" />
+                </td>
+            </tr>
+            <tr>
+                <td>是否显示</td>
+                <td>
+                    <input type="radio" name="is_show" value="1" checked /> 是
+                    <input type="radio" name="is_show" value="0" /> 否
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <input type="submit" value="提交">
+                    <input type="button" value="返回" onclick='javascript:location.href="{:U('Industry/index')}";' />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>

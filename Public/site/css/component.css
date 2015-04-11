@@ -1,0 +1,199 @@
+.hi-icon-wrap {
+	text-align: center;
+	margin: 0 auto;
+	padding: 2em 0 3em;
+}
+
+.hi-icon {
+	display: block;
+	cursor: pointer;
+	margin: 15px 30px;
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	text-align: center;
+	position: relative;
+	z-index: 1;
+	color: #fff;
+}
+
+.hi-icon:after {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	content: '';
+	-webkit-box-sizing: content-box; 
+	-moz-box-sizing: content-box; 
+	box-sizing: content-box;
+}
+
+.hi-icon:before {
+	speak: none;
+	font-size: 48px;
+	line-height: 120px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	display: block;
+	-webkit-font-smoothing: antialiased;
+}
+@media (min-width: 1400px) {
+  .hi-icon {
+  	    margin: 15px 50px;
+		width: 160px;
+		height: 160px;
+	}
+	.hi-icon:before {
+		font-size: 60px;
+		line-height: 160px;
+	}
+}
+@media (min-width: 1660px) {
+  .hi-icon {
+  	    margin: 15px 80px;
+		width: 180px;
+		height: 180px;
+	}
+	.hi-icon:before {
+		font-size: 60px;
+		line-height: 180px;
+	}
+}
+.component {
+    display: inline-block;
+    position: relative;
+}
+
+
+/* Effect 2 */
+.hi-icon-effect-2 .hi-icon {
+	box-shadow: 0 0 0 3px rgba(18,144,206,1);
+	overflow: hidden;
+	color: #1290ce;
+	-webkit-transition: background 0.5s, color 0.5s, box-shadow 0.5s;
+	-moz-transition: background 0.5s, color 0.5s, box-shadow 0.5s;
+	transition: background 0.5s, color 0.5s, box-shadow 0.5s;
+}
+
+.hi-icon-effect-2 .hi-icon:after {
+	display: none;
+}
+
+.hi-icon-effect-2 .hi-icon:hover {
+	background: rgba(18,144,206,1);
+	color: #fff;
+	box-shadow: 0 0 0 8px rgba(18,144,206,0.3);
+}
+.hi-icon-effect-2 .hi-icon:hover:before {
+	-webkit-animation: toBottomFromTop 0.5s forwards;
+	-moz-animation: toBottomFromTop 0.5s forwards;
+	animation: toBottomFromTop 0.5s forwards;
+}
+
+@-webkit-keyframes toBottomFromTop {
+	49% {
+		-webkit-transform: translateY(100%);
+	}
+	50% {
+		opacity: 0;
+		-webkit-transform: translateY(-100%);
+	}
+	51% {
+		opacity: 1;
+	}
+}
+@-moz-keyframes toBottomFromTop {
+	49% {
+		-moz-transform: translateY(100%);
+	}
+	50% {
+		opacity: 0;
+		-moz-transform: translateY(-100%);
+	}
+	51% {
+		opacity: 1;
+	}
+}
+@keyframes toBottomFromTop {
+	49% {
+		transform: translateY(100%);
+	}
+	50% {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+	51% {
+		opacity: 1;
+	}
+}
+/* Effect 6 */
+.hi-icon-effect-6 .hi-icon {
+	color: #fff;
+	box-shadow: 0 0 0 3px #1290ce;
+	-webkit-transition: color 0.9s;
+	-moz-transition: color 0.9s;
+	transition: color 0.9s;
+}
+
+.hi-icon-effect-6 .hi-icon:after {
+	top: -2px;
+	left: -2px;
+	padding: 2px;
+	z-index: -1;
+	background: #1290ce;
+	-webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+	-moz-transition: -moz-transform 0.2s, opacity 0.2s;
+	transition: transform 0.2s, opacity 0.2s;
+}
+.hi-icon-effect-6 .hi-icon:hover:after {
+	-webkit-transform: scale(0);
+	-moz-transform: scale(0);
+	-ms-transform: scale(0);
+	transform: scale(0);
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.4s, opacity 0.2s;
+	-moz-transition: -moz-transform 0.4s, opacity 0.2s;
+	transition: transform 0.4s, opacity 0.2s;
+}
+
+.hi-icon-effect-6 .hi-icon:hover {
+	color: #1290ce;
+}
+
+.hi-icon-small {
+	margin: 15px 30px;
+	padding: 23px;
+	width: 90px;
+	height: 90px;
+	border-radius: 4px;
+	text-align: center;
+	position: relative;
+	z-index: 1;
+}
+.hi-icon-small:after {
+	border-radius: 4px;
+}
+
+i.activity {
+    display: block;
+    width: 39px;
+    height: 39px;
+    background: url("../images/icon-small.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background-position: 0 0;
+    z-index: 2;
+}
+i.activity.act1 { background-position: 0 0;}
+.hi-icon:hover i.activity.act1 { background-position: 0 -39px;}
+i.activity.act2 { background-position: -39px 0;}
+.hi-icon:hover i.activity.act2 { background-position: -39px -39px;}
+i.activity.act3 { background-position: -78px 0;}
+.hi-icon:hover i.activity.act3 { background-position: -78px -39px;}
+i.activity.act4 { background-position: -117px 0;}
+.hi-icon:hover i.activity.act4 { background-position: -117px -39px;}
+i.activity.act5 { background-position: -156px 0;}
+.hi-icon:hover i.activity.act5 { background-position: -156px -39px;}
+i.activity.act6 { background-position: -195px 0;}
+.hi-icon:hover i.activity.act6 { background-position: -195px -39px;}

@@ -1,0 +1,70 @@
+[ 2015-03-30T10:24:32+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000294s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002814s ]
+
+[ 2015-03-30T12:07:15+08:00 ] 127.0.0.1 /du/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000264s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002250s ]
+
+[ 2015-03-30T12:07:15+08:00 ] 127.0.0.1 /ifr_status/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000268s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002174s ]
+
+[ 2015-03-30T12:07:51+08:00 ] 127.0.0.1 /du/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000307s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002145s ]
+
+[ 2015-03-30T13:40:06+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000154s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001271s ]
+
+[ 2015-03-30T13:43:50+08:00 ] 127.0.0.1 /du/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000292s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002041s ]
+
+[ 2015-03-30T14:08:10+08:00 ] 127.0.0.1 /ifr_status/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000264s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002176s ]
+
+[ 2015-03-30T14:08:12+08:00 ] 127.0.0.1 /du/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000308s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002395s ]
+
+[ 2015-03-30T14:08:14+08:00 ] 127.0.0.1 /ifr_status/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000293s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002200s ]
+
+[ 2015-03-30T14:30:04+08:00 ] 127.0.0.1 /ifr_status/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000323s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002215s ]
+
+[ 2015-03-30T14:30:07+08:00 ] 127.0.0.1 /du/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000151s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001260s ]
+
+[ 2015-03-30T14:30:09+08:00 ] 127.0.0.1 /du/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000280s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002142s ]
+
+[ 2015-03-30T14:30:10+08:00 ] 127.0.0.1 /ifr_status/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000180s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001765s ]
+
+[ 2015-03-30T15:26:28+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000256s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001679s ]
+

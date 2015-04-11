@@ -1,0 +1,17 @@
+<?php
+/**
+ * 社团分组增加字段input
+ * 
+ * CT: 2014-10-29 15:50 by YLX
+ */
+?>
+<div class="form-group">
+    <div class="input-group">
+    	<div class="txt-wrap pull-left radius0 groupwidth form-control"><?php echo $l['name']?></div>
+    	<input type="text" style="display:none;" class="txt form-control radius0 groupwidth" data-name="<?php echo $l['name']?>" data-guid="<?php echo $l['guid']?>" name="group_name" value="<?php echo $l['name']?>">
+       	<span class="input-group-btn group_btn_dlt pull-left" data-guid="<?php echo $l['guid']?>">
+        	<button class="btn btn-default radius0 js_edit"  type="button"><i class="glyphicon glyphicon-edit"></i></button>
+        	<button class="btn btn-default radius0 g_del" type="button"><i class="glyphicon glyphicon-trash"></i></button>
+        </span>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+
+<div class="ymnaw">
+    <ul class="nav nav-tabs ymbtn" role="tablist">
+        <li role="presentation" class="<?php echo (ACTION_NAME == 'activity_view') ? 'active' : ''; ?>"><a href="<?php echo U('Activity/activity_view', array('guid' => $activity_info['guid']))?>">报名详情</a></li>
+        <li role="presentation" class="<?php echo (in_array(ACTION_NAME, array('signup_userinfo', 'signup_userdetail'))) ? 'active' : ''; ?>"><a href="<?php echo U('Activity/signup_userinfo', array('aid'=>$activity_info['guid']))?>">报名列表</a></li>
+        <li role="presentation" class="<?php echo (ACTION_NAME == 'ticket') ? 'active' : ''; ?>"><a href="<?php echo U('Activity/ticket', array('guid' => $activity_info['guid']))?>">票务设置</a></li>
+    <li role="presentation" class="<?php echo (ACTION_NAME == 'signup_setting') ? 'active' : ''; ?>"><a href="<?php echo U('Activity/signup_setting', array('guid' => $activity_info['guid'])); ?>">其它设置</a></li>
+        <li role="presentation" class="pull-right"><a href="<?php echo U('Activity/signin', array('aid' => $activity_info['guid']))?>" target="_blank">进行签到 <i class="fa fa-pencil-square-o"></i></a></li>
+    </ul>
+</div>

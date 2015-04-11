@@ -1,0 +1,196 @@
+<import type='css' file="home.css.message-list" />
+<div class="ymtitle">
+    消息管理 >> <a href="<?php echo U('Message/index')?>" class="h5title" title="消息列表">消息列表</a>
+    >> <a href="#" class="h5title" title="消息列表">消息详情</a>
+</div>
+<div class="ymnaw">
+    <ul class="nav nav-tabs ymbtn" role="tablist">
+        <li role="presentation" class="active">
+            <a href="<?php echo U('Message/index')?>">消息列表</a>
+        </li>
+        <li role="presentation">
+            <a href="<?php echo U('Notice/index')?>">通知列表</a>
+        </li>
+    </ul>
+</div>
+<!--右侧主体开始-->
+<div class="rightmain">
+    <div class="btn-group width798 pdlf10">
+        <div class="pull-left">
+            <h5>与 
+                <nameo>
+                  <?php echo $u_info['real_name']?>
+                </nameo>
+                的聊天
+            </h5>
+        </div>
+        <div class="pull-right">
+            <a href="<?php echo U('Message/index')?>"><i class="fa fa-arrow-left"></i> 消息列表</a>
+        </div>
+    </div>
+    <div class="message-list mt10">
+        <?php $now_day = '';$last_day='';
+              $auth = session('auth');
+           ?>
+        <?php foreach ($list as $k => $l) :?>
+		<!--时间分割线 begin-->
+		<?php $now_day = date('Y-m-d', $l['created_at']);?>
+        <?php if ($k == '0'):?>
+        <div class="row timebox">
+            <div class="timeline">
+                <div class="pull-left timebg">
+                    <a href="#" class="ml5 mr5">
+                        <nameh>
+                            <?php echo $now_day?>
+                        </nameh>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <?php else: ?>
+        <?php if ($now_day != $last_day):?>
+        <div class="row timebox">
+            <div class="timeline">
+                <div class="pull-left timebg">
+                    <a href="#" class="ml5 mr5">
+                        <nameh>
+                            <?php echo $now_day?>
+                        </nameh>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <?php endif;?>
+        <?php endif;?>
+		<!--时间分割线 end-->
+        <?php 
+                $type='2'; 
+                if ($l['from_guid'] == $auth['org_guid']) {
+                    $type = '1';
+                }
+        ?>
+			
+		<!--消息内容 begin-->	
+        <?php if ($type=='2'):?>
+        <div class="row details">
+            <div class="pull-left">
+                <a href="#"><img data-original="<?php echo get_image_path($l['from_photo'])?>" alt="" class="lazy img56"></a>
+				<img src="__PUBLIC__/home/images/bleft.png" alt="" class="imgb ml5" />
+            </div>
+            <div class="pull-left detailsbg">
+                <div class="row margin0">
+                    <a href="#" class="blacknm pull-left">
+                        <nameo>
+                            <?php echo $l['from_name']?>
+                        </nameo>
+                    </a>
+                    <p class="pull-left ml12 m0">
+                        <?php echo mdate($l['created_at'])?>
+                    </p>
+                </div>
+                <div class="row margin0">
+                    <p class="m0">
+                        <?php echo $l['content']?>
+                    </p>
+                </div>
+            </div>
+            <div class="pull-left dl-details">
+                <a class="ym_del" href="javascript:void(0);"
+                   url="<?php echo U('Message/del', array('guid'=>$l['guid']))?>"><i class="fa fa-times fa-2x"></i></a>
+            </div>
+        </div>
+        <?php else:?>
+        <div class="row details">
+            <div class="pull-right">
+                <img src="__PUBLIC__/home/images/bright.png" alt="" class="imgb mr5">
+                <a href="#"><img data-original="<?php echo get_image_path($l['from_photo'])?>" alt="" class="lazy img56"></a>
+            </div>
+            <div class="pull-right detailsbg detailsbg-r">
+                <div class="row margin0">
+                    <p class="pull-right m0">
+                        <?php echo mdate($l['created_at'])?>
+                    </p>
+                    <a href="#" class="blacknm pull-right mr12">
+                        <nameb>
+                            我
+                        </nameb>
+                    </a>
+                </div>
+                <div class="row margin0">
+                    <p class="m0 text-right">
+                        <?php echo $l['content']?>
+                    </p>
+                </div>
+            </div>
+            <div class="pull-right dl-details">
+                <a class="ym_del" href="javascript:void(0);" 
+                    url="<?php echo U('Message/del', array('guid'=>$l['guid']))?>"><i class="fa fa-times fa-2x"></i></a>
+                <?php if($l['sdk_msg_status'] == '0'): ?>
+                    <br />
+                    <a class="resend" guid="<?php echo $l['guid']; ?>" href="javascript:void(0);"><i class="fa fa-refresh fa-2x"></i></a>
+                <?php endif; ?>
+            </div>
+        </div>
+        <?php endif;?>
+		<!--消息内容 end-->	
+		
+       
+		<?php $last_day = date('Y-m-d', $l['created_at']);?>
+        <?php endforeach; ?>
+    </div>
+    <div class="btn-group width798 pdlf10">
+        <div class="pull-right message-reply">
+            <a href="javascript:void(0);" id="send_msg"><i class="fa fa-reply"></i> 回复</a>
+        </div>
+    </div>
+    <div class="btn-group mb40">
+        <?php echo $page; ?>
+    </div>
+</div>
+<!--右侧主体结束-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	// 发送消息
+	$("#send_msg").click(function(){
+        $.showBox({
+        'src'   : "<?php echo U('Message/reply', array('to_guid'=>$u_info['guid']))?>",
+        'width': 680,
+        'height': 400,
+        'success':function(data){
+            alert(data);
+        }
+        }); 
+    });
+
+    $('.resend').click(function(){
+        if($(this).hasClass('fa-spin')) {
+            return false;
+        }
+        var ele = $(this);
+        var guid = ele.attr('guid');
+        $.ajax({
+            type: "GET",
+            url: "<?php echo U('Message/resend')?>",
+            data: { guid: guid},
+            dataType: "json",
+            beforeSend: function(){
+                ele.find('.fa').addClass('fa-spin');
+            },
+            success: function(data){
+                if (data.status=='ok') {
+                    ele.text('发送成功').fadeOut(1000);
+                } else if (data.status=='ko') {
+                    console.log(data.status);
+                    alert('发送失败, 请稍侯重试!');
+//                    ele.text('发送失败').fadeOut(5000);
+                    ele.html('<i class="fa fa-refresh fa-2x"></i>');
+//                    ele.html('<i class="fa fa-refresh fa-2x"></i>');
+                }
+            }
+        });
+    });
+
+});
+</script>

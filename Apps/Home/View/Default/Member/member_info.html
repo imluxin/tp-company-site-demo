@@ -1,0 +1,91 @@
+<?php
+/**
+ * 创建新社员页面
+ * 
+ * CT: 2014-11-10 10:30 by YLX
+*/
+?>
+
+<import type='css' file="home.css.member-list" />
+<import type='css' file="home.css.basic-information" />
+
+<!-- 导入面包屑 -->
+<?php
+$breadcrumbs = array(
+    'base' => '社员管理',
+    'list' => array(
+        array('url'=>U('Member/index'), 'v'=>'社员列表'),
+        array('url'=>'', 'v'=>'社员详情')
+    )
+);
+?>
+<include file="Public:_breadcrumbs" />
+
+<div class="ymnaw">
+    <ul class="nav nav-tabs ymbtn" role="tablist">
+        <li role="presentation" class="active"><a href="#">社员列表</a></li>
+        <li role="presentation"><a href="<?php echo U('Member/ogm')?>">分组管理</a></li>
+    </ul>
+</div>
+
+<div class="rightmain">
+
+    <div class="btn-group width798 pdlf10">
+        <div class="pull-right"><a href="<?php echo U('Member/index')?>"><i class="fa fa-arrow-left"></i> 社员列表</a></div>
+    </div>
+    <div class="table mt10 ">
+        <table class="table">
+            <tbody>
+            <tr class="base-tr1">
+                <td colspan="2" class="wh110">
+                    <img data-original="<?php echo get_image_path($info['photo'])?>" alt="" class="lazy img70">
+                </td>
+            </tr>
+            <tr>
+                <td class="wh110">姓名</td>
+                <td class="wh600"><?php echo $info['real_name']?></td>
+            </tr>
+            <tr>
+                <td class="wh110">年龄</td>
+                <td class="wh600"><?php echo calc_age($info['birthday'])?></td>
+            </tr>
+            <tr>
+                <td class="wh110">性别</td>
+                <td class="wh600"><?php echo get_sex($info['sex']); ?></td>
+            </tr>
+            <tr>
+                <td class="wh110">行业</td>
+                <td class="wh600"><?php echo $info['industry']?></td>
+            </tr>
+            <tr>
+                <td class="wh110">公司</td>
+                <td class="wh600">
+                    <?php foreach($info['company'] as $k => $c):?>
+                        <?php echo $c['name']?>(<?php echo $c['position']?>) <?php echo (count($info['company'])!=$k+1)?'|':''; ?>
+                    <?php endforeach; ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="wh110">区域</td>
+                <td class="wh600"><?php echo $info['area']?></td>
+            </tr>
+            <tr>
+                <td class="wh110">社团</td>
+                <td class="wh600"><?php echo $info['org']?></td>
+            </tr>
+            <tr>
+                <td class="wh110">签名档</td>
+                <td class="wh600"><?php echo $info['remark']?></td>
+            </tr>
+            <tr>
+                <td class="wh110">当前分组</td>
+                <td class="wh600"><?php echo implode(', ', $group_info); ?></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="btn-group width798 pdlf10 mb40">
+        <div class="pull-right"><button type="button" class="ym_del btn deletebtn" url="<?php echo U('Member/member_del', array('guid'=>$info['guid']))?>">移出社团</button></div>
+    </div>
+
+</div>

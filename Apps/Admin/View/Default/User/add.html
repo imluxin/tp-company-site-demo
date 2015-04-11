@@ -1,0 +1,50 @@
+
+<h2 class="page-header">
+	<a href="javascript:history.go(-1);" type="button" class="pull-right btn btn-default">
+        <span class="glyphicon glyphicon-share-alt"></span> 返回列表
+    </a>
+    <?php echo $meta_title; ?>
+</h2>
+<form class="form-horizontal" role="form" id="regorg" method="post">
+	<div class="form-group">
+		<label for="username" class="col-sm-2 control-label">用户名</label>
+		<div class="col-sm-6">
+			<input type="text" id="username" name="username" class="form-control" placeholder="输入用户名" value="<?php echo $user['username']?>">
+		</div>
+		<div class="col-sm-4 error-wrap"></div>
+	</div>
+	<div class="form-group">
+		<label for="password" class="col-sm-2 control-label">登陆密码</label>
+		<div class="col-sm-6">
+			<input type="password" id="password" name="password" class="form-control" placeholder="输入用户密码" />
+		</div>
+		<div class="col-sm-4 error-wrap"></div>
+	</div>
+	<div class="form-group">
+		<label for="mobile" class="col-sm-2 control-label">手机号码</label>
+		<div class="col-sm-6">
+			<input type="number" id="mobile" name="mobile" class="form-control" placeholder="输入手机号码" value="<?php echo $user['mobile']?>">
+		</div>
+		<div class="col-sm-4 error-wrap"></div>
+	</div>
+	<div class="form-group">
+		<label for="email" class="col-sm-2 control-label">邮箱</label>
+		<div class="col-sm-6">
+			<input type="email" id="email" name="email" class="form-control" placeholder="输入邮箱" value="<?php echo $user['email']?>">
+		</div>
+		<div class="col-sm-4 error-wrap"></div>
+	</div>
+	<div class="form-group">
+		<label for="real_name" class="col-sm-2 control-label">真实姓名</label>
+		<div class="col-sm-6">
+			<input type="text" id="real_name" name="real_name" class="form-control" placeholder="输入真实姓名" value="<?php echo $user['real_name']?>">
+		</div>
+		<div class="col-sm-4 error-wrap"></div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default js-submit">确定</button>
+            <button type="button" class="btn btn-default js-submit" onclick="javascript:history.go(-1);">返回</button>
+		</div>
+	</div>
+</form>

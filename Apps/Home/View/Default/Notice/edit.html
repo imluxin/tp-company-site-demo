@@ -1,0 +1,138 @@
+<?php
+	/**
+	 * 编辑页面
+	 *
+	 * CT: 2014-11-5 13:30 by qiu
+	 * UT: 2014-11-5 13:30 by qiu
+	 */
+ ?>
+<import type='css' file="home.css.notification-list" /><!-- Main Starting -->
+
+<!-- 导入面包屑 -->
+<?php
+$breadcrumbs = array(
+    'base' => '消息管理',
+    'list' => array(
+        array('url'=>U('Notice/index'), 'v'=>'通知列表'),
+        array('url'=>'', 'v'=>'编辑通知')
+    )
+);
+?>
+<include file="Public:_breadcrumbs" />
+
+
+<div class="ymnaw">
+    <ul class="nav nav-tabs ymbtn" role="tablist">
+        <li role="presentation">
+            <a href="<?php echo U('Message/index'); ?>">消息列表</a>
+        </li>
+        <li role="presentation" class="active">
+            <a href="<?php echo U('Notice/index'); ?>">通知列表</a>
+        </li>
+    </ul>
+</div>
+<!--rightmain-->
+<form method="post" action="" id="editForm">
+<div class="rightmain">
+    <div class="btn-group width798 pdlf10">
+        <div class="pull-right">
+            <a href="<?php echo U('Notice/index'); ?>"><i class="fa fa-arrow-left"></i>通知列表</a>
+        </div>
+    </div>
+    <div class="rightmain">
+        <h4>
+            <small>
+                &nbsp; &nbsp; &nbsp; &nbsp;为保障用户体验，云脉管理平台严禁恶意营销以及诱导用户加入社团，严禁发布色情低俗、暴力血腥、政治谣言等各类违反法律法规及相关政策规定的信息。一旦发现，我们将压力打击和处理。
+            </small>
+        </h4>
+        <div class="row row0 mt30">
+            <div class="pull-left width75 mt7">
+                通知标题：
+            </div>
+            <div class="pull-left width500">
+                
+				<input type="hidden" name="guid" value="{$MsgBox['guid']}" />
+	            <input type="text" class="form-control" name="name" size="100" value="{$MsgBox['name']}"/>
+            </div>
+        </div>
+        <div class="row ml80 tishinr"></div>
+        <div class="row row0 mt16">
+            <div class="pull-left width75 mt7">
+                通知人员：
+            </div>
+            <div class="pull-left width200">
+                 <?php  $auth = session('auth'); ?>
+                <select class="form-control"  name="g_name">
+                    <option  value="{$auth['org_all_guid']}" <?php if($MsgBox['group_guid']==$auth['org_all_guid']) echo 'selected'; ?>>
+                            全部成员
+                    </option>
+                    <volist name="group_list" id="g">
+                        <option  value="{$g['guid']}" <?php if($MsgBox['group_guid']==$g['guid']) echo 'selected'; ?>>
+                            {$g['name']}
+                        </option>
+                    </volist>
+                    <option  value="{$auth['org_other_guid']}" <?php if($MsgBox['group_guid']==$auth['org_other_guid']) echo 'selected'; ?>>
+                            未分组
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="row row0 mt16">
+            <div class="pull-left width75 mt7">
+                通知内容：
+            </div>
+            <div class="pull-left width675">
+                <textarea name="content" id="content" class="form-control noresize" rows="13">{$MsgBox['content']}</textarea>
+            </div>
+        </div>
+        <div class="row ml80 tishinr"></div>
+        <div class="btn-group mb40 ml75">
+            <input type="hidden" id="status" name="status" value="">
+            <button id="status1" type="button" class="btn mybtn active">保存并发送</button>
+            <button id="status0" type="button" class="btn mybtn ">保存</button>
+            <button id="status0" type="button" class="btn mybtn" onclick="history.go(-1)">取消</button>
+        </div>
+    </div>
+</div>
+<!--rightmain-->
+</form>
+<script type="text/javascript">
+//JS 再点击保存或发送的时候，将状态类型改变。然后发送给后台。
+$(document).ready(function(){
+    // 注册FORM验证
+    $("#editForm").validate({
+        errorPlacement: function (error, element) {
+            element.parent().parent().next('.tishinr').append(error);
+        },
+        rules: {
+            name: {
+                required: true,
+                rangelength: [2, 30]
+            },
+            content: {
+                required: true,
+                rangelength: [2, 500]
+            }
+        },
+        messages: {
+            name: {
+                required: "标题不能为空",
+                rangelength: "标题不得少于2个字，不得多于30个字"
+            },
+            content: {
+                required: "内容不能为空",
+                rangelength: "内容不得少于2个字，不得多于500个字"
+            }
+        }
+
+    });
+    $('#status1').click(function(){
+        $('#status').val('1');
+        $('form#editForm').submit();
+        });
+    $('#status0').click(function(){
+    	$('#status').val('0');
+        $('form#editForm').submit();
+        });
+});
+</script>

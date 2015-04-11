@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<import type='js' file="admin.js.orgIndex" />
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+	<h2 class="page-header">
+		<a href="{:U('index')}" type="button" class="pull-right btn btn-default"><span class="glyphicon glyphicon-share-alt"></span> 返回列表</a>
+    	意见详情
+	</h2>
+    <p><?php echo $opinion_info['content'];?></p>
+    <p style="text-indent:30px;margin-top:20px;">提交人：<?php echo $opinion_info['real_name'];?></p>
+    <p style="text-indent:30px;">提交时间：<?php echo date('Y-m-d H:i',$opinion_info['created_at']);?></p>
+</body>
+</html>

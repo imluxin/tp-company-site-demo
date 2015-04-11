@@ -1,0 +1,254 @@
+<?php
+/**
+ * 创建新社员页面
+ *
+ * CT: 2014-09-18 11:00 by QY
+ * UT: 2014-10-30 16:16 by QY
+ */
+?>
+
+    <import type='css' file="home.css.member-list" />
+    <import type='css' file="home.css.basic-information" />
+
+
+    <!-- 导入面包屑 -->
+<?php
+$breadcrumbs = array(
+    'base' => '社员管理',
+    'list' => array(
+        array('url'=>U('Member/index'), 'v'=>'社员列表'),
+        array('url'=>'', 'v'=>'创建新社员')
+    )
+);
+?>
+    <include file="Public:_breadcrumbs" />
+
+
+    <div class="ymnaw">
+        <ul class="nav nav-tabs ymbtn" role="tablist">
+            <li role="presentation" class="active"><a href="<?php echo U('Member/index')?>">社员列表</a></li>
+            <li role="presentation"><a href="<?php echo U('Member/ogm')?>">分组管理</a></li>
+        </ul>
+    </div>
+
+<div class="rightmain">
+
+
+<?php if(empty($exist)) :?>
+    <div class="pull-right mt20"><a href="<?php echo U('Member/index')?>"><i class="fa fa-arrow-left"></i> 社员列表</a></div>
+    <h4>创建新社员</h4>
+    <div class="width500 mt20 ml80">
+        <form class="form-horizontal" id="addMember_form" method="post" action="{:U('Member/add')}">
+            <div>
+                <div class="form-group mb0">
+                    <label for="inputEmail3" class="col-xs-2 mt7">邮箱</label>
+                    <div class="col-xs-9 ml-5">
+                        <input type="email" name="email" class="form-control" id="email" placeholder="邮箱">
+                    </div>
+                    <div class="col-xs-1 add-options">*</div>
+                </div>
+                <div class="row ml80 tishinr pdlf10"></div>
+            </div>
+
+            <div>
+                <div class="form-group mb0">
+                    <label for="inputEmail3" class="col-xs-2 mt7">手机</label>
+                    <div class="col-xs-9 ml-5">
+                        <input type="text" name="mobile" class="form-control" id="mobile" placeholder="手机">
+                    </div>
+                    <div class="col-xs-1 add-options">*</div>
+                </div>
+                <div class="row ml80 tishinr pdlf10"></div>
+            </div>
+
+            <div>
+                <div class="form-group mb0">
+                    <label for="inputEmail3" class="col-xs-2 mt7">姓名</label>
+                    <div class="col-xs-9 ml-5">
+                        <input type="text" name="xname" class="form-control" id="xname" placeholder="姓名">
+                    </div>
+                    <div class="col-xs-1 add-options">*</div>
+                </div>
+                <div class="row ml80 tishinr pdlf10"></div>
+            </div>
+
+            <div>
+                <div class="form-group mb0">
+                    <label for="inputPassword3" class="col-xs-2 mt7">密码</label>
+                    <div class="col-xs-9 ml-5">
+                        <input type="password" name="password" class="form-control" id="password" placeholder="限6-18位">
+                    </div>
+                    <div class="col-xs-1 add-options">*</div>
+                </div>
+                <div class="row ml80 tishinr pdlf10"></div>
+            </div>
+
+            <div class="form-group mt-15">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <div class="checkbox ml-5 pd0">
+                        <label>
+                            <input type="checkbox" name="save_and_add">继续添加
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <div class="btn-group ml-5">
+                        <button type="submit" class="btn mybtn active">保存</button>
+                        <button type="button" class="btn mybtn" onclick="location.href='<?php echo U('Member/index'); ?>'">取消</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            // 注册FORM验证
+            $("form").validate({
+                errorClass: "invalid",
+                errorPlacement: function(error, element){
+                    element.parent().parent().parent().find('.tishinr').append(error);
+                },
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    mobile:  {
+                        required: true,
+                        digits: true,
+                        rangelength: [11, 11]
+                    },
+                    xname:  {
+                        required: true,
+                        rangelength: [2, 10]
+                    },
+                    password: {
+                        required: true,
+                        rangelength: [6, 18]
+                    }
+                },
+                messages: {
+                    email: {
+                        required: "电子邮箱地址不能为空.",
+                        email: "电子邮箱格式不正确."
+
+                    },
+                    mobile: {
+                        required: "手机号码不能为空.",
+                        digits: "手机号码必须为数字.",
+                        rangelength: "手机号码必须为11位数字"
+
+                    },
+                    xname:  {
+                        required: "姓名不能为空.",
+                        rangelength: "姓名必须为2到10个字符"
+                    },
+                    password: {
+                        required: "密码不能为空",
+                        rangelength: "密码必须为6到18个字符"
+                    }
+
+                }
+            });
+        });
+    </script>
+
+<?php else: ?>
+    <div class="pull-right mt20"><a href="<?php echo U('Member/add')?>"><i class="fa fa-arrow-left"></i> 添加成员</a></div>
+
+    <?php if(!empty($e)): ?>
+        <div class="width798 mt20 pdlf30 mb40">
+            <div class="pdlf10">
+                <h4 class="mt30"><name0>创建未成功，
+                        <?php if($t == 1 || $t==4): ?>该邮箱 <nameb><?php echo $e['email']?></nameb>
+                        <?php elseif($t == 2): ?>该手机 <nameb><?php echo $e['mobile']?></nameb>
+                        <?php else: ?>该 邮箱和手机<?php endif;?>
+                        已注册</name0>
+                </h4>
+                <!--                <h5 class="mb30">社员已存在于 <nameb>华商校友会</nameb> 无法重复创建账号，您可以直接邀请该社员加入社团。</h5>-->
+                <h5 class="mb30">无法重复创建账号，您可以直接邀请该社员加入社团。</h5>
+            </div>
+            <div class="pdlf30 mt10">
+                <div class="row"><img src="<?php echo get_image_path($e['photo'])?>" alt="" class="img70"></div>
+                <div class="row mt10">
+                    <div class="col-xs-2">姓名</div>
+                    <div class="col-xs-5"><?php echo $e['real_name']?></div>
+                </div>
+                <div class="row mt10">
+                    <div class="col-xs-2">邮箱</div>
+                    <div class="col-xs-5"><?php echo $e['email']; ?></div>
+                </div>
+                <div class="row mt10">
+                    <div class="col-xs-2">手机</div>
+                    <div class="col-xs-5"><?php echo $e['mobile']; ?></div>
+                </div>
+                <div class="row mt10">
+                    <div class="col-xs-2">公司</div>
+                    <div class="col-xs-5"><?php echo $e['company']?></div>
+                </div>
+                <div class="row mt10">
+                    <div class="col-xs-2">区域</div>
+                    <div class="col-xs-5"><?php echo get_full_area($e['areaid_1'], $e['areaid_2'])?></div>
+                </div>
+                <div class="row mt10">
+                    <div class="col-xs-2">社团</div>
+                    <div class="col-xs-5"><?php echo $e['org']?></div>
+                    <div class="col-xs-5 pull-right btn-group mt-15">
+                        <!--                        <button type="button" class="btn mybtn active">邀请</button>-->
+                        <button type="button" class="btn mybtn" onclick="location.href='<?php echo U('Member/index'); ?>'">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <?php if(!empty($m)): ?>
+        <div class="width798 mt20 pdlf30 mb40">
+            <div class="pdlf10">
+                <h4 class="mt30"><name0>创建未成功，该手机 <nameb><?php echo $m['mobile']?></nameb> 已注册</name0></h4>
+                <!--                <h5 class="mb30">社员已存在于 <nameb>华商校友会</nameb> 无法重复创建账号，您可以直接邀请该社员加入社团。</h5>-->
+                <h5 class="mb30">无法重复创建账号，您可以直接邀请该社员加入社团。</h5>
+            </div>
+            <div class="pdlf30 mt10">
+                <div class="row"><img src="<?php echo get_image_path($m['photo'])?>" alt="" class="img70"></div>
+                <div class="row mt10">
+                    <div class="col-xs-2">姓名</div>
+                    <div class="col-xs-5"><?php echo $m['real_name']?></div>
+                </div>
+                <div class="row mt10">
+                    <div class="col-xs-2">邮箱</div>
+                    <div class="col-xs-5"><?php echo $m['email']; ?></div>
+                </div>
+                <div class="row mt10">
+                    <div class="col-xs-2">手机</div>
+                    <div class="col-xs-5"><?php echo $m['mobile']; ?></div>
+                </div>
+                <div class="row mt10">
+                    <div class="col-xs-2">公司</div>
+                    <div class="col-xs-5"><?php echo $m['company']?></div>
+                </div>
+                <div class="row mt10">
+                    <div class="col-xs-2">区域</div>
+                    <div class="col-xs-5"><?php echo get_full_area($m['areaid_1'], $m['areaid_2'])?></div>
+                </div>
+                <div class="row mt10">
+                    <div class="col-xs-2">社团</div>
+                    <div class="col-xs-5"><?php echo $m['org']?></div>
+                    <div class="col-xs-5 pull-right btn-group mt-15">
+                        <!--                        <button type="button" class="btn mybtn active">邀请</button>-->
+                        <button type="button" class="btn mybtn" onclick="location.href='<?php echo U('Member/index'); ?>'">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    </div>
+<?php endif;?>

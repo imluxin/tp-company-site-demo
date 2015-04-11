@@ -1,0 +1,77 @@
+<?php
+/**
+ * 活动列表页
+ */
+?>
+
+<import type='css' file="home.css.create-theme" />
+<!-- 导入面包屑 -->
+<?php
+$breadcrumbs = array(
+    'base' => '活动管理',
+    'list' => array(
+        array('url'=>U('Activity/index'), 'v'=>'主题列表'),
+        array('url'=>U('Activity/subject_view', array('guid'=>$subject_info['guid'])), 'v'=>'主题: '.$subject_info['name']),
+        array('url'=>'', 'v'=>'活动列表')
+    )
+);
+?>
+<include file="Public:_breadcrumbs" />
+
+      <div class="rightmain">
+        <div class="btn-group width798 pdlf10">
+	        <present name="is_end">
+	        	<div class="pull-right">
+	                 <a href="<?php echo U('Activity/type',array('sguid'=>$subject_info['guid']));?>"><button type="button" class="btn mybtn"><i class="fa fa-plus"></i> 新建活动</button></a>
+	            </div>
+			</present>
+        </div>
+
+          <div class="table mt10">
+              <table class="table table-hover">
+                  <thead>
+                  <tr>
+                      <td class="wh400"><name0>活动名称</name0></td>
+                      <td class="wh70"><name0>类别</name0></td>
+                      <td class="wh160"><a class="ml40"><name0>时间</name0></a></td>
+                      <td class="wh70"><a class="ml5"><name0>状态</name0></a></td>
+                      <td class="wh98"><name0>操作</name0></td>
+                  </tr>
+                  </thead>
+                  <tbody class="activity_list_tbody">
+                  <?php if(!empty($list)):?>
+                      <?php foreach($list as $l):?>
+                          <tr>
+                              <td class="wh400"><a href="{:U('Activity/activity_view', array('guid'=>$l['guid']))}"><nameh><?php echo $l['name']?></nameh></a></td>
+                              <td class="wh70"><img width="23px" src="<?php echo PUBLIC_URL.'/home/images/activity'.$l['type'].'.png'; ?>" alt="活动类别"></td>
+                              <td class="wh160 timealine"><?php echo date('Y-m-d H:i',$l['start_time']);?><br /><?php echo date('Y-m-d H:i',$l['end_time']);?></td>
+                              <td class="wh70">
+                              	<switch name="l.state">
+                              		<case value="0">未发布</case>
+								    <case value="1">未开始</case>
+								    <case value="2">进行中</case>
+                                    <case value="3">已结束</case>
+                                    <case value="4">已关闭</case>
+								</switch>
+                              </td>
+                              <td class="wh98"><a href="<?php echo U('Activity/activity_view', array('guid'=>$l['guid']))?>">详情</a></td>
+                          </tr>
+                      <?php endforeach; ?>
+                  <?php else: ?>
+                      <tr><td colspan="10">当前主题下有0条活动.</td></tr>
+                  <?php endif; ?>
+                  </tbody>
+              </table>
+          </div>
+
+        <div class="btn-group mb40">
+          <ul class="pagination pagination-sm">
+            <?php echo $page;?>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

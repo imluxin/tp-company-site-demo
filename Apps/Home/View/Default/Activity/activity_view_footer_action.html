@@ -1,0 +1,18 @@
+
+<?php if($activity_info['status']==0):?>
+    <div class="row mt30">
+        <div class="pull-left btn-group">
+            <button type="button" class="btn mybtn" onclick="location.href='<?php echo U('Activity/activity_edit', array('guid'=>$activity_info['guid']))?>'">编辑</button>
+            <button type="button" class="ym_del btn mybtn" url="<?php echo U('Activity/activity_del', array('guid'=>$activity_info['guid']))?>">删除</button>
+        </div>
+    </div>
+<?php endif; ?>
+
+<?php if($activity_info['status']==1):?>
+    <div class="row mt30">
+        <div class="pull-left btn-group">
+            <button type="button" class="ym_del btn mybtn" url="<?php echo U('Activity/close', array('guid'=>$activity_info['guid']))?>">关闭活动</button>
+        </div>
+    </div>
+<?php endif; ?>
+

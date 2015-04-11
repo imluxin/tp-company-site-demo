@@ -1,0 +1,118 @@
+@CHARSET "UTF-8";
+.container {  max-width: 970px;}
+body {
+  background-image:url(../images/bg.gif);
+  background-color: #f4f4f4;
+  font-family: "Microsoft Yahei";
+  font-size: 14px;
+  line-height: 1.42857143;
+}
+.mt0 { margin-top: 0;}
+li > a > label { cursor: pointer;}
+.backindex { font-size: 24px; color: #888;}
+/*
+ * 主体
+ */
+.main {
+  background-color: #FFF;
+  min-height: 360px;
+  padding-top: 10px;
+}
+.add-options {
+  margin-top: 5px;
+  margin-left: -20px;
+  color: #f15e4c;
+  font-size: 18px;
+  font-weight: 700;
+}
+.verifyimg { height: 34px;}
+.input-verification { max-height: 34px; max-width: 160px;}
+.page-header {clear: both; min-height: 30px;}
+.helpful-hints { color: #c4c4c4;}
+/*步骤*/
+.reg-steps {
+  margin-bottom: 30px;
+  padding: 10px 30px;
+  border-bottom: 1px solid #eee;
+}
+.reg-steps > .list-inline > li {
+  padding-right: 25px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #999;
+}
+.reg-steps > .list-inline > li.active {
+  color: #000;
+}
+.reg-steps > .list-inline > li.active > i {
+  background-color: #428bca;
+  color: #fff;
+}
+.reg-steps > .list-inline > li > i {
+  margin-right: 5px;
+  width: 24px;
+  height: 24px;
+  background-color: #999;
+  border-radius: 50%;;
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+  line-height: 24px;
+  font-style: normal; 
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .reg-steps {
+    margin-bottom: 10px;
+    padding: 10px 0;
+  }
+  .reg-steps > .list-inline > li {
+    padding-right: 0;
+    font-size: 14px;
+  }
+  .reg-steps > .list-inline > li > i {
+    margin-right: 5px;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+.mobile-numb {
+  margin-bottom: 0;
+  padding-top: 7px;
+}
+/*zhuti*/
+.main-form {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 720px;
+}
+.tishinr {
+  padding: 5px;
+  color: #d9534f;
+}
+.tishinr.tishinr-success { color: #5cb85c;}
+.fa-success { color: #5cb85c;}
+.prompt { color: #999;}
+.prompt  > span { color: #428bca;}
+.fa-exclamation-circle { color: #5bc0de;}
+@media (min-width: 768px) {
+  .tishinr { margin-left: -20px; }
+  .fa-exclamation-circle,
+  .fa-success { margin-left: 20px; }
+}
+.text-fill-suc {
+  margin: 15px 0;
+  text-align: center;
+  font-size: 16px;
+}
+
+/*返回官网*/
+.backtowebsite { margin-bottom: 40px;}
+/*footer*/
+.footer {
+  margin-top: 20px;
+  color: #999;
+}
+.ml0 {margin-left: 0;}

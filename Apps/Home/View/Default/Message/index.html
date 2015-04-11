@@ -1,0 +1,104 @@
+<import type='css' file="home.css.message-list" />
+
+
+<!-- 导入面包屑 -->
+<?php
+$breadcrumbs = array(
+    'base' => '消息管理',
+    'list' => array(
+        array('url'=>'', 'v'=>'消息列表')
+    )
+);
+?>
+<include file="Public:_breadcrumbs" />
+
+<div class="ymnaw">
+    <ul class="nav nav-tabs ymbtn" role="tablist">
+        <li role="presentation" class="active">
+            <a href="<?php echo U('Message/index')?>">消息列表</a>
+        </li>
+        <li role="presentation">
+            <a href="<?php echo U('Notice/index')?>">通知列表</a>
+        </li>
+    </ul>
+</div>
+<!--右侧主体开始-->
+<div class="rightmain">
+    <div class="btn-group width798 pdlf10">
+        <div class="pull-left">
+            <h5>您有
+                <?php echo $new_msg_count ?>
+                条新消息. </h5>
+        </div>
+    </div>
+    <?php $now_day = ''; $last_day=''; $auth = session('auth'); ?>
+    <div class="message-list mt10">
+        <?php foreach ($list as $l) :?>
+            <?php $side = ($l['from_guid'] == $auth['org_guid']) ? 'to':'from'; ?>
+            <div class="row themessage <?php if($l['is_read']=='1') echo 'themessageold'?>">
+                <div class="pull-left left10 mt13">
+                    <a href="<?php echo U('Message/history', array('guid'=>$l[$side.'_guid']))?>">
+                        <img data-original="<?php echo get_image_path($l[$side.'_photo'])?>" alt="" class="lazy img70">
+                    </a>
+                </div>
+                <div class="pull-right right88">
+                    <div class="row margin0">
+                        <a href="<?php echo U('Message/history', array('guid'=>$l[$side.'_guid']))?>" class="blacknm pull-left">
+                            <name0>
+                                <?php echo $l[$side.'_name']?>
+                            </name0>
+                        </a>
+                        <p class="signature pull-left ml12">
+                            回复你
+                        </p>
+                        <p class="signature pull-right">
+                            <?php echo mdate($l['sent_time'])?>
+                        </p>
+                    </div>
+                    <div class="row margin0">
+                        <div class="pull-left width30">
+                            <i class="fa fa-quote-left fa-2x"></i>
+                        </div>
+                        <div class="pull-left mainheight">
+                                <nameh>
+                                	<a href="<?php echo U('Message/history', array('guid'=>$l[$side.'_guid']))?>">
+                                    	<?php echo $l['content']?>
+                                    </a>
+                                </nameh>
+                        </div>
+                    </div>
+                    <div class="row margin0">
+                        <div class="message-reply pull-left mt10 <?php if($l['is_read']=='1') echo 'message-old'?>">
+                            <a class="send_msg" href="javascript:void(0);" url="<?php echo U('Message/reply', array('to_guid'=>$l[$side.'_guid']))?>"><i class="fa fa-reply fa-lg"></i> 回复</a>
+                        </div>
+                        <div class="message-delete pull-left mt10 <?php if($l['is_read']=='1') echo 'message-old'?>">
+                            <a href="javascript:void(0);" url="<?php echo U('Message/del', array('guid'=>$l['guid']))?>" class="ml30 ym_del"><i class="fa fa-times fa-lg"></i> 删除</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <div class="btn-group mb40">
+        <?php echo $page; ?>
+    </div>
+</div>
+<!--右侧主体结束-->
+<script type="text/javascript">
+    $(document).ready(function(){
+    
+        // 发送消息
+        $(".send_msg").click(function(){
+            $.showBox({
+                'src': $(this).attr('url'),
+                'width': 680,
+                'height': 400,
+                // 'data'  : "Say hello to your father",
+                'success': function(data){
+                    alert(data);
+                }
+            });
+        });
+        
+    });
+</script>

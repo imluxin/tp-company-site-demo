@@ -1,0 +1,35 @@
+<import type='js' file="admin.js.levelAdd" />
+<script type="text/javascript">
+	var YM = {
+		'saveLevel' : "{:U('save_level')}",
+		'checkName': "{:U('check_name')}",
+		'redirectPath':"{:U('index')}"
+	};
+</script>
+
+<h2 class="page-header">
+	<a href="{:U('index')}" type="button" class="pull-right btn btn-default"><span class="glyphicon glyphicon-share-alt"></span> 返回列表</a>
+	创建等级
+</h2>
+<form class="form-horizontal" role="form" id="regorg">
+	<div class="form-group">
+		<label for="name" class="col-sm-2 control-label">等级名称</label>
+		<div class="col-sm-6">
+			<input type="text" id="name" name="name" class="form-control"  value="{$levelData.name}" placeholder="输入等级名称">
+			<input type="hidden"  name="guid"  value="{$Think.get.guid}">
+		</div>
+		<div class="col-sm-4 error-wrap"></div>
+	</div>
+	<div class="form-group">
+		<label for="sort" class="col-sm-2 control-label">等级排序</label>
+		<div class="col-sm-6">
+			<input type="text" id="sort" name="sort" class="form-control"  value="{$levelData.sort}" placeholder="输入等级标识">
+		</div>
+		<div class="col-sm-4 error-wrap"></div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-default js-submit">保存</button>
+		</div>
+	</div>
+</form>

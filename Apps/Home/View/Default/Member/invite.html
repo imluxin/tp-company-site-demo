@@ -1,0 +1,136 @@
+<!-- 
+ * 创建新社员页面
+ *
+ * CT: 2014-09-18 11:00 by QY
+ */
+ -->
+<import type='css' file="home.css.member-list" />
+<import type='css' file="home.css.basic-information" />
+<script type="text/javascript">
+	var YM = {
+		'invite' : "{:U('invite_user')}",
+	};
+</script>
+
+<!-- 导入面包屑 -->
+<?php
+$breadcrumbs = array(
+    'base' => '社员管理',
+    'list' => array(
+        array('url'=>U('Member/index'), 'v'=>'社员列表'),
+        array('url'=>'', 'v'=>'邀请社员')
+    )
+);
+?>
+    <include file="Public:_breadcrumbs" />
+
+
+<div class="ymnaw">
+    <ul class="nav nav-tabs ymbtn" role="tablist">
+        <li role="presentation" class="active"><a href="<?php echo U('Member/index')?>">社员列表</a></li>
+        <li role="presentation"><a href="<?php echo U('Member/ogm')?>">分组管理</a></li>
+    </ul>
+</div>
+
+<div class="rightmain">
+    <div class="pull-right mt20"><a href="<?php echo U('Member/index')?>"><i class="fa fa-arrow-left"></i> 社员列表</a></div>
+    <h4>邀请社员</h4>
+    <div class="width500 mt20 ml80">
+        <form class="form-horizontal" id="addMember_form" method="post" action="{:U('Member/invite')}">
+            <div>
+                <div class="form-group mb0">
+                    <label for="search" class="col-xs-2 mt7">查找</label>
+                    <div class="col-xs-10 ml-5">
+                        <input type="text" name="search" class="form-control" id="search" placeholder="邮箱 / 手机 / 用户名" value="{$Think.post.search}{$Think.get.search|urldecode=###}">
+                    </div>
+                </div>
+                <div class="row ml80 tishinr pdlf10"></div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <div class="btn-group ml-5">
+                        <button type="submit" class="btn mybtn active">查找</button>
+                        <button type="button" class="btn mybtn" onclick="location.href='<?php echo U('Member/index'); ?>'">取消</button>
+                        <button type="button" class="btn mybtn" onclick="location.href='<?php echo U('Member/invite_list'); ?>'"><i class="fa fa-list-ul"></i> 邀请列表</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        // 注册FORM验证
+        $("form").validate({
+            errorClass: "invalid",
+            errorPlacement: function(error, element){
+                element.parent().parent().parent().find('.tishinr').append(error);
+            },
+            rules: {
+            	search: {
+                    required: true
+                }
+            },
+            messages: {
+            	search: {
+                    required: "查找信息不能为空"
+                }
+            }
+        });
+    });
+</script>
+<?php if(isset($_POST['search']) || isset($_GET['search'])) {?>
+	<?php if(!empty($result_list)) {?>
+		<h4 class="page-header search_user_header">社员查找</h4>
+		<foreach name="result_list" item="v" >
+			<div class="panel panel-default">
+			  <div class="panel-body">
+			    <div class="col-md-2">
+					<img src="{$v.photo|get_image_path=###}" class="img-thumbnail" />
+			    </div>
+				<div class="col-md-8 border-left border-right">
+					<ul class="search_user">
+					  <li>
+					  	<div class="col-md-6">姓名：{$v.real_name}</div>
+						<div class="col-md-6">地区：{$v.area}</div>
+					  </li>
+					  <li><div class="col-md-12">手机：{$v.mobile|substr_replace=###,'****',3,4}</div></li>
+					   <li><div class="col-md-12">邮箱：{$v.email}</div></li>
+					  <li><div class="col-md-12">公司：{$v.company_name}</div></li>
+					  <li><div class="col-md-12">职位：{$v.position}</div></li>
+					  <li><div class="col-md-12">签名：{$v.remark}</div></li>
+					</ul>
+				</div>
+				<div class="col-md-2 state_wrap">
+					<present name="v.is_in_org">
+						<span class="org_status_in">已加入社团</span>
+					<else/>
+						<present name="v.status">
+							<switch name="v.status">
+							    <case value="1"><span class="org_status_in">已发出邀请</span></case>
+							    <case value="3">
+							    	<button class="btn mybtn js_invite" data-guid="{$v.guid}" data-loading-text="发送中..." type="button">邀请社友</button>
+							    </case>
+							</switch>
+						<else/>
+							<button class="btn mybtn js_invite" data-guid="{$v.guid}" data-loading-text="发送中..." type="button">邀请社友</button>
+						</present>
+					</present>
+				</div>
+			  </div>
+			</div>
+		</foreach>
+		<div class="btn-group mb40">
+		  <ul class="pagination pagination-sm">
+		  <?php echo ($page); ?>
+		  </ul>
+		</div>
+	 <?php }else{ ?>
+	 	<h4 class="page-header search_user_header">社员查找</h4>
+	 	<p class="text-danger tips_text"><i class="fa fa-search"></i> 未找到此用户</p>
+	 <?php } ?>
+ <?php } ?>
+<import type='js' file="home.js.invite" />
