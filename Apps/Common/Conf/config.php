@@ -32,17 +32,20 @@ return array(
     ),
 
     // 文章分类
-    'CATEGORY' => array(
+    'ARTICLE_CATEGORY' => array(
         1 => '企业简介',
         2 => '企业新闻',
         3 => '公司招聘',
         4 => '联系我们'
     ),
+    // 图片分类
+    'PIC_CATEGORY' => array(
+        1 => '首页约灯片'
+    ),
 
 
     'SAVE_EXT' => 'png',
     'MAX_UPLOAD_SIZE' => 2*1024*1024,
-    'MAX_UPLOAD_CREDENTIALS_SIZE' => 4*1024*1024,
     'ALLOWED_EXTS'      => array('jpg', 'png'),
 
 

@@ -1,0 +1,27 @@
+
+<h2 class="page-header">
+    <a href="<?php echo U('Product/add'); ?>" type="button" class="pull-right btn btn-success">
+        <span class="glyphicon glyphicon-plus"></span> 创建新产品</a>
+    产品列表
+</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>产品ID</th>
+        <th>产品名称</th>
+        <th>更新时间</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach($list as $l):?>
+        <tr>
+            <td><?php echo $l['id'];?></td>
+            <td><?php echo $l['name'];?></td>
+            <td><?php echo date('Y-m-d H:i:s', $l['created_at']);?></td>
+            <td>
+                <a href="<?php echo U('Product/edit', array('id' => $l['id']))?>"><i class="glyphicon glyphicon-search"></i></a>
+                <a href="<?php echo U('Product/delete', array('id' => $l['id']))?>" onclick="return confirm('确实要删除吗？')"><i class="glyphicon glyphicon-trash"></i></a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<?php echo $page;?>

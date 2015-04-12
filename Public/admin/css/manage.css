@@ -51,6 +51,7 @@ a.input-group-addon:active {
 /*主体*/
 .mainbody { 
   margin-top: 80px;
+    margin-bottom: 30px;
   background-color: #fff;
   min-height: 420px;
 }

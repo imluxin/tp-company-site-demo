@@ -3,6 +3,26 @@
     <a href="<?php echo U('Article/add'); ?>" type="button" class="pull-right btn btn-success"><span class="glyphicon glyphicon-plus"></span> 创建新文章</a>
     文章列表
 </h2>
+
+<div class="" style="margin-bottom: 20px; ">
+        分类搜索:
+        <select id="category" class="">
+            <option value="all">所有</option>
+            <?php foreach(C('ARTICLE_CATEGORY') as $k => $v): ?>
+                <option value="<?php echo $k; ?>" <?php echo I('get.category')==$k?'selected':''; ?>>
+                    <?php echo $v; ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#category').change(function(){
+            location.href='<?php echo U('Article/index'); ?>/category/'+$(this).val();
+        });
+    });
+</script>
+
 <table class="table table-bordered">
     <tr>
         <th>文章ID</th>
@@ -15,7 +35,7 @@
     <?php foreach($list as $l):?>
         <tr>
             <td><?php echo $l['id'];?></td>
-            <td><?php echo C('CATEGORY.'.$l['category']);?></td>
+            <td><?php echo C('ARTICLE_CATEGORY.'.$l['category']);?></td>
             <td><?php echo $l['title'];?></td>
             <td><?php echo $l['status']==1?'是':'否';?></td>
             <td><?php echo date('Y-m-d H:i:s', $l['created_at']);?></td>

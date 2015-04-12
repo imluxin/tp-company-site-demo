@@ -1,0 +1,49 @@
+
+<h2 class="page-header">
+    <a href="<?php echo U('Picture/add'); ?>" type="button" class="pull-right btn btn-success"><span class="glyphicon glyphicon-plus"></span> 创建新图片</a>
+    图片列表
+</h2>
+
+<div class="" style="margin-bottom: 20px; ">
+        分类搜索:
+        <select id="category" class="">
+            <option value="all">所有</option>
+            <?php foreach(C('PIC_CATEGORY') as $k => $v): ?>
+                <option value="<?php echo $k; ?>" <?php echo I('get.category')==$k?'selected':''; ?>>
+                    <?php echo $v; ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#category').change(function(){
+            location.href='<?php echo U('Picture/index'); ?>/category/'+$(this).val();
+        });
+    });
+</script>
+
+<table class="table table-bordered">
+    <tr>
+        <th>图片ID</th>
+        <th>图片分类</th>
+        <th>图片名称</th>
+        <th>图片</th>
+        <th>更新时间</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach($list as $l):?>
+        <tr>
+            <td><?php echo $l['id'];?></td>
+            <td><?php echo C('PIC_CATEGORY.'.$l['category']);?></td>
+            <td><?php echo $l['name'];?></td>
+            <td><img src="<?php echo $l['path']?>" width="100"></td>
+            <td><?php echo date('Y-m-d H:i:s', $l['created_at']);?></td>
+            <td>
+                <a href="<?php echo U('Picture/edit', array('id' => $l['id']))?>"><i class="glyphicon glyphicon-search"></i></a>
+                <a href="<?php echo U('Picture/delete', array('id' => $l['id']))?>" onclick="return confirm('确实要删除吗？')"><i class="glyphicon glyphicon-trash"></i></a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<?php echo $page;?>

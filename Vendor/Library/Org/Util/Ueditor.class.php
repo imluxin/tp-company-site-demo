@@ -33,7 +33,7 @@ class Ueditor{
 		        
 		    case 'uploadimage':
 				$config = array(
-		            "pathFormat" => $CONFIG['imagePathFormat'].$_SESSION['auth']['org_guid'].'/activity/',
+		            "pathFormat" => $CONFIG['imagePathFormat'],
 		            "maxSize" => $CONFIG['imageMaxSize'],
 		            "allowFiles" => $CONFIG['imageAllowFiles']
 				);
