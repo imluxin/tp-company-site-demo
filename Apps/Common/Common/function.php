@@ -16,3 +16,17 @@ function create_guid()
             .substr($charid,20,12);
     return $uuid;
 }
+
+function ylx_str_replace_textarea($text, $replace = '</p><p>')
+{
+    $search = array("\r\n", "\n", "\r");
+    echo str_replace($search, $replace, $text);
+}
+
+function ylx_mb_substr($str, $length, $replace = '...')
+{
+    if(mb_strlen($str, 'UTF-8') > $length){
+        return mb_substr($str, 0, $length, 'UTF-8').$replace;
+    }
+    return $str;
+}

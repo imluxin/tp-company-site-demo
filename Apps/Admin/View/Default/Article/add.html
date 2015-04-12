@@ -33,7 +33,7 @@
     <div class="form-group">
         <label for="title" class="col-sm-1 control-label">内容</label>
         <div class="col-sm-10">
-            <textarea id="content" name="content"><?php echo $article['content']; ?></textarea>
+            <textarea id="content" name="content" class="form-control" rows="10"><?php echo $article['content']; ?></textarea>
         </div>
         <div class="col-sm-4 error-wrap"></div>
     </div>
@@ -59,7 +59,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        var ue = UE.getEditor('content', {
+        var ue = UE.getEditor('content1', {
             initialFrameHeight: 450,
             serverUrl: "<?php echo U('Index/ueditor'); ?>"
         });

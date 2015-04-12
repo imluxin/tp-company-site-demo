@@ -41,7 +41,7 @@ class PictureController extends BaseController
             $data = I('post.');
 
             //上传
-            if(!empty($_FILES['photo']['name'])) {
+            if(!empty($_FILES['path']['name'])) {
                 $config = array(
                     'maxSize'  => C('MAX_UPLOAD_SIZE'),
                     'exts'     => C('ALLOWED_EXTS'),
@@ -96,7 +96,7 @@ class PictureController extends BaseController
             $data = I('post.');
 
             //上传
-            if(!empty($_FILES['photo']['name'])) {
+            if(!empty($_FILES['path']['name'])) {
                 $config = array(
                     'maxSize'  => C('MAX_UPLOAD_SIZE'),
                     'exts'     => C('ALLOWED_EXTS'),
