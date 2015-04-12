@@ -1,78 +1,27 @@
-<!DOCTYPE html>
-<!--<import type='js' file="admin.js.orgIndex" />-->
-
 <h2 class="page-header">
-    <!--<a href="{:U('add')}" type="button" class="pull-right btn btn-default"><span class="glyphicon glyphicon-plus"></span> 创建社团</a>-->
     联系我们
 </h2>
-<form action="<?php echo U('Contact/delAll');?>" id="delForm" method="post" name="delForm">
 <table class="table table-bordered">
     <tr>
-        <th><input type="checkbox" name="ckAll" id="ckAll" value=""></th>
-        <th>用户名</th>
         <th>创建时间</th>
+        <th>姓名</th>
+        <th>邮箱</th>
+        <th>电话</th>
         <th>简短内容</th>
         <th>操作</th>
     </tr>
-    <?php foreach($list_site_contact as $l):?>
+    <?php foreach($list as $l):?>
     <tr>
-        <td><input type="checkbox" name="ckGuid[]" id="ckGuid[]" class="checkbox-u" value="<?php echo $l['guid'];?>"></td>
-        <td><?php echo $l['name'];?></td>
         <td><?php echo date('Y-m-d H:i',$l['created_at']);?></td>
+        <td><?php echo $l['name'];?></td>
+        <td><?php echo $l['email'];?></td>
+        <td><?php echo $l['phone'];?></td>
         <td><?php echo (strlen($l['content']) > 30) ? mb_substr($l['content'],0,30,'utf-8').'...' : $l['content'];?></td>
-        <td><a href="<?php echo U('Contact/del/',array('contact_guid' => $l['guid']));?>" onclick="return confirm('确实要删除吗？')"><i class="js-del glyphicon glyphicon-trash"></i></a>　<a href="<?php echo U('Contact/content', array('contact_guid'=>$l['guid']))?>"><i class="glyphicon glyphicon-search"></i></a></td>
+        <td>
+            <a href="<?php echo U('Contact/view', array('id'=>$l['id']))?>"><i class="glyphicon glyphicon-search"></i></a>
+            <a href="<?php echo U('Contact/delete', array('id' => $l['id']));?>" onclick="return confirm('确实要删除吗？')"><i class="js-del glyphicon glyphicon-trash"></i></a>　
+        </td>
     </tr>
     <?php endforeach; ?>
-    <tfoot>
-    <input type="button" disabled='true' value="删除" id="del" name="del">
-    </tfoot>
 </table>
 <?php echo $page;?>
-</form>
-<script type="text/javascript">
-    $(document).ready(function() {
-        //复选框  全选js效果
-        $('#ckAll').on('change', function () {
-            $("input.checkbox-u").prop('checked', $(this).prop("checked"));
-        });
-        //多选删除,如果没有复选框被选中则不能点击删除按钮
-        $('.checkbox-u').click(function(){
-            var flag_one = false;
-            $('.checkbox-u').each(function(){
-                if($(this).is(":checked")){
-                	flag_one = true;
-                }
-            })
-
-            if(flag_one){
-               $('#del').removeAttr('disabled'); 
-            }else{
-           	   $('#del').attr('disabled',true); 
-            }
-        })
-
-        //全选删除,如果没有复选框被选中则不能点击删除按钮
-        $('#ckAll').click(function() {
-            var flag_two = false;
-            if($('#ckAll').is(':checked')){
-                flag_two = true;
-            }
-
-            if(flag_two){
-                $('#del').removeAttr('disabled');
-            }else{
-                $('#del').attr('disabled',true);
-            }
-        });
-
-        //删除弹出样式
-        $('#del').click(function(){
-            if(confirm('确实要删除选定项吗？')){
-                $('#delForm').submit();
-            }
-        });
-
-
-
-    });
-</script>

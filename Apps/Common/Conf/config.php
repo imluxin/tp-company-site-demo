@@ -24,13 +24,19 @@ return array(
     'LAYOUT_ON'            => true, // 是否启用布局
     'LAYOUT_NAME'          => 'layout', // 当前布局名称 默认为layout
 
-//    'TMPL_ACTION_ERROR'    => APP_PATH . 'Common/View/Default/Tpl/dispatch_jump.tpl', // 默认错误跳转对应的模板文件
-//    'TMPL_ACTION_SUCCESS'  => APP_PATH . 'Common/View/Default/Tpl/dispatch_jump.tpl', // 默认成功跳转对应的模板文件
     'TMPL_EXCEPTION_FILE'  => THINK_PATH . 'Tpl/think_exception.tpl',// 异常页面的模板文件
     'URL_404_REDIRECT'     => APP_PATH . 'Common/View/Default/Tpl/404.html', // 404页面地址
 
     'TMPL_PARSE_STRING'    => array(
         '__UPLOAD__' => '/Upload', // 增加新的上传路径替换规则
+    ),
+
+    // 文章分类
+    'CATEGORY' => array(
+        1 => '企业简介',
+        2 => '企业新闻',
+        3 => '公司招聘',
+        4 => '联系我们'
     ),
 
 

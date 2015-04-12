@@ -15,13 +15,13 @@
     <?php foreach($list as $l):?>
         <tr>
             <td><?php echo $l['id'];?></td>
-            <td><?php echo $l['category'];?></td>
+            <td><?php echo C('CATEGORY.'.$l['category']);?></td>
             <td><?php echo $l['title'];?></td>
             <td><?php echo $l['status']==1?'是':'否';?></td>
             <td><?php echo date('Y-m-d H:i:s', $l['created_at']);?></td>
             <td>
-                <a href="<?php echo U('Article/edit', array('id' => $l['id']))?>">编辑</a>
-                <a href="<?php echo U('Article/delete', array('id' => $l['id']))?>">删除</a>
+                <a href="<?php echo U('Article/edit', array('id' => $l['id']))?>"><i class="glyphicon glyphicon-search"></i></a>
+                <a href="<?php echo U('Article/delete', array('id' => $l['id']))?>" onclick="return confirm('确实要删除吗？')"><i class="glyphicon glyphicon-trash"></i></a>
             </td>
         </tr>
     <?php endforeach; ?>

@@ -18,8 +18,8 @@
         <td><?php echo $l['mobile'];?></td>
         <td><?php echo $l['email'];?></td>
         <td>
-            <a href="<?php echo U('User/edit', array('id' => $l['id']))?>">编辑</a>
-            <a href="<?php echo U('User/delete', array('id' => $l['id']))?>">删除</a>
+            <a href="<?php echo U('User/edit', array('id' => $l['id']))?>"><i class="glyphicon glyphicon-search"></i></a>
+            <a href="<?php echo U('User/delete', array('id' => $l['id']))?>" onclick="return confirm('确实要删除吗？')"><i class="js-del glyphicon glyphicon-trash"></i></a>
         </td>
     </tr>
     <?php endforeach; ?>

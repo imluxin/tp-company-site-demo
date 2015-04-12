@@ -1,0 +1,31 @@
+
+<h2 class="page-header">
+    联系我们
+</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th style="width: 15%;">创建时间</th>
+        <td><?php echo date('Y-m-d H:i',$info['created_at']);?></td>
+    </tr>
+    <tr>
+        <th>用户名</th>
+        <td><?php echo $info['name'];?></td>
+    </tr>
+    <tr>
+        <th>邮箱</th>
+        <td><?php echo $info['email'];?></td>
+    </tr>
+    <tr>
+        <th>电话号</th>
+        <td><?php echo $info['phone'];?></td>
+    </tr>
+    <tr>
+        <th>详细内容</th>
+        <td><?php echo $info['content'];?></td>
+    </tr>
+</table>
+<tfoot>
+    <a class="btn btn-danger" href="<?php echo U('Contact/delete', array('id' => $info['id']));?>" onclick="return confirm('确实要删除吗？')"> 删除 </a>
+    <a class="btn btn-default" onclick="javascript:history.go(-1);">返回</a>
+</tfoot>
