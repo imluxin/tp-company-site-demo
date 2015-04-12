@@ -30,6 +30,7 @@ class PictureController extends BaseController
 
         $this->assign('list',$list);
         $this->assign('page',$show);
+        $this->assign('product', M('Product')->getField('id, name'));
         $this->assign('meta_title', '图片列表');
         $this->display();
     }
@@ -78,6 +79,7 @@ class PictureController extends BaseController
             exit();
         }
 
+        $this->assign('product', M('Product')->getField('id, name'));
         $this->assign('meta_title', '新增图片');
         $this->display();
     }
@@ -133,6 +135,7 @@ class PictureController extends BaseController
         }
 
         $this->assign('pic', $pic);
+        $this->assign('product', M('Product')->getField('id, name'));
         $this->assign('meta_title', '编辑图片');
         $this->display('add');
     }

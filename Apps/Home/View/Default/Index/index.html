@@ -114,14 +114,13 @@
     <div class="sixteen columns">
 
         <!-- Headline -->
-        <div class="headline no-margin"><h3>Our Clients</h3></div>
+        <div class="headline no-margin"><h3>合作伙伴</h3></div>
 
         <ul class="client-list">
-            <li><img src="images/logo-01.png" alt=""/></li>
-            <li><img src="images/logo-02.png" alt=""/></li>
-            <li><img src="images/logo-03.png" alt=""/></li>
-            <li><img src="images/logo-04.png" alt=""/></li>
-            <li><img src="images/logo-05.png" alt=""/></li>
+            <?php foreach($client as $c): ?>
+                <li><img src="<?php echo $c['path']?>" alt="<?php echo $c['name']?>"
+                         title="<?php echo $c['name']?>" style="width: 187px; max-height: 140px;"/></li>
+            <?php endforeach; ?>
         </ul>
 
     </div>

@@ -35,7 +35,7 @@
     <?php foreach($list as $l):?>
         <tr>
             <td><?php echo $l['id'];?></td>
-            <td><?php echo C('PIC_CATEGORY.'.$l['category']);?></td>
+            <td><?php echo C('PIC_CATEGORY.'.$l['category']);?><?php echo $product[$l['category']]; ?></td>
             <td><?php echo $l['name'];?></td>
             <td><img src="<?php echo $l['path']?>" width="100"></td>
             <td><?php echo date('Y-m-d H:i:s', $l['created_at']);?></td>

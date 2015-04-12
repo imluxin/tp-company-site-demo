@@ -15,6 +15,7 @@ class IndexController extends BaseController
     public function index()
     {
         $top_pic = M('Picture')->where(array('category' => 'top'))->select();
+        $client = M('Picture')->where(array('category' => 'client'))->select();
         $product = M('Product')->select();
         $news = M('Article')->where(array('category' => '2', 'status' => '1'))
             ->order('updated_at DESC')
@@ -24,7 +25,16 @@ class IndexController extends BaseController
         $this->assign('news', $news);
         $this->assign('product', $product);
         $this->assign('top_pic', $top_pic);
+        $this->assign('client', $client);
         $this->assign('meta_title', '首页');
     	$this->display();
+    }
+
+    /**
+     * 联系我们
+     */
+    public function contact()
+    {
+
     }
 }

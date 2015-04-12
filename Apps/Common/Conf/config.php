@@ -40,7 +40,8 @@ return array(
     ),
     // 图片分类
     'PIC_CATEGORY' => array(
-        'top' => '首页约灯片'
+        'top' => '首页约灯片',
+        'client' => '合作伙伴'
     ),
 
 
