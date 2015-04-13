@@ -1,0 +1,113 @@
+<!-- Content
+================================================== -->
+
+<!-- 960 Container -->
+<div class="container">
+
+    <div class="sixteen columns">
+
+        <!-- Page Title -->
+        <div id="page-title">
+            <h2>联系我们</h2>
+            <div id="bolded-line"></div>
+        </div>
+        <!-- Page Title / End -->
+
+    </div>
+</div>
+<!-- 960 Container / End -->
+
+
+<!--  960 Container Start -->
+<div class="container">
+
+    <!-- Text -->
+    <div class="sixteen columns">
+        <p><?php echo ylx_str_replace_textarea($article['content'])?></p>
+        <br />
+    </div>
+
+    <!-- Contact Form -->
+    <div class="twelve columns">
+        <div class="headline no-margin"><h4>请填写</h4></div>
+
+        <div class="form-spacer"></div>
+
+        <!-- Success Message -->
+        <div class="success-message">
+            <div class="notification success closeable">
+                <p><span>提交成功!</span> 您的信息已经成功发送.</p>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div id="contact-form">
+            <form method="post">
+
+                <div class="field">
+                    <label>姓名: <span>*</span></label>
+                    <input type="text" name="name" class="text" required="true"/>
+                </div>
+
+                <div class="field">
+                    <label>邮箱: <span>*</span></label>
+                    <input type="email" name="email" class="text" required="true" />
+                </div>
+
+                <div class="field">
+                    <label>电话: <span>*</span></label>
+                    <input type="text" name="phone" class="text" required="true" />
+                </div>
+
+                <div class="field">
+                    <label>消息: <span>*</span></label>
+                    <textarea name="message" class="text textarea" required="true" ></textarea>
+                </div>
+
+                <div class="field">
+                    <input type="submit" id="send" value="提交"/>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Details -->
+    <div class="four columns google-map">
+
+        <div class="headline no-margin"><h4>我们的位置</h4></div>
+
+        <!-- Google Maps -->
+        <img src="http://api.map.baidu.com/staticimage?width=220&height=250&zoon=14&copyright=1&markers=117.229071,39.12732">
+        <div id="googlemaps" class="google-map google-map-full" style="height:250px"></div>
+
+
+    </div>
+
+    <!-- Contact Details -->
+<!--    <div class="four columns">-->
+<!--        <div class="headline low-margin"><h4>Social</h4></div>-->
+<!--        <div id="social" class="tooltips">-->
+<!--            <a href="#" rel="tooltip" title="Facebook" class="facebook">Facebook</a>-->
+<!--            <a href="#" rel="tooltip" title="Evernote" class="evernote">Evernote</a>-->
+<!--            <a href="#" rel="tooltip" title="LinkedIn" class="linkedin">LinkedIn</a>-->
+<!--            <a href="#" rel="tooltip" title="Google Plus" class="googleplus">Google Plus</a>-->
+<!--            <a href="#" rel="tooltip" title="Vimeo" class="vimeo">Vimeo</a>-->
+<!--        </div>-->
+<!---->
+<!--    </div>-->
+
+</div>
+<!-- End 960 Container -->
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        <?php if(I('get.c') == '1'): ?>
+        alert('323');
+        $('.success-message').show();
+        <?php endif;  ?>
+    });
+</script>
+</div>
+<!-- Wrapper / End -->

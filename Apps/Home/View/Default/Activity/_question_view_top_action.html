@@ -1,8 +1,0 @@
-<div class="pull-right">
-    <eq name="activity_info.status" value="0">
-        <button type="button" class="btn mybtn" onclick="location.href='<?php echo U('Activity/activity_edit', array('guid'=>$activity_info['guid']))?>'">编辑</button>
-        <button type="button" class="ym_del btn mybtn" url="<?php echo U('Activity/activity_del', array('guid'=>$activity_info['guid']))?>">删除</button>
-    <else/>
-        <button type="button" class="ym_del btn mybtn" url="<?php echo U('Activity/close', array('guid'=>$activity_info['guid']))?>">关闭活动</button>
-    </eq>
-</div>

@@ -8,7 +8,7 @@
 
         <!-- Page Title -->
         <div id="page-title">
-            <h2>公司新闻</h2>
+            <h2>公司简介</h2>
             <div id="bolded-line"></div>
         </div>
         <!-- Page Title / End -->
@@ -24,14 +24,8 @@
 
         <!-- Post -->
         <div class="post post-page">
-<!--            <div class="post-img picture"><a href="images/blog-img-01-large.jpg" rel="image" title="Beatiful Mountain Ladscape"><img src="images/blog-img-01.jpg" alt="" /><div class="image-overlay-zoom"></div></a></div>-->
-            <a href="#" class="post-icon standard"></a>
-            <div class="post-content">
-                <div class="post-title"><h2><a href="#"><?php echo $news['title']; ?></a></h2></div>
-                <div class="post-meta"><span><i class="mini-ico-calendar"></i><?php echo date('Y年m月d日 H:i', $news['updated_at'])?></span> <span><i class="mini-ico-user"></i><a href="#"><?php echo C('APP_NAME'); ?></a></span> </div>
-                <div class="post-description">
-                    <p><?php echo ylx_str_replace_textarea($news['content']); ?></p>
-                </div>
+            <div class="post-description">
+                <p><?php echo ylx_str_replace_textarea($article['content']); ?></p>
             </div>
         </div>
 

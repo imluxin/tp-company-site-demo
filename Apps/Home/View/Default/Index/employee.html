@@ -8,7 +8,7 @@
 
         <!-- Page Title -->
         <div id="page-title">
-            <h2>公司新闻</h2>
+            <h2>企业招聘</h2>
             <div id="bolded-line"></div>
         </div>
         <!-- Page Title / End -->
@@ -22,18 +22,23 @@
 
     <div class="twelve columns">
 
+
         <!-- Post -->
-        <div class="post post-page">
-<!--            <div class="post-img picture"><a href="images/blog-img-01-large.jpg" rel="image" title="Beatiful Mountain Ladscape"><img src="images/blog-img-01.jpg" alt="" /><div class="image-overlay-zoom"></div></a></div>-->
-            <a href="#" class="post-icon standard"></a>
-            <div class="post-content">
-                <div class="post-title"><h2><a href="#"><?php echo $news['title']; ?></a></h2></div>
-                <div class="post-meta"><span><i class="mini-ico-calendar"></i><?php echo date('Y年m月d日 H:i', $news['updated_at'])?></span> <span><i class="mini-ico-user"></i><a href="#"><?php echo C('APP_NAME'); ?></a></span> </div>
-                <div class="post-description">
-                    <p><?php echo ylx_str_replace_textarea($news['content']); ?></p>
+        <?php foreach($list as $l): ?>
+            <div class="post">
+                <a href="#" class="post-icon standard"></a>
+                <div class="post-content">
+                    <div class="post-title"><h2><a href="<?php echo U('News/view', array('id'=>$l['id']))?>"><?php echo $l['title']?></a></h2></div>
+                    <div class="post-meta"><span><i class="mini-ico-calendar"></i><?php echo date('Y年m月d日 H:i', $l['updated_at'])?></span> <span><i class="mini-ico-user"></i>By <?php echo C('APP_NAME')?></span></div>
+                    <div class="post-description">
+                        <p><?php echo ylx_mb_substr($l['content'], '500'); ?></p>
+                    </div>
+                    <a class="post-entry" href="<?php echo U('News/view', array('id'=>$l['id']))?>">查看全部</a>
                 </div>
             </div>
-        </div>
+        <?php endforeach; ?>
+
+        <?php echo $page; ?>
 
     </div>
 

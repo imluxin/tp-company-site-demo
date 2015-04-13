@@ -21,7 +21,7 @@ class ArticleController extends BaseController
         // 获取意见列表
         $list = $article_model
             ->where($where)
-            ->order('created_at DESC')
+            ->order('updated_at DESC')
             ->page(I('get.p', '1').','.$num_per_page)->select();
 
         // 使用page类,实现分类

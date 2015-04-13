@@ -6,17 +6,23 @@ class NewsController extends BaseController
 
     public function index()
     {
-        $top_pic = M('Picture')->where(array('category' => '1'))->select();
-        $product = M('Product')->select();
-        $news = M('Article')->where(array('category' => '2', 'status' => '1'))
+        $article_model = D('Article');
+        $num_per_page = C('NUM_PER_PAGE', null, 10);
+        // 获取意见列表
+        $where = array('category' => '2', 'status' => '1');
+        $list = $article_model
+            ->where($where)
             ->order('updated_at DESC')
-            ->limit(12)
-            ->select();
+            ->page(I('get.p', '1').','.$num_per_page)->select();
 
-        $this->assign('news', $news);
-        $this->assign('product', $product);
-        $this->assign('top_pic', $top_pic);
-        $this->assign('meta_title', '首页');
+        // 使用page类,实现分类
+        $count      = $article_model->where($where)->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page($count,$num_per_page);// 实例化分页类 传入总记录数和每页显示的记录数
+        $show       = $Page->show();// 分页显示输出
+
+        $this->assign('list',$list);
+        $this->assign('page',$show);
+        $this->assign('meta_title', '公司新闻');
     	$this->display();
     }
 
@@ -28,12 +34,7 @@ class NewsController extends BaseController
             $this->redirect('Index/index');
         }
 
-        $last_news = M('Article')->where(array('category' => '2', 'status' => '1'))
-            ->order('updated_at DESC')
-            ->limit(8)->select();
-
         $this->assign('news', $news);
-        $this->assign('last_news', $last_news);
         $this->assign('meta_title', $news['title']);
         $this->display();
     }

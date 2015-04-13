@@ -1,0 +1,51 @@
+<!-- Content
+================================================== -->
+
+<!-- 960 Container -->
+<div class="container">
+
+    <div class="sixteen columns">
+
+        <!-- Page Title -->
+        <div id="page-title">
+            <h2>公司新闻 <span>/ News</span></h2>
+            <div id="bolded-line"></div>
+        </div>
+        <!-- Page Title / End -->
+
+    </div>
+</div>
+<!-- 960 Container / End -->
+
+
+<!-- Blog Posts
+================================================== -->
+<!-- 960 Container -->
+<div class="container">
+
+    <div class="sixteen columns">
+
+        <!-- Post -->
+        <?php foreach($list as $l): ?>
+        <div class="post">
+            <a href="#" class="post-icon standard"></a>
+            <div class="post-content">
+            <div class="post-title"><h2><a href="<?php echo U('News/view', array('id'=>$l['id']))?>"><?php echo $l['title']?></a></h2></div>
+            <div class="post-meta"><span><i class="mini-ico-calendar"></i><?php echo date('Y年m月d日 H:i', $l['updated_at'])?></span> <span><i class="mini-ico-user"></i>By <?php echo C('APP_NAME')?></span></div>
+                <div class="post-description">
+                    <p><?php echo ylx_mb_substr($l['content'], '500'); ?></p>
+                </div>
+                <a class="post-entry" href="<?php echo U('News/view', array('id'=>$l['id']))?>">查看全部</a>
+            </div>
+        </div>
+        <?php endforeach; ?>
+
+        <?php echo $page; ?>
+
+    </div>
+
+</div>
+<!-- 960 Container / End -->
+
+</div>
+<!-- Wrapper / End -->

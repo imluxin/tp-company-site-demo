@@ -15,6 +15,8 @@ class BaseController extends Controller
     public function __construct()
     {
         parent::__construct();
+        $this->assign('product_menu', M('Product')->select());
+        $this->assign('last_news', M('Article')->where(array('category' => '2', 'status' => '1'))->order('updated_at DESC')->limit(8)->select());
     }
 
     public function _empty() {
