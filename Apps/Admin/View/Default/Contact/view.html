@@ -22,7 +22,7 @@
     </tr>
     <tr>
         <th>详细内容</th>
-        <td><?php echo $info['content'];?></td>
+        <td><?php echo ylx_str_replace_textarea($info['content'], '<br/>');?></td>
     </tr>
 </table>
 <tfoot>
