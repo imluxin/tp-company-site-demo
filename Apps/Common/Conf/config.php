@@ -51,14 +51,15 @@ return array(
 
     /* 数据库设置 */
     'DB_TYPE'      => 'mysql',     // 数据库类型
-//	 'DB_HOST'   =>  'localhost', // 本机服务器地址
-//    'DB_NAME'      => 'ym365',          // 数据库名
-//    'DB_USER'      => 'root',      // 用户名
-//	'DB_PWD'       => 'root',          // 本机密码
-    'DB_HOST'   =>  '10.4.12.173', // 本机服务器地址
-    'DB_NAME'      => 'db0da4da3abe545acbc8d4dc638d2b936',          // 数据库名
-    'DB_USER'      => 'uJQS2Q87f9cZa',      // 用户名
-    'DB_PWD'       => 'pex4foBOgoN9g',          // 本机密码
+
+	 'DB_HOST'   =>  'localhost', // 本机服务器地址
+    'DB_NAME'      => 'ym365',          // 数据库名
+    'DB_USER'      => 'root',      // 用户名
+	'DB_PWD'       => 'root',          // 本机密码
+//    'DB_HOST'   =>  '10.4.12.173', // 本机服务器地址
+//    'DB_NAME'      => 'db0da4da3abe545acbc8d4dc638d2b936',          // 数据库名
+//    'DB_USER'      => 'uJQS2Q87f9cZa',      // 用户名
+//    'DB_PWD'       => 'pex4foBOgoN9g',          // 本机密码
 
     'DB_PORT'      => '3306',        // 端口
     'DB_PREFIX'    => 'ym_',    // 数据库表前缀

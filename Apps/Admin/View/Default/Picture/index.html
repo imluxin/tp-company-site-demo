@@ -8,11 +8,20 @@
         分类搜索:
         <select id="category" class="">
             <option value="all">所有</option>
+            <optgroup label="系统">
             <?php foreach(C('PIC_CATEGORY') as $k => $v): ?>
                 <option value="<?php echo $k; ?>" <?php echo I('get.category')==$k?'selected':''; ?>>
                     <?php echo $v; ?>
                 </option>
             <?php endforeach; ?>
+            </optgroup>
+            <optgroup label="产品">
+            <?php foreach($product as $k => $v): ?>
+                <option value="<?php echo $k; ?>" <?php echo I('get.category')==$k?'selected':''; ?>>
+                    <?php echo $v; ?>
+                </option>
+            <?php endforeach; ?>
+            </optgroup>
         </select>
 </div>
 <script type="text/javascript">

@@ -76,9 +76,9 @@
     <!-- Project -->
     <?php foreach($product as $p):?>
     <div class="eight columns">
-        <div class="picture"><a href="single_project.html"><img src="<?php echo $p['photo']?>" alt=""/><div class="image-overlay-link"></div></a></div>
+        <div class="picture"><a href="<?php echo U('Index/product', array('id'=>$p['id']))?>"><img src="<?php echo $p['photo']?>" alt=""/><div class="image-overlay-link"></div></a></div>
         <div class="item-description">
-            <h5><a href="#"><?php echo $p['name']?></a></h5>
+            <h5><a href="<?php echo U('Index/product', array('id'=>$p['id']))?>"><?php echo $p['name']?></a></h5>
             <p><?php echo ylx_mb_substr($p['content'], 200)?></p>
         </div>
     </div>

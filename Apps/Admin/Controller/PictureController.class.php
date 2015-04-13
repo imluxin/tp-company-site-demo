@@ -5,7 +5,7 @@ use Think\Upload;
 
 class PictureController extends BaseController
 {
-    //文章列表页面
+    //列表页面
     public function index()
     {
         //         每页显示数量, 从配置文件中获取
