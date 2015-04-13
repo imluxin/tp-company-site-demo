@@ -10,7 +10,6 @@
 
 return array(
     'APP_NAME'             => '云脉365',
-    'LOAD_EXT_CONFIG'      => 'deploy', // 分割配置文件
 //    'URL_MODEL'            => 2, // url模式
 
     //控制器层 
@@ -52,12 +51,29 @@ return array(
 
     /* 数据库设置 */
     'DB_TYPE'      => 'mysql',     // 数据库类型
-	 'DB_HOST'   =>  'localhost', // 本机服务器地址
-    'DB_NAME'      => 'ym365',          // 数据库名
-    'DB_USER'      => 'root',      // 用户名
-	'DB_PWD'       => 'root',          // 本机密码
+//	 'DB_HOST'   =>  'localhost', // 本机服务器地址
+//    'DB_NAME'      => 'ym365',          // 数据库名
+//    'DB_USER'      => 'root',      // 用户名
+//	'DB_PWD'       => 'root',          // 本机密码
+    'DB_HOST'   =>  '10.4.12.173', // 本机服务器地址
+    'DB_NAME'      => 'db0da4da3abe545acbc8d4dc638d2b936',          // 数据库名
+    'DB_USER'      => 'uJQS2Q87f9cZa',      // 用户名
+    'DB_PWD'       => 'pex4foBOgoN9g',          // 本机密码
+
     'DB_PORT'      => '3306',        // 端口
     'DB_PREFIX'    => 'ym_',    // 数据库表前缀
+
+    /**
+     * GIT.OSCHINA.COM 数据库配置
+     *
+     * MOPAAS_MYSQL15869_NAME  db0da4da3abe545acbc8d4dc638d2b936
+    MOPAAS_MYSQL15869_HOSTNAME  10.4.12.173
+    MOPAAS_MYSQL15869_HOST  10.4.12.173
+    MOPAAS_MYSQL15869_PORT  3306
+    MOPAAS_MYSQL15869_USER  uJQS2Q87f9cZa
+    MOPAAS_MYSQL15869_USERNAME  uJQS2Q87f9cZa
+    MOPAAS_MYSQL15869_PASSWORD  pex4foBOgoN9g
+     */
 
 
 );
